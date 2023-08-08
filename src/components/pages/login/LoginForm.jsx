@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function LoginForm() {
-    //state
+  //state
   const [inputValue, setInputValue] = useState("");
   //comportement
   const handleSubmit = (event) => {
@@ -12,7 +12,7 @@ export default function LoginForm() {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
-    // affichage
+  // affichage
 
   return (
     <form action="submit" onSubmit={handleSubmit}>
