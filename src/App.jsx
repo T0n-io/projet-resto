@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import LoginPage from "./components/pages/login/LoginPage";
-import OrderPage from "./components/pages/order/OrderPage";
+import OrderPage from "./components/pages/Order/OrderPage";
 import ErrorPage from "./components/pages/Error/ErrorPage";
 
 // import reactLogo from "./assets/react.svg";
