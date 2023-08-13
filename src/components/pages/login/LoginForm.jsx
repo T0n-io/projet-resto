@@ -32,3 +32,13 @@ export default function LoginForm() {
     </form>
   );
 }
+
+
+// 4 méthodes pour ajouter du style à un composants
+// 1. inline style
+// Pour rajouter du style a un niveau local très rapipement, pour faire des tests
+// style={{ backgroundColor: "red" }}
+// 2. object style
+// 3. css module (avec className)
+// 4. global style (index.css)
+// 5. styled-components
