@@ -34,13 +34,45 @@ export default function LoginForm() {
   );
 }
 const LoginFormStyled = styled.form`
-  background-image: url("");
-  h1 { color: red; }
-  h2 { color: blue; }
-  input { color: green; }
-  button { color: yellow; background-color: black; }
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+height: 100vh;
 
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 48px;
+    padding-bottom: 30px;
+    border-bottom: solid 2px orange;
+  }
+  h2 {
+    color: white;
+    font-size: 36px;
 
+  }
+  input {
+    width: 400px;
+    height: 32px; 
+    border-radius: 5px;
+    margin: 9px;
+    font-size: 15px;
+    border: none;
+    text-align: center;
+
+   }
+  button {
+    color: white;
+    background-color: orange;
+    width: 400px;
+    height: 32px;
+    border-radius: 5px;
+    margin: 9px;
+    font-size: 15px;
+    border: none;
+    
+  }
 `;
 
 // 4 méthodes pour ajouter du style à un composants

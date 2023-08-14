@@ -11,6 +11,10 @@ export default function LoginPage() {
   );
 }
 const LoginPageStyled = styled.div`
-g
-);
+  background-image: url("../../../src/assets/images/F03-burger-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
 `;
