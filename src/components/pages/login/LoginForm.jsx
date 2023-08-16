@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { theme } from "../../..";
+import Logo from "./Logo";
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function LoginForm() {
   //state
@@ -18,60 +21,83 @@ export default function LoginForm() {
   // affichage
 
   return (
-    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <h1>Bienvenue chez nous !</h1>
-      <br />
-      <h2>Connectez vous</h2>
-      <input
-        value={inputValue}
-        onChange={handleChange}
-        type="text"
-        placeholder="Entrez votre prénom"
-        required
-      />
-      <button>Accédez à votre espace</button>
-    </LoginFormStyled>
+    <>
+      <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+        <Logo />
+        <h1>Bienvenue chez nous !</h1>
+        <br />
+        <h2>Connectez vous</h2>
+        <div className="input-container">
+          <BsPersonCircle className="iconName" />
+          <input
+            value={inputValue}
+            onChange={handleChange}
+            type="text"
+            placeholder="Entrez votre prénom"
+            required
+          />
+        </div>
+        <button>Accédez à mon espace</button>
+      </LoginFormStyled>
+    </>
   );
 }
 const LoginFormStyled = styled.form`
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-height: 100vh;
+position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  z-index:200;
 
+  .input-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .iconName {
+    position: absolute;
+    top: 50%;
+    left: 30px; /* Ajustez ce nombre pour déplacer l'icône horizontalement */
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: ${theme.colors.greyMedium}
+  }
   h1 {
-    color: white;
+    color: ${theme.colors.white};
     margin: 0;
     font-size: 48px;
     padding-bottom: 30px;
-    border-bottom: solid 2px orange;
+    border-bottom: solid 2px ${theme.colors.primary_burger};
+    font-family: "Amatic SC", cursive;
   }
   h2 {
-    color: white;
+    color: ${theme.colors.white};
     font-size: 36px;
-
+    font-family: "Amatic SC", cursive;
   }
   input {
     width: 400px;
-    height: 32px; 
-    border-radius: 5px;
-    margin: 9px;
-    font-size: 15px;
+    height: 32px;
+    border-radius: ${theme.borderRadius.round};
+    margin: ${theme.spacing.xs};
+    font-size: ${theme.fonts.P0};
     border: none;
-    text-align: center;
-
-   }
+    padding-left: 40px;
+    
+  }
   button {
-    color: white;
-    background-color: orange;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary};
     width: 400px;
     height: 32px;
-    border-radius: 5px;
+    border-radius: ${theme.borderRadius.round};
     margin: 9px;
     font-size: 15px;
     border: none;
-    
+    font-weight: ${theme.weights.heavy};
   }
 `;
 
