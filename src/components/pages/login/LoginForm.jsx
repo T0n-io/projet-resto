@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import Logo from "./Logo";
+import Logo from "../../reusable-ui/Logo";
 
 export default function LoginForm() {
   //state
@@ -32,11 +32,14 @@ export default function LoginForm() {
             placeholder="Entrez votre prénom"
             required
           />
-        </div>
         <button>Accédez à mon espace</button>
+        </div>
       </LoginFormStyled>
     </>
   );
 }
 const LoginFormStyled = styled.form`
-`
+display: flex;
+flex-direction: column;
+align-items: center;
+background: green;`;
