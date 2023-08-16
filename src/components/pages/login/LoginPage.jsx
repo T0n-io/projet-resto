@@ -13,12 +13,27 @@ export default function LoginPage() {
   );
 }
 const LoginPageStyled = styled.div`
-  background: red;
+  /* background: red; */
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  &:before {
+    background-color: #00000089;
+    content: "";
+    background-image: url("/images/F03-burger-background.jpg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    
+  }
   
   /* background-image: url("../../../src/assets/images/F03-burger-background.jpg"); */
   /* background-size: cover;

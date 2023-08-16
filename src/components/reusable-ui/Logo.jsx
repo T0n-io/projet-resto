@@ -6,7 +6,7 @@ export default function Logo() {
       {/* <h3>CRAZEE</h3>
       <img src="../../../src/assets/images/F03-logo-orange.png" alt="Logo" />;
       <h3>BURGER</h3> */}
-      Logo Crazee Burger
+      LOGO CRAZEE BURGER
     </LogoStyled>
   );
 }
