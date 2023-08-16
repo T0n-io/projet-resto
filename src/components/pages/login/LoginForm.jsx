@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import Logo from "../../reusable-ui/Logo";
+import { theme } from "../../..";
 
 export default function LoginForm() {
   //state
@@ -22,8 +22,8 @@ export default function LoginForm() {
     <>
       <LoginFormStyled action="submit" onSubmit={handleSubmit}>
         <h1>Bienvenue chez nous !</h1>
-        <br />
-        <h2>Connectez vous</h2>
+        <hr />
+        <h1>Connectez vous</h1>
         <div>
           <input
             value={inputValue}
@@ -32,14 +32,32 @@ export default function LoginForm() {
             placeholder="Entrez votre prénom"
             required
           />
-        <button>Accédez à mon espace</button>
+          <button>Accédez à mon espace</button>
         </div>
       </LoginFormStyled>
     </>
   );
 }
 const LoginFormStyled = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
-background: green;`;
+  background: green;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  hr {
+    width: 100%;
+    border: solid 1.5px ${theme.colors.primary_burger};
+    margin-bottom: 40px;
+  }
+  h1 {
+    font-size: 48px;
+    color: ${theme.colors.white};
+  }
+`;
