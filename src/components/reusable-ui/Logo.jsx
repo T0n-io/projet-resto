@@ -13,7 +13,7 @@ export default function Logo(props) {
 
 const LogoStyled = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center;  
   transform: scale(2.5);
 
   h1 {
