@@ -24,7 +24,7 @@ export default function NavBar() {
           <div className="right-container-child">
             <div className="welcome">
 
-            Hey, <span className="nav-user-name">{username}</span>
+            Hey,<span className="nav-user-name">{username}</span>
             </div>
           <Link to="/">
             <button>Se déconnecter</button>
@@ -39,7 +39,7 @@ export default function NavBar() {
 }
 
 const NavBarStyled = styled.div`
-  background: paleturquoise;
+  background: ${theme.colors.white};
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@ const NavBarStyled = styled.div`
   max-width: 1400px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-  margin: 25px 56px;
+  margin: 25px auto 0;
 
   .right-container {
     display: flex;
@@ -74,6 +74,7 @@ justify-content: center;
   .nav-user-name {
     color: ${theme.colors.primary};
     font-weight: ${theme.weights.bold};
+    margin-left: 3px;
   }
   .small-logo {
     transform: scale(1);
