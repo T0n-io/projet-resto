@@ -13,15 +13,15 @@ export default function LoginPage() {
   );
 }
 const LoginPageStyled = styled.div`
-  /* background: red; */
+
+/* Ma version */
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 
   &:before {
-    background-color: #00000089;
     content: "";
     background-image: url("/images/F03-burger-background.jpg");
     background-size: cover;
@@ -34,24 +34,37 @@ const LoginPageStyled = styled.div`
     z-index: -1;
     
   }
-  
-  /* background-image: url("../../../src/assets/images/F03-burger-background.jpg"); */
-  /* background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  width: 100%;
-  z-index: 0;
-// obscuration de l'image de fond
-&:before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.178); 
-  z-index: 1;
+  ::before{
+    background-color: #00000016;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
 
-} */
+  /* Version de ViDev */
+  /* height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ::before {
+    content: "";
+    background-image: url("/images/F03-burger-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    
+  } */
 `;

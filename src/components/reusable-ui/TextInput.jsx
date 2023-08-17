@@ -13,15 +13,15 @@ export default function TextInput({ value, onChange, Icon, ...restProps }) {
 
 const InputStyled = styled.div`
   background-color: ${theme.colors.white};
-  border-radius: 5px;
+  border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
   padding: 18px 24px;
   margin: 18px 0;
   .icon {
-    font-size: 15px;
+    font-size: ${theme.fonts.P0};
     margin-right: 8px;
-    color: ${theme.colors.greyMedium};
+    color: ${theme.colors.greySemiDark};
   }
 
   input {
@@ -29,5 +29,9 @@ const InputStyled = styled.div`
     font-size: 15px;
     color: ${theme.colors.dark};
     width: 100%;
+    &::placeholder{
+      background: ${theme.colors.white};
+      color: ${theme.colors.greyDarkF};
+    }
   }
 `;

@@ -51,22 +51,22 @@ const LoginFormStyled = styled.form`
   min-width: 400px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
-  border-radius: 5px;
+  border-radius: ${theme.borderRadius.round};
 
   hr {
-    width: 100%;
-    border: solid 1.5px ${theme.colors.primary_burger};
+    /* width: 100%; */
+    border: solid 1.5px ${theme.colors.loginLine};
     margin-bottom: 40px;
   }
 
   h1 {
-    font-size: 48px;
+    font-size: ${theme.fonts.P5};
     color: ${theme.colors.white};
-    font-family: "Amatic SC", cursive;
   }
   h2 {
-    font-size: 36px;
+    font-size: ${theme.fonts.P4};
     color: ${theme.colors.white};
+    margin: 20px 10px 10px;
   }
   .icon {
     display: flex;
