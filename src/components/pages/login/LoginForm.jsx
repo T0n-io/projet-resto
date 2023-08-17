@@ -5,6 +5,7 @@ import { theme } from "../../..";
 import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   //state
@@ -38,10 +39,7 @@ export default function LoginForm() {
           className={"input-container"}
         />
         
-        <button className="button-container">
-          <span>Accédez à mon espace</span>
-          <IoChevronForward className="icon" />
-        </button>
+       <PrimaryButton label={"Accéder à mon espace"} Icon={<IoChevronForward className="icon" />} />
       </LoginFormStyled>
     </>
   );
@@ -70,46 +68,12 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
     color: ${theme.colors.white};
   }
-
-  .button-container {
-    width: 100%;
-    font-size: 15px;
-    font-weight: 800;
+  .icon {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    white-space: nowrap;
-    text-decoration: none;
-    line-height: 1;
-    border: none;
-    padding: 18px 24px;
-    border-radius: 5px;
-    background-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.white};
-
-    &:hover:not(disabled) {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary_burger};
-      border: solid 1.5px ${theme.colors.primary_burger};
-      transition: all 0.2s ease-out;
-    }
-    &:active {
-      color: ${theme.colors.white};
-      background-color: ${theme.colors.primary_burger};
-      border: solid 1.5px ${theme.colors.primary_burger};
-    }
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    button {
-      background-color: ${theme.colors.primary_burger};
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-    }
+    margin-left: 10px;
+    font-size: ${theme.fonts.P1};
   }
+  
 `;
