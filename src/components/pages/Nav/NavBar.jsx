@@ -26,7 +26,7 @@ const NavBarStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 70px 0 20px;
+  padding: 0 20px 0 20px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   width: 90%;

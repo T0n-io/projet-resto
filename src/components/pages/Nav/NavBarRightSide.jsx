@@ -7,6 +7,8 @@ import { theme } from "../../..";
 export default function NavBarRightSide({ username }) {
   return (
     <NavBarRightSideStyled>
+      <div className="admin-button">
+        <button>Activer le mode Admin</button></div>
       <div className="right-container-child">
         <div className="welcome">
           Hey,<span className="nav-user-name">{username}</span>
@@ -25,6 +27,7 @@ export default function NavBarRightSide({ username }) {
 const NavBarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
+  padding-right: 50px;
   .right-container-child {
     display: flex;
     flex-direction: column;
@@ -52,4 +55,7 @@ const NavBarRightSideStyled = styled.div`
   button:hover{
     color: ${theme.colors.primary};
   }
+  .admin-button{
+      background: red;
+     
 `;
