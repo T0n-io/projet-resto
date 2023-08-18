@@ -28,11 +28,10 @@ const NavBarStyled = styled.nav`
   align-items: center;
   padding: 0 20px 0 20px;
   font-size: 16px;
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-  margin: 25px auto 0;
 
   
   @media (max-width: 768px) {

@@ -14,7 +14,7 @@ export default function Main() {
 }
 
 const MainContainer = styled.div`
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   background-color: ${theme.colors.background_white};
   margin: auto;
