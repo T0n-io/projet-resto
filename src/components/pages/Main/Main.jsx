@@ -8,13 +8,7 @@ export default function Main() {
   console.log("username: ", username);
   return (
     <MainContainer>
-      <br />
-      <br />
-      <br />
-      <h1>Bonjour {username}</h1>
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
+      
     </MainContainer>
   );
 }
