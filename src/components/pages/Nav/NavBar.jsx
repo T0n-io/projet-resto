@@ -2,18 +2,18 @@ import { styled } from "styled-components";
 import { theme } from "../../..";
 import NavBarRightSide from "./NavBarRightSide";
 import NavBarLeftSide from "./NavBarLeftSide";
+import { refreshPage } from "../../../utils/window";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ username }) {
-  const handleLogoClick = () => {
-    window.location.reload();
-  };
+  // const handleLogoClick = () => {
+  //   window.location.reload();
+  // };
 
   return (
     <div>
       <NavBarStyled>
-        <NavBarLeftSide onClick={handleLogoClick}/>
-        
+        <NavBarLeftSide onClick={refreshPage}/>
         <NavBarRightSide username={username} />
       </NavBarStyled>
     </div>
