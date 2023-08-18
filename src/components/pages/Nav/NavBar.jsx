@@ -78,7 +78,16 @@ const NavBarStyled = styled.nav`
     background: none;
     color: ${theme.colors.greyMedium};
     font-size: ${theme.fonts.XS};
+    cursor: pointer;
   }
-  /* display: flex;
-align-items: center;  } */
+  @media (max-width: 768px) {
+        width: 100%;
+        margin: 0;
+        border-radius: 0%;
+        padding: 10px;
+        .small-logo{
+          transform: scale(0.8);
+          padding: 0;
+        }
+    }
 `;

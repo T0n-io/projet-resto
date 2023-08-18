@@ -34,4 +34,9 @@ const MainContainer = styled.div`
   button {
     margin: 0 25px;
   }
+  // ajout média queries téléphone
+    @media (max-width: 768px) {
+        width: 100%;
+        height: calc(100vh - 10vh);
+    }
 `;
