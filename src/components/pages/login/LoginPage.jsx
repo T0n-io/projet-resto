@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import { styled } from "styled-components";
 import LoginForm from "./LoginForm";
 import Logo from "../../reusable-ui/Logo";
@@ -7,7 +6,7 @@ export default function LoginPage() {
   // affichage
   return (
     <LoginPageStyled>
-      <Logo />
+      <Logo className="formLogo"/>
       <LoginForm />
     </LoginPageStyled>
   );
