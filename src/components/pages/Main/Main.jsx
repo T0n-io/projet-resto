@@ -22,7 +22,7 @@ export default function Main() {
 const MainContainer = styled.div`
   width: 90%;
   max-width: 1400px;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.background_white};
   margin: auto;
   height: calc(95vh - 10vh);
 
@@ -35,8 +35,8 @@ const MainContainer = styled.div`
     margin: 0 25px;
   }
   // ajout média queries téléphone
-    @media (max-width: 768px) {
-        width: 100%;
-        height: calc(100vh - 10vh);
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: calc(100vh - 10vh);
+  }
 `;

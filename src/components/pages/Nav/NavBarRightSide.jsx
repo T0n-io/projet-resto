@@ -34,8 +34,7 @@ const NavBarRightSideStyled = styled.div`
     margin-right: 10px;
   }
   .welcome {
-    display: flex;
-    justify-content: center;
+    text-align: right;
   }
   .icon {
     font-size: 36px;
@@ -51,11 +50,12 @@ const NavBarRightSideStyled = styled.div`
     border: none;
     background: none;
     cursor: pointer;
+    
   }
   button:hover{
     color: ${theme.colors.primary};
   }
   .admin-button{
       background: red;
-     
+  }
 `;
