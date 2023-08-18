@@ -1,52 +1,47 @@
 import { styled } from "styled-components";
 import Logo from "../../reusable-ui/Logo";
-import { useParams } from "react-router";
 import { theme } from "../../..";
 import { Link } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
 
-export default function NavBar() {
-  //state
-  const { username } = useParams();
-  console.log("navusername: ", username);
-
+// eslint-disable-next-line react/prop-types
+export default function NavBar({ username }) {
   const handleLogoClick = () => {
     window.location.reload();
   };
 
   return (
     <NavBarStyled>
-      <button onClick={handleLogoClick} >
-      <Logo className="small-logo" />
-
+      <button onClick={handleLogoClick}>
+        <Logo className="small-logo" />
       </button>
       <div className="right-container">
-          <div className="right-container-child">
-            <div className="welcome">
-
+        <div className="right-container-child">
+          <div className="welcome">
             Hey,<span className="nav-user-name">{username}</span>
-            </div>
+          </div>
           <Link to="/">
             <button>Se déconnecter</button>
           </Link>
-          </div>
-        <div >
-        <BsPersonCircle className={"icon"} />
-      </div>
         </div>
+        <div>
+          <BsPersonCircle className={"icon"} />
+        </div>
+      </div>
     </NavBarStyled>
   );
 }
 
-const NavBarStyled = styled.div`
+const NavBarStyled = styled.nav`
   background: ${theme.colors.white};
-  height: 100px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 70px 0 20px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
+  width: 90%;
   max-width: 1400px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
@@ -55,20 +50,19 @@ const NavBarStyled = styled.div`
   .right-container {
     display: flex;
     align-items: center;
-
   }
-  .right-container-child{
+  .right-container-child {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
-    
   }
-  .welcome{
-display: flex;
-justify-content: center;
+  .welcome {
+    display: flex;
+    justify-content: center;
   }
-  .icon{
+  .icon {
     font-size: 36px;
+    color: ${theme.colors.greyDark};
   }
 
   .nav-user-name {
