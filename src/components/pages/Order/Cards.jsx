@@ -1,12 +1,17 @@
 import { styled } from "styled-components";
+import PropTypes from "prop-types";
 
 export default function Cards({ item }) {
-  return (
+    const roundedPrice = item.price.toFixed(2); // Arrondi au centime près (2 décimales)
+  
+    return (
+
+
     <CardContainerStyled>
       <img src={item.imageSource} alt={item.title} />
       <h2>{item.title}</h2>
       <div className="bottom">
-        <div className="price">{item.price}</div>
+        <div className="price">{roundedPrice}</div>
         <button>Ajouter</button>
       </div>
     </CardContainerStyled>
@@ -36,3 +41,14 @@ const CardContainerStyled = styled.div`
     width: 90%;
   }
 `;
+Cards.propTypes = {
+    item: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      imageSource: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired,
+      isAvailable: PropTypes.bool.isRequired,
+      isAdvertised: PropTypes.bool.isRequired,
+    }).isRequired,
+  };
