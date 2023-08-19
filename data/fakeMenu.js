@@ -1,6 +1,6 @@
 export const fakeMenu1 = [
   {
-    id: 1,
+    id: 11,
     imageSource: "/images/burger1.png",
     title: "Burger 1",
     price: 5.297,
@@ -9,7 +9,7 @@ export const fakeMenu1 = [
     isAdvertised: false,
   },
   {
-    id: 2,
+    id: 12,
     imageSource: "/images/burger2.png",
     title: "Burger 2",
     price: 7.556,
