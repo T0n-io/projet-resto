@@ -11,11 +11,11 @@ export default function Main() {
   console.log("username: ", username);
   return (
     <MainContainerStyled>
-      <div>
+
         {mergedMenu.map((item) => (
           <Cards key={item.id} item={item} />
         ))}
-      </div>
+
       
    
       

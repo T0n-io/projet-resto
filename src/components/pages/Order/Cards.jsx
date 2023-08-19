@@ -30,9 +30,10 @@ const CardContainerStyled = styled.div`
   align-items: center;
   margin: 50px calc(85px / 2) 60px calc(85px / 2);
   img {
-    width: 90%;
-    height: 100px;
+    width: 200px;
+    height: 145px;
     border: 1px solid green;
+    object-fit: contain;
   }
   .bottom {
     display: flex;
