@@ -11,7 +11,7 @@ export const fakeMenu1 = [
   {
     id: 12,
     imageSource: "/images/burger2.png",
-    title: "Burger 2",
+    title: "Burger 2 la mort qui tue trop bon hooooooooooon",
     price: 7.556,
     quantity: 0,
     isAvailable: true,

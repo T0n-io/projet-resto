@@ -36,6 +36,9 @@ const CardContainerStyled = styled.div`
     font-size: ${theme.fonts.P4};
     font-weight: ${theme.weights.bold};
     margin: 0;
+    white-space: nowrap; // Empêche le texte de passer à la ligne
+    overflow: hidden; // Cache le texte excédentaire
+    text-overflow: ellipsis; // Affiche "..." à la fin du texte tronqué
   }
   img {
     width: 200px;
@@ -51,9 +54,9 @@ const CardContainerStyled = styled.div`
     /* border: 1px solid blue; */
     width: 200px;
     height: 110px;
-    .bottom-card{
-        display: flex;
-        justify-content: space-between;
+    .bottom-card {
+      display: flex;
+      justify-content: space-between;
     }
     .price {
       color: ${theme.colors.primary};
@@ -66,6 +69,19 @@ const CardContainerStyled = styled.div`
       width: 95px;
       height: 38px;
       border-radius: ${theme.borderRadius.round};
+      cursor: pointer;
+      &:hover:not(:active) {
+        background-color: ${theme.colors.white};
+        border: 1px solid ${theme.colors.primary};
+        color: ${theme.colors.primary};
+        transition: 0.3s ease-in-out;
+      }
+      &:active,
+      &:focus {
+        background-color: ${theme.colors.primary}; /* Couleur normale au moment du click ou du focus */
+        color: ${theme.colors.white}; /* Couleur normale au moment du click ou du focus */
+        outline: none; /* Supprime le contour par défaut */
+      }
     }
   }
 `;
