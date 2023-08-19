@@ -2,24 +2,21 @@ import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
 import Cards from "./Cards";
+import { fakeMenu1, fakeMenu2 } from "../../../../data/fakeMenu";
 
 export default function Main() {
   // state
   const { username } = useParams();
+  const mergedMenu = [...fakeMenu1, ...fakeMenu2];
   console.log("username: ", username);
   return (
     <MainContainerStyled>
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
+      <div>
+        {mergedMenu.map((item) => (
+          <Cards key={item.id} item={item} />
+        ))}
+      </div>
+      
    
       
     </MainContainerStyled>

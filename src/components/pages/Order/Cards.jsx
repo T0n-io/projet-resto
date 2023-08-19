@@ -1,19 +1,19 @@
 import { styled } from "styled-components";
 
-export default function Cards() {
+export default function Cards({ item }) {
   return (
-    <CardsStyled>
-      <img src="" alt="item" />
-      <h2>Burger</h2>
+    <CardContainerStyled>
+      <img src={item.imageSource} alt={item.title} />
+      <h2>{item.title}</h2>
       <div className="bottom">
-        <div className="price">5.50</div>
+        <div className="price">{item.price}</div>
         <button>Ajouter</button>
       </div>
-    </CardsStyled>
+    </CardContainerStyled>
   );
 }
 
-const CardsStyled = styled.div`
+const CardContainerStyled = styled.div`
   // css card
 
   width: 240px;
@@ -23,7 +23,7 @@ const CardsStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px calc(85px /2) 60px calc(85px /2);
+  margin: 50px calc(85px / 2) 60px calc(85px / 2);
   img {
     width: 90%;
     height: 100px;
