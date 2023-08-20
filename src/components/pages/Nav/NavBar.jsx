@@ -32,7 +32,7 @@ const NavBarStyled = styled.nav`
   max-width: 1400px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-
+  border-bottom: solid 1px ${theme.colors.greyLight};
   
   @media (max-width: 768px) {
     width: 100%;
