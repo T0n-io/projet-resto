@@ -23,16 +23,16 @@ const MainContainerStyled = styled.div`
   width: 100%;
   max-width: 1400px;
   background-color: ${theme.colors.background_white};
+  margin: auto;
   height: calc(95vh - 10vh);
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   overflow: scroll;
+
   background: #f5f5f7;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   border-radius: 0px 0px 15px 15px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 60px;
-  padding: 50px 50px 150px;
-  justify-items: center;
 
   h1,
   button {
