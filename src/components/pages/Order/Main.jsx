@@ -13,7 +13,7 @@ export default function Main() {
   return (
     <MainContainerStyled>
       {menu.map((item) => (
-        <Cards key={item.id} item={item} />
+        <Cards key={item.id} title={item.title} imageSource={item.imageSource} price={item.price} />
       ))}
     </MainContainerStyled>
   );

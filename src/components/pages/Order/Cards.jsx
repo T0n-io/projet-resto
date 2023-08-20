@@ -2,14 +2,16 @@ import { styled } from "styled-components";
 import PropTypes from "prop-types";
 import { theme } from "../../..";
 
-export default function Cards({ item }) {
-  const roundedPrice = item.price.toFixed(2); // Arrondi au centime près (2 décimales)
+// eslint-disable-next-line react/prop-types
+export default function Cards({ title, imageSource, price }) {
+  // eslint-disable-next-line react/prop-types
+  const roundedPrice = price.toFixed(2); // Arrondi au centime près (2 décimales)
 
   return (
     <CardContainerStyled>
-      <img src={item.imageSource} alt={item.title} />
+      <img src={imageSource} alt={title} />
       <div className="infos">
-        <h2>{item.title}</h2>
+        <h2>{title}</h2>
         <div className="bottom-card">
           <div className="price">{roundedPrice} €</div>
           <button>Ajouter</button>
