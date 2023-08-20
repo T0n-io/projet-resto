@@ -28,9 +28,10 @@ const CardContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px calc(85px / 2) 60px calc(85px / 2);
+  /* margin: 50px calc(85px / 2) 60px calc(85px / 2); */
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+  background-color: ${theme.colors.red};
   h2 {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.P4};
@@ -51,12 +52,12 @@ const CardContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* border: 1px solid blue; */
     width: 200px;
     height: 110px;
     .bottom-card {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
     .price {
       color: ${theme.colors.primary};
@@ -78,8 +79,10 @@ const CardContainerStyled = styled.div`
       }
       &:active,
       &:focus {
-        background-color: ${theme.colors.primary}; /* Couleur normale au moment du click ou du focus */
-        color: ${theme.colors.white}; /* Couleur normale au moment du click ou du focus */
+        background-color: ${theme.colors
+          .primary}; /* Couleur normale au moment du click ou du focus */
+        color: ${theme.colors
+          .white}; /* Couleur normale au moment du click ou du focus */
         outline: none; /* Supprime le contour par défaut */
       }
     }
