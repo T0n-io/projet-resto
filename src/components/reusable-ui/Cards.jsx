@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 import PropTypes from "prop-types";
-import { theme } from "../../..";
+import { theme } from "../..";
 
 // eslint-disable-next-line react/prop-types
-export default function Cards({ title, imageSource, price }) {
+export default function Cards({ title, imageSource, leftDescription }) {
   // eslint-disable-next-line react/prop-types
-  const roundedPrice = price.toFixed(2); // Arrondi au centime près (2 décimales)
+  const roundedPrice = leftDescription.toFixed(2); // Arrondi au centime près (2 décimales)
 
   return (
     <CardContainerStyled>
@@ -13,7 +13,7 @@ export default function Cards({ title, imageSource, price }) {
       <div className="infos">
         <h2>{title}</h2>
         <div className="bottom-card">
-          <div className="price">{roundedPrice} €</div>
+          <div className="left-description">{roundedPrice} €</div>
           <button>Ajouter</button>
         </div>
       </div>
@@ -33,7 +33,7 @@ const CardContainerStyled = styled.div`
   margin: 50px calc(85px / 2) 60px calc(85px / 2);
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
-    background-color: ${theme.colors.white};
+  background-color: ${theme.colors.white};
   h2 {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.P4};
@@ -61,7 +61,7 @@ const CardContainerStyled = styled.div`
       justify-content: space-between;
       align-items: center;
     }
-    .price {
+    .left-description {
       color: ${theme.colors.primary};
     }
     button {
@@ -81,8 +81,10 @@ const CardContainerStyled = styled.div`
       }
       &:active,
       &:focus {
-        background-color: ${theme.colors.primary}; /* Couleur normale au moment du click ou du focus */
-        color: ${theme.colors.white}; /* Couleur normale au moment du click ou du focus */
+        background-color: ${theme.colors
+          .primary}; /* Couleur normale au moment du click ou du focus */
+        color: ${theme.colors
+          .white}; /* Couleur normale au moment du click ou du focus */
         outline: none; /* Supprime le contour par défaut */
       }
     }

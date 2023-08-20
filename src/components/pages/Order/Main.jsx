@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import Cards from "./Cards";
+import Cards from "../../reusable-ui/Cards";
 import { fakeMenu2 } from "../../../../data/fakeMenu";
 import { useState } from "react";
 
@@ -12,8 +12,13 @@ export default function Main() {
   console.log("username: ", username);
   return (
     <MainContainerStyled>
-      {menu.map((item) => (
-        <Cards key={item.id} title={item.title} imageSource={item.imageSource} price={item.price} />
+      {menu.map(({ id, title, imageSource, price }) => (
+        <Cards
+          key={id}
+          title={title}
+          imageSource={imageSource}
+          leftDescription={price}
+        />
       ))}
     </MainContainerStyled>
   );
