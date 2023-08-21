@@ -1,12 +1,13 @@
-import React from "react"
-import styled from "styled-components/macro"
-import { theme } from "../../theme"
+/* eslint-disable react/prop-types */
+import styled from "styled-components";
+import { theme } from "../../..";
+import { toast } from "react-toastify";
 
 export default function ToggleButton({
   isChecked,
   onToggle,
-  labelIfChecked = "Fermer",
-  labelIfUnchecked = "Ouvrir",
+  labelIfChecked = "Désactiver le mode admin",
+  labelIfUnchecked = "Activer le mode admin",
 }) {
   return (
     <ToggleButtonStyled>
@@ -24,7 +25,7 @@ export default function ToggleButton({
         data-unchecked={labelIfUnchecked}
       ></label>
     </ToggleButtonStyled>
-  )
+  );
 }
 
 const ToggleButtonStyled = styled.div`
@@ -43,7 +44,7 @@ const ToggleButtonStyled = styled.div`
       height: 40px;
       width: 200px;
       position: relative;
-      font-size: ${theme.fonts.size.XXS};
+      font-size: ${theme.fonts.XXS};
       letter-spacing: 0.5px;
       border: 2px solid ${theme.colors.background_dark};
       padding: 0;
@@ -100,7 +101,7 @@ const ToggleButtonStyled = styled.div`
       left: auto;
       opacity: 1;
       color: ${theme.colors.primary};
-      font-weight: ${theme.fonts.weights.bold};
+      font-weight: ${theme.weights.bold};
     }
 
     // small circle when not checked
@@ -131,4 +132,4 @@ const ToggleButtonStyled = styled.div`
       background-color: ${theme.colors.primary};
     }
   }
-`
+`;
