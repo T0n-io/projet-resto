@@ -21,7 +21,7 @@ export default function NavBarRightSide({ username }) {
     setIsChecked(newIsChecked);
     if (newIsChecked) {
       toast.info("Mode admin activé", {
-        icon: <FontAwesomeIcon icon={faUserSecret} size="30" />
+        icon: <FontAwesomeIcon icon={faUserSecret} size="xl" />
         ,
         theme: "dark",
         position: "bottom-right",
@@ -34,7 +34,7 @@ export default function NavBarRightSide({ username }) {
       })
 ;
     } else {
-      return ""
+      return 
     }
   };
 
