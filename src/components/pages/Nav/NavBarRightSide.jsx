@@ -2,13 +2,15 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
+import ToggleButton from "./ToggleButton";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarRightSide({ username }) {
   return (
     <NavBarRightSideStyled>
-      <div className="admin-button">
-        <button>Activer le mode Admin</button></div>
+      <ToggleButton></ToggleButton>
+      {/* <div className="admin-button">
+        <button>Activer le mode Admin</button></div> */}
       <div className="right-container-child">
         <div className="welcome">
           Hey,<span className="nav-user-name">{username}</span>
