@@ -90,14 +90,4 @@ const CardContainerStyled = styled.div`
     }
   }
 `;
-Cards.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    imageSource: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-    isAvailable: PropTypes.bool.isRequired,
-    isAdvertised: PropTypes.bool.isRequired,
-  }).isRequired,
-};
+
