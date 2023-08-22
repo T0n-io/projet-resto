@@ -5,8 +5,8 @@ import { theme } from "../../..";
 export default function ToggleButton({
   isChecked,
   onToggle,
-  labelIfChecked = "Désactiver le mode admin",
-  labelIfUnchecked = "Activer le mode admin",
+  labelIfChecked = "Activer",
+  labelIfUnchecked = "Désactiver",
 }) {
   return (
     <ToggleButtonStyled>
@@ -31,7 +31,8 @@ const ToggleButtonStyled = styled.div`
   /* border: 1px solid red; */
 
   display: flex;
-  margin-right: 50px;
+  margin-right: 10px;
+  flexgap: 50px;
   input[type="checkbox"] {
     // Hides the square box but keeps the core "toggle functionality"
     &.toggle {

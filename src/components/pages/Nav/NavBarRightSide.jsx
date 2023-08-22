@@ -5,24 +5,22 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../..";
 import ToggleButton from "./ToggleButton";
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import 'react-toastify/dist/ReactToastify.css';
-
+import "react-toastify/dist/ReactToastify.css";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarRightSide({ username }) {
   // État pour gérer le bouton de basculement
-  const [isChecked, setIsChecked] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
 
   // Fonction pour gérer le basculement et afficher une notification
-  const handleToggle = () => {
-    const newIsChecked = !isChecked;
-    setIsChecked(newIsChecked);
-    if (newIsChecked) {
+  const displayToastNotification = () => {
+    if (!isModeAdmin) {
+
+      
       toast.info("Mode admin activé", {
-        icon: <FontAwesomeIcon icon={faUserSecret} size="xl" />
-        ,
+        icon: <FontAwesomeIcon icon={faUserSecret} size="xl" />,
         theme: "dark",
         position: "bottom-right",
         autoClose: 5000,
@@ -31,16 +29,20 @@ export default function NavBarRightSide({ username }) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
-;
-    } else {
-      return 
+      });
     }
-  };
+    setIsModeAdmin(!isModeAdmin)
+    } 
+
 
   return (
     <NavBarRightSideStyled>
-      <ToggleButton isChecked={isChecked} onToggle={handleToggle} />
+      <ToggleButton
+        isModeAdmin={isModeAdmin}
+        onToggle={displayToastNotification}
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfChecked="désactiver LE MODE ADMIN"
+      />
       <div className="right-container-child">
         <div className="welcome">
           Hey,<span className="nav-user-name">{username}</span>
@@ -58,7 +60,6 @@ export default function NavBarRightSide({ username }) {
 
 // Votre style déjà existant ici
 
-
 const NavBarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
@@ -67,7 +68,9 @@ const NavBarRightSideStyled = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 10px;
+    padding-left: 50px;
   }
+
   .welcome {
     text-align: right;
   }
@@ -81,21 +84,17 @@ const NavBarRightSideStyled = styled.div`
     font-weight: ${theme.weights.bold};
     margin-left: 3px;
   }
-  button{
+  button {
     border: none;
     background: none;
     cursor: pointer;
-    
   }
-  button:hover{
+  button:hover {
     color: ${theme.colors.primary};
-  }
-  .admin-button{
-      background: red;
   }
 
   // pour le toast
-
+*
   .toaster {
     max-width: 300px;
   }
