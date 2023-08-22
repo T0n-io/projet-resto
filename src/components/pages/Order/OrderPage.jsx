@@ -12,7 +12,6 @@ export default function OrderPage() {
   return (
     <OrderPageStyled>
       <div className="container">
-
       <NavBar username={username} />
       <Main />
       </div>

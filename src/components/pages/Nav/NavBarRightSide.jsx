@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { BsPersonCircle } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../..";
 import ToggleButton from "./ToggleButton";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from "./Profile";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarRightSide({ username }) {
@@ -43,17 +41,8 @@ export default function NavBarRightSide({ username }) {
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="désactiver LE MODE ADMIN"
       />
-      <div className="right-container-child">
-        <div className="welcome">
-          Hey,<span className="nav-user-name">{username}</span>
-        </div>
-        <Link to="/">
-          <button>Se déconnecter</button>
-        </Link>
-      </div>
-      <div>
-        <BsPersonCircle className={"icon"} />
-      </div>
+      <Profile userName={username} />
+      
     </NavBarRightSideStyled>
   );
 }
@@ -64,34 +53,4 @@ const NavBarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
   padding-right: 50px;
-  .right-container-child {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-    padding-left: 50px;
-  }
-
-  .welcome {
-    text-align: right;
-  }
-  .icon {
-    font-size: 36px;
-    color: ${theme.colors.greyDark};
-  }
-
-  .nav-user-name {
-    color: ${theme.colors.primary};
-    font-weight: ${theme.weights.bold};
-    margin-left: 3px;
-  }
-  button {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  button:hover {
-    color: ${theme.colors.primary};
-  }
-
- 
 `;
