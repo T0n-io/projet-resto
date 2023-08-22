@@ -3,6 +3,7 @@ import LoginPage from "./components/pages/login/LoginPage";
 import OrderPage from "./components/pages/Order/OrderPage";
 import ErrorPage from "./components/pages/Error/ErrorPage";
 import { ToastContainer } from "react-toastify";
+import ToastAdmin from "./components/pages/Nav/ToastAdmin";
 
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
@@ -11,7 +12,8 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
-    <ToastContainer />
+    <ToastAdmin />
+    {/* <ToastContainer /> */}
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/order/:username" element={<OrderPage />} />
