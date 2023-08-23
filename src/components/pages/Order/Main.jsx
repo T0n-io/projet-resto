@@ -1,22 +1,18 @@
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import Cards from "../../reusable-ui/Cards";
-import { fakeMenu2 } from "../../../../data/fakeMenu";
-import { useState } from "react";
 import Menu from "./Menu";
+import Panel from "./Panel";
 
 export default function Main() {
   // state
   const { username } = useParams();
-  const [menu, setMenu] = useState(fakeMenu2);
   console.log("username: ", username);
   return (
     <MainStyled className="main">
-      {/* <div className="basket">Basket</div> */}
-
       <Menu />
-    </MainStyled>
+      <Panel />
+   </MainStyled>
   );
 }
 
@@ -33,9 +29,9 @@ background: ${theme.colors.background_white};
   grid-template-columns: 1fr;
 
   overflow-y: scroll;
-  /* .basket {
+  .basket {
     background: pink;
-  } */
+  }
 
 
 

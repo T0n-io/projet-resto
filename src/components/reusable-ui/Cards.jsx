@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import PropTypes from "prop-types";
 import { theme } from "../..";
 
 // eslint-disable-next-line react/prop-types
