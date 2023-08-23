@@ -4,6 +4,7 @@ import { theme } from "../../..";
 import Cards from "../../reusable-ui/Cards";
 import { fakeMenu2 } from "../../../../data/fakeMenu";
 import { useState } from "react";
+import Menu from "./Menu";
 
 export default function Main() {
   // state
@@ -11,21 +12,38 @@ export default function Main() {
   const [menu, setMenu] = useState(fakeMenu2);
   console.log("username: ", username);
   return (
-    <MainContainerStyled>
-      {menu.map(({ id, title, imageSource, price }) => (
-        <Cards
-          key={id}
-          title={title}
-          imageSource={imageSource}
-          leftDescription={price}
-        />
-      ))}
-    </MainContainerStyled>
+    <MainStyled className="main">
+      {/* <div className="basket">Basket</div> */}
+
+      <Menu />
+    </MainStyled>
   );
 }
 
-const MainContainerStyled = styled.div`
-  width: 100%;
+const MainStyled = styled.div`
+
+background: ${theme.colors.background_white};
+  flex: 1; // or you can also use this : height: calc(95vh - 10vh);
+
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  overflow-y: scroll;
+  /* .basket {
+    background: pink;
+  } */
+
+
+
+
+
+
+
+  /* width: 100%;
   max-width: 1400px;
   background-color: ${theme.colors.background_white};
   margin: auto;
@@ -46,5 +64,5 @@ const MainContainerStyled = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: calc(100vh - 10vh);
-  }
+  } */
 `;
