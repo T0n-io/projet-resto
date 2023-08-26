@@ -33,7 +33,7 @@ export default function Panel() {
           <div className="onglet-text">Modifier un produit</div>
         </button>
       </div>
-      <div className="panel-page-active">
+      <div className={`panel-page ${isPanelOpen ? 'open' : 'closed'}`}>
         {activeTab === "addProduct" && "Ici la page pour ajouter un produit"}
         {activeTab === "editProduct" && "Ici la page pour modifier un produit"}
       </div>
@@ -93,9 +93,16 @@ const PanelStyled = styled.div`
       }
     }
   }
-  .panel-page-active {
+  .panel-page {
+    /* display: none; */
+    height: 0px;
+    transition: height 0.5s ease-in-out;
+
+  }
+  .panel-page.open {
     /* display: none; */
     height: 240px;
-    background-color: chartreuse;
+    background-color: red;
+    transition: height 0.5s ease-in-out;
   }
 `;
