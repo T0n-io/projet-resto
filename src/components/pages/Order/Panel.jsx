@@ -17,7 +17,7 @@ export default function Panel() {
   };
 
   return (
-    <PanelStyled isPanelOpen={isPanelOpen}>
+    <PanelStyled>
       <div className="onglets">
         <button className="reduire" onClick={togglePanel}>
           <div className="icon">
