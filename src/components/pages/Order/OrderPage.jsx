@@ -3,6 +3,7 @@ import Main from "../Order/Main";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
+import { PanelProvider } from "../../../context/PanelContext";
 
 export default function OrderPage() {
   //state
@@ -10,12 +11,14 @@ export default function OrderPage() {
   console.log("navusername: ", username);
   // affichage
   return (
+    <PanelProvider>
     <OrderPageStyled>
       <div className="container">
       <NavBar username={username} />
       <Main />
       </div>
     </OrderPageStyled>
+    </PanelProvider>
   );
 }
 

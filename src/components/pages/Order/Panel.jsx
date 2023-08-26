@@ -2,26 +2,36 @@ import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
 import { theme } from "../../..";
+import { usePanel } from "../../../context/PanelContext";
 
 export default function Panel() {
+
+ const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();
+ const togglePanel = () => {
+  setIsPanelOpen(!isPanelOpen);}
+
+
   return (
-    <PanelStyled>
+    <PanelStyled isPanelOpen={isPanelOpen}>
       <div className="onglets">
-        <button className="reduire">
+        <button className="reduire" onClick={togglePanel}>
           <div className="icon">
             <FontAwesomeIcon icon={faChevronCircleDown} />
           </div>
         </button>
-        <button className="onglet">
+        <button className="onglet" onClick={() => setActiveTab("addProduct")}>
           <div>+</div>
           <div className="onglet-text">Ajouter un produit</div>
         </button>
-        <button className="onglet">
+        <button className="onglet" onClick={() => setActiveTab("editProduct")}>
           <div>+</div>
           <div className="onglet-text">Modifier un produit</div>
         </button>
       </div>
-      <div className="panel-page">Ici la page panel</div>
+      <div className="panel-page"> 
+        {activeTab === "addProduct" && "Ici la page pour ajouter un produit"}
+        {activeTab === "editProduct" && "Ici la page pour modifier un produit"}
+        </div>
     </PanelStyled>
   );
 }
@@ -76,7 +86,8 @@ const PanelStyled = styled.div`
     }
   }
   .panel-page {
-    height: 250px;
-    display: none;
+    height: 2500px;
+    /* display: none; */
+    
   }
 `;
