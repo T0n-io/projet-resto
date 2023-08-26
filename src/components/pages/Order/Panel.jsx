@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import { usePanel } from "../../../context/PanelContext";
+import { usePanel } from "../../../context/PanelProvider";
 
 export default function Panel() {
   const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();

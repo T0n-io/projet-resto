@@ -3,7 +3,7 @@ import Main from "../Order/Main";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import { PanelProvider } from "../../../context/PanelContext";
+import { PanelProvider } from "../../../context/PanelProvider";
 
 export default function OrderPage() {
   //state
