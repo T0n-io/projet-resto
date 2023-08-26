@@ -1,6 +1,8 @@
 import {
   faChevronCircleDown,
   faChevronCircleUp,
+  faPen,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
@@ -24,12 +26,14 @@ export default function Panel() {
             {isPanelOpen ? <FontAwesomeIcon icon={faChevronCircleDown} /> : <FontAwesomeIcon icon={faChevronCircleUp} />}
           </div>
         </button>
-        <button className="onglet" onClick={() => setActiveTab("addProduct")}>
-          <div>+</div>
+        <button className={`onglet ${activeTab === "addProduct" ? "active" : ""}`} onClick={() => setActiveTab("addProduct")}>
+          <div><FontAwesomeIcon icon={faPlus} /></div>
           <div className="onglet-text">Ajouter un produit</div>
         </button>
-        <button className="onglet" onClick={() => setActiveTab("editProduct")}>
-          <div>+</div>
+        <button className={`onglet ${activeTab === "editProduct" ? "active" : ""}`} onClick={() => setActiveTab("editProduct")}>
+          <div>
+          <FontAwesomeIcon icon={faPen} />
+          </div>
           <div className="onglet-text">Modifier un produit</div>
         </button>
       </div>
@@ -70,19 +74,23 @@ const PanelStyled = styled.div`
       background: ${theme.colors.background_white};
       color: ${theme.colors.greyMedium};
     }
-    .onglet {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top-left-radius: ${theme.borderRadius.round};
-      border-top-right-radius: ${theme.borderRadius.round};
-      border: 1px 1px 2px 1px solid ${theme.colors.greyLight};
-      background: ${theme.colors.background_white};
-      color: ${theme.colors.greyMedium};
-      width: 200px;
-      /* text-align: center; */
-      height: 44px;
-      padding: 12px 26px 14px 23px;
+      .onglet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top-left-radius: ${theme.borderRadius.round};
+        border-top-right-radius: ${theme.borderRadius.round};
+        border: 1px 1px 2px 1px solid ${theme.colors.greyLight};
+        background: ${theme.colors.background_white};
+        color: ${theme.colors.greyMedium};
+        width: 200px;
+        /* text-align: center; */
+        height: 44px;
+        padding: 12px 26px 14px 23px;
+        &.active{
+          background: ${theme.colors.dark};
+          color: ${theme.colors.white};
+        }
       .icon {
         /* padding: 5px; */
         display: flex;
