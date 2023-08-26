@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
 import { PanelProvider } from "../../../context/PanelProvider";
+import { AdminModeProvider } from "../../../context/AdminModeContext";
 
 export default function OrderPage() {
   //state
@@ -11,6 +12,8 @@ export default function OrderPage() {
   console.log("navusername: ", username);
   // affichage
   return (
+    <AdminModeProvider>
+
     <PanelProvider>
     <OrderPageStyled>
       <div className="container">
@@ -19,6 +22,7 @@ export default function OrderPage() {
       </div>
     </OrderPageStyled>
     </PanelProvider>
+    </AdminModeProvider>
   );
 }
 

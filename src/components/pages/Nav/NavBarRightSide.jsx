@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import ToggleButton from "./ToggleButton";
@@ -6,11 +5,12 @@ import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
+import { useAdminMode } from "../../../context/AdminModeContext";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarRightSide({ username }) {
   // État pour gérer le bouton de basculement
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useAdminMode();
 
   // Fonction pour gérer le basculement et afficher une notification
   const displayToastNotification = () => {

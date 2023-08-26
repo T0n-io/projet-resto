@@ -1,22 +1,24 @@
-import {
-  faChevronCircleDown,
-  faChevronCircleUp,
-  faPen,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleDown, faChevronCircleUp, faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { styled } from "styled-components";
+import styled from "styled-components";  // Corrigez cette ligne
 import { theme } from "../../..";
 import { usePanel } from "../../../context/PanelProvider";
+import { useAdminMode } from "../../../context/AdminModeContext";  // Assurez-vous que le chemin est correct
 
 export default function Panel() {
   const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();
+  const [isModeAdmin] = useAdminMode();  // Ajoutez cette ligne
+
   const togglePanel = () => {
     setIsPanelOpen(!isPanelOpen);
     console.log("SetisPanelOpen ", setIsPanelOpen);
-    
- 
   };
+
+  if (!isModeAdmin) {  // Corrigez cette condition
+    return null;
+  }
+
+    
 
   return (
     <PanelStyled>
