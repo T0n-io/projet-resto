@@ -31,7 +31,7 @@ const OrderPageStyled = styled.div`
   justify-content: center;
 
   .container {
-    background: red;
+    /* background: red; */
     height: 95vh;
     max-width: 1400px;
     width: 90%;

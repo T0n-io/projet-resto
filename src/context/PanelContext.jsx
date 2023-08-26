@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const PanelContext = createContext();
 
@@ -11,7 +11,7 @@ export function usePanel() {
 }
 
 export const PanelProvider = ({ children }) => {
-  const [isPanelOpen, setIsPanelOpen] = useState(true);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("addProduct");
 
   const value = {

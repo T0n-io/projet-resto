@@ -27,6 +27,9 @@ background: ${theme.colors.background_white};
 
   display: grid;
   grid-template-columns: 1fr;
+  background: ${theme.colors.background_white} ;
+  position: relative;
+
 
   overflow-y: scroll;
   .basket {

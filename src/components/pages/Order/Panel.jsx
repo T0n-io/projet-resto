@@ -1,22 +1,27 @@
-import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleDown,
+  faChevronCircleUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
 import { theme } from "../../..";
 import { usePanel } from "../../../context/PanelContext";
 
 export default function Panel() {
-
- const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();
- const togglePanel = () => {
-  setIsPanelOpen(!isPanelOpen);}
-
+  const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();
+  const togglePanel = () => {
+    setIsPanelOpen(!isPanelOpen);
+    console.log("SetisPanelOpen ", setIsPanelOpen);
+    
+ 
+  };
 
   return (
     <PanelStyled isPanelOpen={isPanelOpen}>
       <div className="onglets">
         <button className="reduire" onClick={togglePanel}>
           <div className="icon">
-            <FontAwesomeIcon icon={faChevronCircleDown} />
+            {isPanelOpen ? <FontAwesomeIcon icon={faChevronCircleDown} /> : <FontAwesomeIcon icon={faChevronCircleUp} />}
           </div>
         </button>
         <button className="onglet" onClick={() => setActiveTab("addProduct")}>
@@ -28,10 +33,10 @@ export default function Panel() {
           <div className="onglet-text">Modifier un produit</div>
         </button>
       </div>
-      <div className="panel-page"> 
+      <div className="panel-page-active">
         {activeTab === "addProduct" && "Ici la page pour ajouter un produit"}
         {activeTab === "editProduct" && "Ici la page pour modifier un produit"}
-        </div>
+      </div>
     </PanelStyled>
   );
 }
@@ -39,10 +44,11 @@ export default function Panel() {
 const PanelStyled = styled.div`
   display: inline-flex;
   flex-direction: column;
-  height: 44px;
+  height: auto;
   position: sticky;
   bottom: 0;
   left: 0;
+  /* background: pink; */
   /* width: auto; */
   .onglets {
     display: flex;
@@ -50,6 +56,8 @@ const PanelStyled = styled.div`
     align-items: center;
     margin-left: 71px;
     height: 44px;
+    /* background: red; */
+
     .reduire {
       display: flex;
       justify-content: center;
@@ -85,9 +93,9 @@ const PanelStyled = styled.div`
       }
     }
   }
-  .panel-page {
-    height: 2500px;
+  .panel-page-active {
     /* display: none; */
-    
+    height: 240px;
+    background-color: chartreuse;
   }
 `;
