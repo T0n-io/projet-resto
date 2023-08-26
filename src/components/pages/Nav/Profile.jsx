@@ -6,7 +6,7 @@ import { theme } from "../../..";
 // eslint-disable-next-line react/prop-types
 export default function Profile({ userName }) {
   return (
-    <ProfileStyled userName={userName}>
+    <ProfileStyled>
         <div className="right-container-child">
         <div className="welcome">
           Hey,<span className="nav-user-name">{userName}</span>
