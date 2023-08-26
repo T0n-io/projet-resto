@@ -53,10 +53,11 @@ export function usePanel() {
 }
 
 // Le composant de fournisseur qui enveloppe la partie de votre application où vous souhaitez partager ce contexte.
+// eslint-disable-next-line react/prop-types
 export const PanelProvider = ({ children }) => {
   // Initialise l'état
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const [activeTab, setActiveTab] = useState("addProduct");
+  const [activeTab, setActiveTab] = useState("");
 
   // useEffect qui récupère l'onglet actif du localStorage quand le composant est monté
   useEffect(() => {
