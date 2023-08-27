@@ -35,7 +35,7 @@ const CardContainerStyled = styled.div`
   background-color: ${theme.colors.white};
   h2 {
     font-family: "Amatic SC", cursive;
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weights.bold};
     margin: 0;
     white-space: nowrap; // Empêche le texte de passer à la ligne

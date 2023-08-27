@@ -15,7 +15,7 @@ const NavBarLeftSideStyled = styled.button`
     border: none;
     background: none;
     color: ${theme.colors.greyMedium};
-    font-size: ${theme.fonts.XS};
+    font-size: ${theme.fonts.size.XS};
     cursor: pointer;
     .small-logo {
       transform: scale(1);
