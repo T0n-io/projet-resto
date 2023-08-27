@@ -115,5 +115,6 @@ const PanelStyled = styled.div`
     transition: height 0.5s ease-in-out;
     box-shadow: ${theme.shadows.subtle};
     padding: 20px;
+    border: 1px solid ${theme.colors.greyLight};
   }
 `;
