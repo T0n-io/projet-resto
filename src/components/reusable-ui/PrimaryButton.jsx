@@ -14,7 +14,7 @@ const PrimaryButtonStyled = styled.button`
  
   width: 100%;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: ${theme.fonts.weights.heavy};
   display: flex;
   justify-content: center;
   align-items: center;

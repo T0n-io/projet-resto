@@ -72,12 +72,24 @@ export const PanelProvider = ({ children }) => {
     localStorage.setItem('activeTab', activeTab);
   }, [activeTab]);
 
+  const handleTabClick = (newTab) => {
+    // Si le nouvel onglet est le même que l'onglet actif, inversez l'état de isPanelOpen
+    if (newTab === activeTab) {
+      setIsPanelOpen(!isPanelOpen);
+    } else {
+      // Sinon, mettez à jour l'onglet actif et ouvrez le panneau
+      setActiveTab(newTab);
+      setIsPanelOpen(true);
+    }
+  };
+
   // L'objet 'value' contient les données d'état et les fonctions à partager.
   const value = {
     isPanelOpen,
     setIsPanelOpen,
     activeTab,
     setActiveTab,
+    handleTabClick,
   };
 
   return (

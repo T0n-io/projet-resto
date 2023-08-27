@@ -6,7 +6,7 @@ import { usePanel } from "../../../context/PanelProvider";
 import { useAdminMode } from "../../../context/AdminModeContext";  // Assurez-vous que le chemin est correct
 
 export default function Panel() {
-  const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab } = usePanel();
+  const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab, handleTabClick } = usePanel();
   const [isModeAdmin] = useAdminMode();  // Ajoutez cette ligne
 
   const togglePanel = () => {
@@ -14,6 +14,7 @@ export default function Panel() {
     console.log("SetisPanelOpen ", setIsPanelOpen);
   };
 
+  
   if (!isModeAdmin) {  // Corrigez cette condition
     return null;
   }
@@ -28,11 +29,11 @@ export default function Panel() {
             {isPanelOpen ? <FontAwesomeIcon icon={faChevronCircleDown} /> : <FontAwesomeIcon icon={faChevronCircleUp} />}
           </div>
         </button>
-        <button className={`onglet ${activeTab === "addProduct" ? "active" : ""}`} onClick={() => setActiveTab("addProduct")}>
+        <button className={`onglet ${activeTab === "addProduct" ? "active" : ""}`} onClick={() => handleTabClick("addProduct")}>
           <div><FontAwesomeIcon icon={faPlus} /></div>
           <div className="onglet-text">Ajouter un produit</div>
         </button>
-        <button className={`onglet ${activeTab === "editProduct" ? "active" : ""}`} onClick={() => setActiveTab("editProduct")}>
+        <button className={`onglet ${activeTab === "editProduct" ? "active" : ""}`} onClick={() => handleTabClick("editProduct")}>
           <div>
           <FontAwesomeIcon icon={faPen} />
           </div>
@@ -40,8 +41,8 @@ export default function Panel() {
         </button>
       </div>
       <div className={`panel-page ${isPanelOpen ? 'open' : 'closed'}`}>
-        {activeTab === "addProduct" && "Ici la page pour ajouter un produit"}
-        {activeTab === "editProduct" && "Ici la page pour modifier un produit"}
+        {activeTab === "addProduct" && "Ajouter un produit"}
+        {activeTab === "editProduct" && "Modifier un produit"}
       </div>
     </PanelStyled>
   );
@@ -62,7 +63,6 @@ const PanelStyled = styled.div`
     align-items: center;
     margin-left: 71px;
     height: 44px;
-    /* background: red; */
 
     .reduire {
       display: flex;
@@ -93,6 +93,12 @@ const PanelStyled = styled.div`
           background: ${theme.colors.dark};
           color: ${theme.colors.white};
         }
+        &:hover {
+          cursor: pointer;
+          /* background: ${theme.colors.dark}; */
+          /* color: ${theme.colors.white}; */
+          text-decoration: underline;
+        }
       .icon {
         /* padding: 5px; */
         display: flex;
@@ -107,12 +113,14 @@ const PanelStyled = styled.div`
     /* display: none; */
     height: 0px;
     transition: height 0.5s ease-in-out;
+    padding: 20px;
 
   }
   .panel-page.open {
     /* display: none; */
     height: 240px;
-    background-color: red;
+    background-color: ${theme.colors.background_white};
     transition: height 0.5s ease-in-out;
+    box-shadow: ${theme.shadows.subtle};
   }
 `;

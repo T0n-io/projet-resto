@@ -36,7 +36,7 @@ const CardContainerStyled = styled.div`
   h2 {
     font-family: "Amatic SC", cursive;
     font-size: ${theme.fonts.P4};
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.fonts.weights.bold};
     margin: 0;
     white-space: nowrap; // Empêche le texte de passer à la ligne
     overflow: hidden; // Cache le texte excédentaire
@@ -67,7 +67,7 @@ const CardContainerStyled = styled.div`
       border: none;
       background-color: ${theme.colors.primary};
       color: ${theme.colors.white};
-      font-weight: ${theme.weights.bold};
+      font-weight: ${theme.fonts.weights.bold};
       width: 95px;
       height: 38px;
       border-radius: ${theme.borderRadius.round};

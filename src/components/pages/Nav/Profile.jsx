@@ -40,7 +40,7 @@ const ProfileStyled = styled.div`
 
   .nav-user-name {
     color: ${theme.colors.primary};
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.fonts.weights.bold};
     margin-left: 3px;
   }
   button {
