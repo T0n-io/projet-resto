@@ -57,7 +57,7 @@ export function usePanel() {
 export const PanelProvider = ({ children }) => {
   // Initialise l'état
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("addProduct");
 
   // useEffect qui récupère l'onglet actif du localStorage quand le composant est monté
   useEffect(() => {
