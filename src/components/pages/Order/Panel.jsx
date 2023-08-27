@@ -4,6 +4,7 @@ import styled from "styled-components";  // Corrigez cette ligne
 import { theme } from "../../..";
 import { usePanel } from "../../../context/PanelProvider";
 import { useAdminMode } from "../../../context/AdminModeContext";  // Assurez-vous que le chemin est correct
+import { TabButton } from "./TabPanel";
 
 export default function Panel() {
   const { isPanelOpen, setIsPanelOpen, activeTab, setActiveTab, handleTabClick } = usePanel();
@@ -29,16 +30,8 @@ export default function Panel() {
             {isPanelOpen ? <FontAwesomeIcon icon={faChevronCircleDown} /> : <FontAwesomeIcon icon={faChevronCircleUp} />}
           </div>
         </button>
-        <button className={`onglet ${activeTab === "addProduct" ? "active" : ""}`} onClick={() => handleTabClick("addProduct")}>
-          <div><FontAwesomeIcon icon={faPlus} /></div>
-          <div className="onglet-text">Ajouter un produit</div>
-        </button>
-        <button className={`onglet ${activeTab === "editProduct" ? "active" : ""}`} onClick={() => handleTabClick("editProduct")}>
-          <div>
-          <FontAwesomeIcon icon={faPen} />
-          </div>
-          <div className="onglet-text">Modifier un produit</div>
-        </button>
+        <TabButton isActive={activeTab === "addProduct"} onClick={() => handleTabClick("addProduct")} icon={faPlus} label="Ajouter un produit" />
+        <TabButton isActive={activeTab === "editProduct"} onClick={() => handleTabClick("editProduct")} icon={faPen} label="Modifier un produit" />
       </div>
       <div className={`panel-page ${isPanelOpen ? 'open' : 'closed'}`}>
         {activeTab === "addProduct" && "Ajouter un produit"}
