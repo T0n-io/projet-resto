@@ -113,8 +113,7 @@ const PanelStyled = styled.div`
     /* display: none; */
     height: 0px;
     transition: height 0.5s ease-in-out;
-    padding: 20px;
-
+    
   }
   .panel-page.open {
     /* display: none; */
@@ -122,5 +121,6 @@ const PanelStyled = styled.div`
     background-color: ${theme.colors.background_white};
     transition: height 0.5s ease-in-out;
     box-shadow: ${theme.shadows.subtle};
+    padding: 20px;
   }
 `;
