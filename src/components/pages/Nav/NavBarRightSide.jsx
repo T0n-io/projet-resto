@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import ToggleButton from "./ToggleButton";
+import ToggleButton from "../../reusable-ui/ToggleButton";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";

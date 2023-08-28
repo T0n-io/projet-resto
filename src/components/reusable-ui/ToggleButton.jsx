@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import { theme } from "../../..";
+import { theme } from "../..";
 
 export default function ToggleButton({
   isChecked,
