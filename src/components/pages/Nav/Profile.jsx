@@ -1,15 +1,20 @@
 import { BsPersonCircle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
 
 // eslint-disable-next-line react/prop-types
-export default function Profile({ userName }) {
+
+
+export default function Profile() {
+
+  const { username } = useParams();
+
   return (
     <ProfileStyled>
         <div className="right-container-child">
         <div className="welcome">
-          Hey,<span className="nav-user-name">{userName}</span>
+          Hey,<span className="nav-user-name">{username}</span>
         </div>
         <Link to="/">
           <button>Se déconnecter</button>

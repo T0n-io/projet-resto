@@ -5,7 +5,7 @@ import NavBarLeftSide from "./NavBarLeftSide";
 import { refreshPage } from "../../../utils/window";
 
 // eslint-disable-next-line react/prop-types
-export default function NavBar({ username }) {
+export default function NavBar() {
   // const handleLogoClick = () => {
   //   window.location.reload();
   // };
@@ -14,7 +14,7 @@ export default function NavBar({ username }) {
     <div>
       <NavBarStyled>
         <NavBarLeftSide onClick={refreshPage}/>
-        <NavBarRightSide username={username} />
+        <NavBarRightSide />
       </NavBarStyled>
     </div>
   );

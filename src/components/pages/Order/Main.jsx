@@ -6,8 +6,7 @@ import Panel from "./Panel";
 
 export default function Main() {
   // state
-  const { username } = useParams();
-  console.log("username: ", username);
+
   return (
     <MainStyled className="main">
       <Menu />
