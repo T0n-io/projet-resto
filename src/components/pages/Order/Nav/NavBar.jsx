@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import { theme } from "../../..";
+import { theme } from "../../../..";
 import NavBarRightSide from "./NavBarRightSide";
 import NavBarLeftSide from "./NavBarLeftSide";
-import { refreshPage } from "../../../utils/window";
+import { refreshPage } from "../../../../utils/window.jsx";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar() {

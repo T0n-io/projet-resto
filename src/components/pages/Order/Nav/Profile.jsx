@@ -1,18 +1,16 @@
 import { BsPersonCircle } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import { theme } from "../../..";
+import { theme } from "../../../..";
 
 // eslint-disable-next-line react/prop-types
 
-
 export default function Profile() {
-
   const { username } = useParams();
 
   return (
     <ProfileStyled>
-        <div className="right-container-child">
+      <div className="right-container-child">
         <div className="welcome">
           Hey,<span className="nav-user-name">{username}</span>
         </div>
@@ -24,15 +22,14 @@ export default function Profile() {
         <BsPersonCircle className={"icon"} />
       </div>
     </ProfileStyled>
-  )
+  );
 }
 
 const ProfileStyled = styled.div`
-
-    display: flex;
-    flex-direction: row;
-    margin-right: 10px;
-    padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  padding-left: 50px;
 
   .welcome {
     text-align: right;
@@ -56,6 +53,4 @@ const ProfileStyled = styled.div`
   button:hover {
     color: ${theme.colors.primary};
   }
-
- 
 `;

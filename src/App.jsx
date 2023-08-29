@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import LoginPage from "./components/pages/login/LoginPage";
 import OrderPage from "./components/pages/Order/OrderPage";
 import ErrorPage from "./components/pages/Error/ErrorPage";
-import ToastAdmin from "./components/pages/Nav/ToastAdmin";
+import ToastAdmin from "./components/pages/Order/Nav/ToastAdmin";
 
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";

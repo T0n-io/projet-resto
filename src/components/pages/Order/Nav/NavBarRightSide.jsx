@@ -1,11 +1,11 @@
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import ToggleButton from "../../reusable-ui/ToggleButton";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
-import { useAdminMode } from "../../../context/AdminModeContext";
+import { useAdminMode } from "../../../../context/AdminModeContext";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarRightSide({ username }) {
@@ -15,8 +15,6 @@ export default function NavBarRightSide({ username }) {
   // Fonction pour gérer le basculement et afficher une notification
   const displayToastNotification = () => {
     if (!isModeAdmin) {
-
-      
       toast.info("Mode admin activé", {
         icon: <FontAwesomeIcon icon={faUserSecret} size="xl" />,
         theme: "dark",
@@ -29,9 +27,8 @@ export default function NavBarRightSide({ username }) {
         progress: undefined,
       });
     }
-    setIsModeAdmin(!isModeAdmin)
-    } 
-
+    setIsModeAdmin(!isModeAdmin);
+  };
 
   return (
     <NavBarRightSideStyled>
@@ -42,7 +39,6 @@ export default function NavBarRightSide({ username }) {
         labelIfChecked="désactiver LE MODE ADMIN"
       />
       <Profile userName={username} />
-      
     </NavBarRightSideStyled>
   );
 }

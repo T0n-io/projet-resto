@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import NavBar from "../Nav/NavBar";
+import NavBar from "./Nav/NavBar";
 import Main from "../Order/Main";
 // import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
