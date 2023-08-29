@@ -4,25 +4,40 @@ import Main from "./Main/Main";
 // import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import { PanelProvider } from "../../../context/PanelProvider";
-import { AdminModeProvider } from "../../../context/AdminModeContext";
+// import { PanelProvider } frlleom "../../../context/PanelProvider";
+// import { AdminModeProvider } from "../../../context/AdminModeContext";
+import { useState } from "react";
+import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
-  //state
-  // const { username } = useParams();
-  // console.log("navusername: ", username);
-  // affichage
+ // state
+ const [isModeAdmin, setIsModeAdmin] = useState(false)
+ const [isCollapsed, setIsCollapsed] = useState(false)
+ const [currentTabSelected, setCurrentTabSelected] = useState("add")
+
+ // comportements
+
+ const orderContextValue = {
+   isModeAdmin,
+   setIsModeAdmin,
+   isCollapsed,
+   setIsCollapsed,
+   currentTabSelected,
+   setCurrentTabSelected,
+ }
   return (
-    <AdminModeProvider>
-      <PanelProvider>
+    // <AdminModeProvider>
+    //   <PanelProvider>
+    <OrderContext.Provider value={orderContextValue} >
         <OrderPageStyled>
           <div className="container">
             <NavBar />
             <Main />
           </div>
         </OrderPageStyled>
-      </PanelProvider>
-    </AdminModeProvider>
+    {/* //   </PanelProvider> */}
+    {/* // </AdminModeProvider> */}
+    </OrderContext.Provider>
   );
 }
 

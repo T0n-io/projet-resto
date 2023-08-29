@@ -5,12 +5,14 @@ import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
-import { useAdminMode } from "../../../../context/AdminModeContext";
+// import { useAdminMode } from "../../../../context/AdminModeContext";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 // eslint-disable-next-line react/prop-types
-export default function NavBarRightSide({ username }) {
+export default function NavBarRightSide() {
   // État pour gérer le bouton de basculement
-  const [isModeAdmin, setIsModeAdmin] = useAdminMode();
+  const {isModeAdmin, setIsModeAdmin} = useContext(OrderContext);
 
   // Fonction pour gérer le basculement et afficher une notification
   const displayToastNotification = () => {
@@ -38,7 +40,7 @@ export default function NavBarRightSide({ username }) {
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="désactiver LE MODE ADMIN"
       />
-      <Profile userName={username} />
+      <Profile />
     </NavBarRightSideStyled>
   );
 }
