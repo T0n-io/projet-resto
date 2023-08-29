@@ -1,45 +1,41 @@
-import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import { theme } from "../../..";
-import Menu from "./Menu";
-import Panel from "./Panel";
+import { theme } from "../../../..";
+import Menu from "../Menu";
+import Panel from "../Panel";
+import Basket from "./Basket";
 
 export default function Main() {
   // state
 
   return (
     <MainStyled className="main">
+      {/* <Basket /> */}
+      <div>
+
       <Menu />
       <Panel />
-   </MainStyled>
+      </div>
+    </MainStyled>
   );
 }
 
 const MainStyled = styled.div`
-
-background: ${theme.colors.background_white};
+  background: ${theme.colors.background_white};
   flex: 1; // or you can also use this : height: calc(95vh - 10vh);
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  background: ${theme.colors.background_white} ;
+  display: flex;
+  /* grid-template-columns: 1fr; */
+  background: ${theme.colors.background_white};
   position: relative;
-
 
   overflow-y: scroll;
   .basket {
     background: pink;
   }
-
-
-
-
-
-
 
   /* width: 100%;
   max-width: 1400px;
