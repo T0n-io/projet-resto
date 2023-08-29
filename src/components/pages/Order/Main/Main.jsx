@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { theme } from "../../../..";
 import Menu from "../Menu";
-import Panel from "../Panel";
+import Panel from "./MainRightSide/Admin/Panel";
 import Basket from "./Basket";
 
 export default function Main() {
@@ -11,9 +11,8 @@ export default function Main() {
     <MainStyled className="main">
       {/* <Basket /> */}
       <div>
-
-      <Menu />
-      <Panel />
+        <Menu />
+        <Panel />
       </div>
     </MainStyled>
   );

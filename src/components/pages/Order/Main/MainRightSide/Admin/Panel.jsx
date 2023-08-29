@@ -6,9 +6,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components"; // Corrigez cette ligne
-import { theme } from "../../..";
-import { usePanel } from "../../../context/PanelProvider";
-import { useAdminMode } from "../../../context/AdminModeContext"; // Assurez-vous que le chemin est correct
+import { theme } from "../../../../../..";
+import { usePanel } from "../../../../../../context/PanelProvider";
+import { useAdminMode } from "../../../../../../context/AdminModeContext"; // Assurez-vous que le chemin est correct
 import { TabButton } from "./TabPanel";
 
 export default function Panel() {
