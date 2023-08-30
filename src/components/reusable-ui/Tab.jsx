@@ -40,7 +40,9 @@ const TabStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-
+  &:hover {
+    border-bottom: none;
+  }
   :hover {
     border-bottom: 2px solid ${theme.colors.white};
     text-decoration: underline;
