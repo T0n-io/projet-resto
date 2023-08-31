@@ -19,7 +19,8 @@ const InputStyled = styled.div`
   padding: 18px 24px;
   margin: 18px 0;
   .icon {
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0
+    };
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
   }
@@ -31,7 +32,7 @@ const InputStyled = styled.div`
     width: 100%;
     &::placeholder{
       background: ${theme.colors.white};
-      color: ${theme.colors.greyDarkF};
+      color: ${theme.colors.greyDark};
     }
   }
 `;

@@ -60,11 +60,11 @@ const LoginFormStyled = styled.form`
   }
 
   h1 {
-    font-size: ${theme.fonts.P5};
+    font-size: ${theme.fonts.size.P5};
     color: ${theme.colors.white};
   }
   h2 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.white};
     margin: 20px 10px 10px;
   }
@@ -73,7 +73,7 @@ const LoginFormStyled = styled.form`
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    font-size: ${theme.fonts.P1};
+    font-size: ${theme.fonts.size.P1};
   }
   
 `;

@@ -1,22 +1,22 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
-import ToggleButton from "./ToggleButton";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./Profile";
+// import { useAdminMode } from "../../../../context/AdminModeContext";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 // eslint-disable-next-line react/prop-types
-export default function NavBarRightSide({ username }) {
+export default function NavBarRightSide() {
   // État pour gérer le bouton de basculement
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const {isModeAdmin, setIsModeAdmin} = useContext(OrderContext);
 
   // Fonction pour gérer le basculement et afficher une notification
   const displayToastNotification = () => {
     if (!isModeAdmin) {
-
-      
       toast.info("Mode admin activé", {
         icon: <FontAwesomeIcon icon={faUserSecret} size="xl" />,
         theme: "dark",
@@ -29,20 +29,18 @@ export default function NavBarRightSide({ username }) {
         progress: undefined,
       });
     }
-    setIsModeAdmin(!isModeAdmin)
-    } 
-
+    setIsModeAdmin(!isModeAdmin);
+  };
 
   return (
     <NavBarRightSideStyled>
       <ToggleButton
-        isModeAdmin={isModeAdmin}
+        isChecked={isModeAdmin}
         onToggle={displayToastNotification}
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
         labelIfChecked="désactiver LE MODE ADMIN"
       />
-      <Profile userName={username} />
-      
+      <Profile />
     </NavBarRightSideStyled>
   );
 }

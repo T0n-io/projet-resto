@@ -1,15 +1,18 @@
 import { BsPersonCircle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import { theme } from "../../..";
+import { theme } from "../../../..";
 
 // eslint-disable-next-line react/prop-types
-export default function Profile({ userName }) {
+
+export default function Profile() {
+  const { username } = useParams();
+
   return (
-    <ProfileStyled userName={userName}>
-        <div className="right-container-child">
+    <ProfileStyled>
+      <div className="right-container-child">
         <div className="welcome">
-          Hey,<span className="nav-user-name">{userName}</span>
+          Hey,<span className="nav-user-name">{username}</span>
         </div>
         <Link to="/">
           <button>Se déconnecter</button>
@@ -19,15 +22,14 @@ export default function Profile({ userName }) {
         <BsPersonCircle className={"icon"} />
       </div>
     </ProfileStyled>
-  )
+  );
 }
 
 const ProfileStyled = styled.div`
-
-    display: flex;
-    flex-direction: row;
-    margin-right: 10px;
-    padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  padding-left: 50px;
 
   .welcome {
     text-align: right;
@@ -40,7 +42,7 @@ const ProfileStyled = styled.div`
 
   .nav-user-name {
     color: ${theme.colors.primary};
-    font-weight: ${theme.weights.bold};
+    font-weight: ${theme.fonts.weights.bold};
     margin-left: 3px;
   }
   button {
@@ -51,6 +53,4 @@ const ProfileStyled = styled.div`
   button:hover {
     color: ${theme.colors.primary};
   }
-
- 
 `;
