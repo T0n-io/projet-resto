@@ -1,7 +1,7 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import styled from "styled-components"
 import OrderContext from "../../../../../../context/OrderContext"
-import AdminPanel from "./AdminPanel"
+import AdminPanel from "../AdminPanel/AdminPanel.jsx"
 import AdminTabs from "./AdminTabs"
 
 export default function Admin() {
