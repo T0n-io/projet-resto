@@ -1,30 +1,48 @@
 /* eslint-disable no-undef */
 import NavBar from "./Nav/NavBar";
 import Main from "./Main/Main";
-// import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-// import { PanelProvider } frlleom "../../../context/PanelProvider";
-// import { AdminModeProvider } from "../../../context/AdminModeContext";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../../data/fakeMenu";
 
 export default function OrderPage() {
  // state
  const [isModeAdmin, setIsModeAdmin] = useState(true)
  const [isCollapsed, setIsCollapsed] = useState(false)
  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+ const [menu, setMenu] = useState(fakeMenu.LARGE)
+
+
+//comportements
+const handleAdd = (newProduct) => {
+
+  // 1. copie du tableau
+  const menuCopy = [...menu]
+
+  // 2. ajout du produit
+  const menuUpdated = [ newProduct, ...menuCopy ]
+
+  // 3. mise à jour du state
+  setMenu(menuUpdated)
+}
+const orderContextValue = {
+  isModeAdmin,
+  setIsModeAdmin,
+  isCollapsed,
+  setIsCollapsed,
+  currentTabSelected,
+  setCurrentTabSelected,
+  handleAdd,
+  menu,
+  setMenu
+}
+
 
  // comportements
 
- const orderContextValue = {
-   isModeAdmin,
-   setIsModeAdmin,
-   isCollapsed,
-   setIsCollapsed,
-   currentTabSelected,
-   setCurrentTabSelected,
- }
+ 
   return (
     // <AdminModeProvider>
     //   <PanelProvider>

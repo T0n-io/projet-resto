@@ -1,12 +1,16 @@
-import { useState } from "react"
-import styled from "styled-components"
-import { fakeMenu } from "../../../../data/fakeMenu"
-import { theme } from "../../.."
-import { formatPrice } from "../../../utils/maths.jsx"
-import Card from "../../reusable-ui/Card.jsx"
+import { useContext, useState } from "react";
+import styled from "styled-components";
+import { theme } from "../../..";
+import { formatPrice } from "../../../utils/maths.jsx";
+import Card from "../../reusable-ui/Card.jsx";
+import OrderContext from "../../../context/OrderContext";
 
 export default function Menu() {
-  const [menu] = useState(fakeMenu.LARGE)
+  //State
+  const { menu } = useContext(OrderContext);
+  //comportements
+
+  //affichage
 
   return (
     <MenuStyled className="menu">
@@ -18,10 +22,10 @@ export default function Menu() {
             imageSource={imageSource}
             leftDescription={formatPrice(price)}
           />
-        )
+        );
       })}
     </MenuStyled>
-  )
+  );
 }
 
 const MenuStyled = styled.div`
@@ -34,4 +38,4 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   overflow-y: scroll;
-`
+`;
