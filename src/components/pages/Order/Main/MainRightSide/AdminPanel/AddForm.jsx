@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { styled } from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
+import { FiCheck } from "react-icons/fi";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -13,7 +14,7 @@ export default function AddForm() {
   // state
   const { handleAdd } = useContext(OrderContext);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   //comportements
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +24,7 @@ export default function AddForm() {
     };
     handleAdd(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
+    displaySuccessMessage();
   };
 
   const handleChange = (event) => {
@@ -30,6 +32,12 @@ export default function AddForm() {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
+  };
   //affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
@@ -63,7 +71,14 @@ export default function AddForm() {
           onChange={handleChange}
         />
       </div>
-      <button className="submit-button">Submit button</button>
+      <div className="submit">
+        <button className="submit-button">Submit button</button>
+        {isSubmitted && (
+          <div className="submit-message">
+            <FiCheck /> <span>Ajouté avec succès !</span>
+          </div>
+        )}
+      </div>
     </AddFormStyled>
   );
 }
@@ -81,7 +96,7 @@ const AddFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     img {
       width: 100%;
       height: 100%;
@@ -94,9 +109,17 @@ const AddFormStyled = styled.form`
     grid-area: 1 / 2 / -2 / 3;
     display: grid;
   }
-  .submit-button {
+  .submit {
     background-color: blue;
     grid-area: 4 / -2 / -1 / -1;
-    width: 50%;
+    display: flex;
+    align-items: center;
+
+    .submit-button {
+      width: 50%;
+    }
+    .submit-message {
+      border: 1px solid red;
+    }
   }
 `;
