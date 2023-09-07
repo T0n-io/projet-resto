@@ -6,7 +6,7 @@ const EMPTY_PRODUCT = {
   id: "",
   title: "",
   imageSource: "",
-  price: 14,
+  price: 0,
 };
 
 export default function AddForm() {
@@ -22,38 +22,44 @@ export default function AddForm() {
       id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
   };
 
   const handleChange = (event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: value });
   };
-
 
   //affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="img-preview">Image Preview</div>
+      <div className="img-preview">
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <div>Aucune image</div>
+        )}
+      </div>
       <div className="input-fields">
         <input
           name="title"
           value={newProduct.title}
           type="text"
-          placeholder="Nom"
+          placeholder="Nom du produit (ex: Super Burger)"
           onChange={handleChange}
         />
         <input
           name="imageSource"
           value={newProduct.imageSource}
           type="text"
-          placeholder="Image URL"
+          placeholder="Lien URL d'une image (ex: https://la-photo-d'un-produit.png)"
           onChange={handleChange}
         />
         <input
-          name="price" 
+          name="price"
           value={newProduct.price ? newProduct.price : ""}
           type="text"
-          placeholder="Price"
+          placeholder="Prix"
           onChange={handleChange}
         />
       </div>
@@ -72,6 +78,16 @@ const AddFormStyled = styled.form`
   .img-preview {
     background-color: red;
     grid-area: 1 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
   .input-fields {
     background-color: green;
