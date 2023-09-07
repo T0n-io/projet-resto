@@ -19,23 +19,16 @@ export default function AddForm() {
     event.preventDefault();
     const newProductToAdd = {
       ...newProduct,
-      id: new Date().getTime(),
+      id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
   };
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const newValue = event.target.value;
-    setNewProduct({ ...newProduct, [name]: newValue });
+    const {name, value} = event.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
-  // const newProduct = {
-  //   id: new Date().getTime(),
-  //   title: "Nouveau produit",
-  //   imageSource: "https://picsum.photos/300/300",
-  //   price: 2.5,
-  // };
 
   //affichage
   return (
