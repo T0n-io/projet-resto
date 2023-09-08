@@ -4,12 +4,19 @@ import PrimaryButton from "./PrimaryButton";
 import { TiDelete } from "react-icons/ti";
 
 // eslint-disable-next-line react/prop-types
-export default function Card({ title, imageSource, leftDescription }) {
+export default function Card({
+  title,
+  imageSource,
+  leftDescription,
+  hasDeleteButton,
+}) {
   return (
     <CardStyled className="produit">
-      <button className="delete-button" aria-label="delete-button">
-        <TiDelete className="icon" />
-      </button>
+      {hasDeleteButton && (
+        <button className="delete-button" aria-label="delete-button">
+          <TiDelete className="icon" />
+        </button>
+      )}
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>

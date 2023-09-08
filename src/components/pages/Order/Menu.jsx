@@ -7,7 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 
 export default function Menu() {
   //State
-  const { menu } = useContext(OrderContext);
+  const { menu, isModeAdmin } = useContext(OrderContext);
   //comportements
 
   //affichage
@@ -21,6 +21,7 @@ export default function Menu() {
             title={title}
             imageSource={imageSource === "" ? "/images/coming-soon.png" : imageSource }
             leftDescription={formatPrice(price)}
+            hasDeleteButton={isModeAdmin}
           />
         );
       })}
