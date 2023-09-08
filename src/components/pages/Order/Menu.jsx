@@ -4,14 +4,24 @@ import { theme } from "../../..";
 import { formatPrice } from "../../../utils/maths.jsx";
 import Card from "../../reusable-ui/Card.jsx";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../../data/fakeMenu";
 
 export default function Menu() {
   //State
-  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete, resetMenu} = useContext(OrderContext);
   //comportements
-  
+
+
   //affichage
 
+
+  if (menu.length === 0) return (
+
+    <div>
+  <span>Pas de produit</span>
+  <button onClick={resetMenu}>Générer de nouveaux produits</button>
+  </div>
+    )
   return (
     <MenuStyled className="menu">
       {menu.map(({ id, title, imageSource, price }) => {

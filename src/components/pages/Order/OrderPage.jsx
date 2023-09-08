@@ -10,9 +10,9 @@ import { fakeMenu } from "../../../../data/fakeMenu";
 export default function OrderPage() {
  // state
  const [isModeAdmin, setIsModeAdmin] = useState(true)
- const [isCollapsed, setIsCollapsed] = useState(false)
+ const [isCollapsed, setIsCollapsed] = useState(true)
  const [currentTabSelected, setCurrentTabSelected] = useState("add")
- const [menu, setMenu] = useState(fakeMenu.LARGE)
+ const [menu, setMenu] = useState(fakeMenu.SMALL)
 
 
 //comportements
@@ -37,6 +37,9 @@ const handleDelete = (idOfProductToDelete) => {
   //mise à jour du state
   setMenu(menuUpdated);
 };
+const resetMenu = () => {
+  setMenu(fakeMenu.MEDIUM);
+}; 
 
 const orderContextValue = {
   isModeAdmin,
@@ -48,7 +51,8 @@ const orderContextValue = {
   handleAdd,
   menu,
   setMenu,
-  handleDelete
+  handleDelete,
+  resetMenu
 }
 
 
