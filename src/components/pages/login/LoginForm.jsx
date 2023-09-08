@@ -35,11 +35,11 @@ export default function LoginForm() {
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
           required
-          Icon={<BsPersonCircle className={"icon"} />}
+          Icon={<BsPersonCircle />}
           className={"input-container"}
         />
         
-       <PrimaryButton label={"Accéder à mon espace"} Icon={<IoChevronForward className="icon" />} />
+       <PrimaryButton label={"Accéder à mon espace"} Icon={<IoChevronForward/>} />
       </LoginFormStyled>
     </>
   );

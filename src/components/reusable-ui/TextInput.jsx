@@ -5,7 +5,9 @@ import { theme } from "../..";
 export default function TextInput({ value, onChange, Icon, ...restProps }) {
   return (
     <InputStyled>
+    <div className="icon">
       {Icon && Icon}
+    </div>
       <input value={value} onChange={onChange} type="text" {...restProps} />
     </InputStyled>
   );
@@ -19,8 +21,11 @@ const InputStyled = styled.div`
   padding: 18px 24px;
   margin: 18px 0;
   .icon {
-    font-size: ${theme.fonts.size.P0
-    };
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: ${theme.fonts.size.P0};
+    margin-left: 10px;
     margin-right: 8px;
     color: ${theme.colors.greySemiDark};
   }
