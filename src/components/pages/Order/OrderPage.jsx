@@ -85,7 +85,7 @@ const OrderPageStyled = styled.div`
 
   .container {
     /* background: red; */
-    height: 95vh;
+    height: 833px;
     max-width: 1400px;
     width: 90%;
     display: flex;

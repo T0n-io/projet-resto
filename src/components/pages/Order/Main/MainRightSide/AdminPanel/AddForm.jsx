@@ -3,6 +3,10 @@ import { styled } from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import { FiCheck } from "react-icons/fi";
 import { theme } from "../../../../../..";
+import TextInput from "../../../../../reusable-ui/TextInput";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -50,26 +54,34 @@ export default function AddForm() {
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
           name="title"
           value={newProduct.title}
           type="text"
           placeholder="Nom du produit (ex: Super Burger)"
           onChange={handleChange}
+          Icon={<FaHamburger />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           name="imageSource"
           value={newProduct.imageSource}
           type="text"
           placeholder="Lien URL d'une image (ex: https://la-photo-d'un-produit.png)"
           onChange={handleChange}
+          Icon={<BsFillCameraFill />}
+          version="minimalist"
+
         />
-        <input
+        <TextInput
           name="price"
           value={newProduct.price ? newProduct.price : ""}
           type="text"
           placeholder="Prix"
           onChange={handleChange}
+          Icon={<MdOutlineEuro />}
+          version="minimalist"
+
         />
       </div>
       <div className="submit">
@@ -121,12 +133,13 @@ const AddFormStyled = styled.form`
     }
   }
   .input-fields {
-    background-color: green;
+    /* background-color: blue; */
     grid-area: 1 / 2 / -2 / 3;
     display: grid;
+    grid-row-gap: 8px;
   }
   .submit {
-    background-color: blue;
+    background-color: green;
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;

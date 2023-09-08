@@ -9,7 +9,7 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   //state
-  const [inputValue, setInputValue] = useState("Bobadm");
+  const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
   //comportement
   const handleSubmit = (event) => {
@@ -37,6 +37,7 @@ export default function LoginForm() {
           required
           Icon={<BsPersonCircle />}
           className={"input-login"}
+          version="normal"
         />
         
        <PrimaryButton label={"Accéder à mon espace"} Icon={<IoChevronForward/>} />
@@ -52,6 +53,7 @@ const LoginFormStyled = styled.form`
   margin: 0 auto;
   padding: 2.5rem 2rem;
   border-radius: ${theme.borderRadius.round};
+  
 
   hr {
     /* width: 100%; */
@@ -77,6 +79,7 @@ const LoginFormStyled = styled.form`
   }
   .input-login{
     margin: 18px 0; // must be handled by parent
+    padding: 18px 24px;
 
   }
 `;
