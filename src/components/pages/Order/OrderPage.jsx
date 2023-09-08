@@ -27,6 +27,17 @@ const handleAdd = (newProduct) => {
   // 3. mise à jour du state
   setMenu(menuUpdated)
 }
+
+const handleDelete = (idOfProductToDelete) => {
+  //copy du state
+  const menuCopy = [...menu];
+  //manipulation du state
+  const menuUpdated = menuCopy.filter((product) => product.id !== idOfProductToDelete);
+  console.log("menuUpdated: ", menuUpdated);
+  //mise à jour du state
+  setMenu(menuUpdated);
+};
+
 const orderContextValue = {
   isModeAdmin,
   setIsModeAdmin,
@@ -36,7 +47,8 @@ const orderContextValue = {
   setCurrentTabSelected,
   handleAdd,
   menu,
-  setMenu
+  setMenu,
+  handleDelete
 }
 
 

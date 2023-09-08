@@ -7,9 +7,9 @@ import OrderContext from "../../../context/OrderContext";
 
 export default function Menu() {
   //State
-  const { menu, isModeAdmin } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext);
   //comportements
-
+  
   //affichage
 
   return (
@@ -19,9 +19,12 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource === "" ? "/images/coming-soon.png" : imageSource }
+            imageSource={
+              imageSource === "" ? "/images/coming-soon.png" : imageSource
+            }
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
+            onDelete={() => handleDelete(id)}
           />
         );
       })}
