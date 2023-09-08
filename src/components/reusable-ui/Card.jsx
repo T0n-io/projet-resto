@@ -1,11 +1,15 @@
-import styled from "styled-components"
-import { theme } from "../.."
-import PrimaryButton from "./PrimaryButton"
+import styled from "styled-components";
+import { theme } from "../..";
+import PrimaryButton from "./PrimaryButton";
+import { TiDelete } from "react-icons/ti";
 
 // eslint-disable-next-line react/prop-types
 export default function Card({ title, imageSource, leftDescription }) {
   return (
     <CardStyled className="produit">
+      <button className="delete-button" aria-label="delete-button">
+        <TiDelete className="icon" />
+      </button>
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -19,7 +23,7 @@ export default function Card({ title, imageSource, leftDescription }) {
         </div>
       </div>
     </CardStyled>
-  )
+  );
 }
 
 const CardStyled = styled.div`
@@ -32,7 +36,29 @@ const CardStyled = styled.div`
   padding-bottom: 10px;
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+  position: relative;
 
+  .delete-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: ${theme.colors.primary};
+    z-index: 2;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      color: ${theme.colors.red};
+    }
+
+    .icon {
+      height: 100%;
+      width: 100%;
+    }
+  }
   .image {
     width: 100%;
     height: auto;
@@ -96,4 +122,4 @@ const CardStyled = styled.div`
       }
     }
   }
-`
+`;
