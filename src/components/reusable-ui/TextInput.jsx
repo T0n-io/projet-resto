@@ -36,12 +36,19 @@ const TextInputStyled = styled.div`
       color: ${theme.colors.greyMedium};
     }
   }
-  ${(props) => props.version === "normal" && extraStyleNormal };
-  ${(props) => props.version === "minimalist" && extraMinimalistStyle };
+  /* ${(props) => {
+   if (props.version === "normal") return extraStyleNormal 
+   if (props.version === "minimalist") return extraStyleMinimalist
+  }} */
+
+  ${({version}) => extraStyle[version] }
+
   `
 
+  
 const extraStyleNormal = css`
   background-color: ${theme.colors.white};
+  /* background: red; */
   padding: 18px 28px;
   color: ${theme.colors.greySemiDark};
   
@@ -55,8 +62,9 @@ const extraStyleNormal = css`
 
 `;
 
-const extraMinimalistStyle = css`
+const extraStyleMinimalist = css`
 background: ${theme.colors.background_white};
+/* background: green; */
 padding: 8px 16px;
 color: ${theme.colors.greyBlue};
 
@@ -68,3 +76,7 @@ input{
   }
 }
 `
+const extraStyle = {
+  normal: extraStyleNormal,
+  minimalist: extraStyleMinimalist
+}
