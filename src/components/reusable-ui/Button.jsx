@@ -12,10 +12,10 @@ export default function Button({ label, Icon, className, version = "normal", onC
 }
 
 const ButtonStyled = styled.button`
-  ${(props) => props.version === "normal" && extraStylePrimary};
-  ${(props) => props.version === "success" && extraStyleSuccess};
+  /* ${(props) => props.version === "normal" && extraStylePrimary};
+  ${(props) => props.version === "success" && extraStyleSuccess}; */
 
-  ${({ version }) => extraStyle[version]};
+  ${({ version }) => extraStyle[version]}
 `
 
 const extraStylePrimary = css`
@@ -43,7 +43,7 @@ const extraStylePrimary = css`
     border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-  :active {
+  &:active {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
   }
@@ -90,13 +90,13 @@ const extraStyleSuccess = css`
     color: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-  :active {
+  &:active {
     color: ${theme.colors.white};
     background: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
 `
 const extraStyle = {
-  primary: extraStylePrimary,
-  sucess: extraStyleSuccess,
+  normal: extraStylePrimary,
+  success: extraStyleSuccess,
 }

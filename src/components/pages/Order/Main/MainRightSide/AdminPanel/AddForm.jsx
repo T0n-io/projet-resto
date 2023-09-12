@@ -53,7 +53,7 @@ export default function AddForm() {
       <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title}/>
       <div className="input-fields">
         {inputTexts.map((input) => (
-          <TextInput {...input}
+          <TextInput key={input.id} {...input}
             onChange={handleChange}
             version="minimalist"
 
