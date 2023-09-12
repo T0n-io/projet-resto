@@ -1,16 +1,24 @@
-import styled from "styled-components"
+/* eslint-disable react/prop-types */
+import styled, { css } from "styled-components"
 import { theme } from "../.."
 
-export default function PrimaryButton({ label, Icon, className }) {
+export default function Button({ label, Icon, className, version = "normal", onClick}) {
   return (
-    <PrimaryButtonStyled className={className}>
+    <ButtonStyled className={className} version={version}  onClick={onClick}>
       <span>{label}</span>
-      {Icon && Icon}
-    </PrimaryButtonStyled>
+      <div className="icon">{Icon && Icon}</div>
+    </ButtonStyled>
   )
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
+  /* ${(props) => props.version === "normal" && extraStylePrimary};
+  ${(props) => props.version === "success" && extraStyleSuccess}; */
+
+  ${({ version }) => extraStyle[version]}
+`
+
+const extraStylePrimary = css`
   width: 100%;
   border: 1px solid red;
   display: inline-flex;
@@ -29,13 +37,13 @@ const PrimaryButtonStyled = styled.button`
   background-color: #ff9f1b;
   border: 1px solid #ff9f1b;
 
-  :hover {
+  &:hover {
     color: ${theme.colors.primary};
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-  :active {
+  &:active {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
   }
@@ -50,7 +58,7 @@ const PrimaryButtonStyled = styled.button`
     border: 1px solid white;
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
-    :hover {
+    &:hover {
       color: ${theme.colors.white};
       background-color: ${theme.colors.primary};
       border: 1px solid ${theme.colors.white};
@@ -60,4 +68,35 @@ const PrimaryButtonStyled = styled.button`
       color: ${theme.colors.primary};
     }
   }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
+
+const extraStyleSuccess = css`
+  cursor: pointer;
+  color: ${theme.colors.white};
+  background: ${theme.colors.success};
+  border: 1px solid ${theme.colors.success};
+  border-radius: ${theme.borderRadius.round};
+  height: 35px;
+  padding: 0 1.5em;
+  font-weight: ${theme.fonts.weights.semiBold};
+  &:hover {
+    background: ${theme.colors.white};
+    color: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
+  &:active {
+    color: ${theme.colors.white};
+    background: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+  }
+`
+const extraStyle = {
+  normal: extraStylePrimary,
+  success: extraStyleSuccess,
+}

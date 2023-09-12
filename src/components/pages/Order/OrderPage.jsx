@@ -1,30 +1,69 @@
 /* eslint-disable no-undef */
 import NavBar from "./Nav/NavBar";
 import Main from "./Main/Main";
-// import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-// import { PanelProvider } frlleom "../../../context/PanelProvider";
-// import { AdminModeProvider } from "../../../context/AdminModeContext";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../../data/fakeMenu";
+import { EMPTY_PRODUCT } from "./Main/MainRightSide/AdminPanel/AddForm";
 
 export default function OrderPage() {
  // state
  const [isModeAdmin, setIsModeAdmin] = useState(false)
  const [isCollapsed, setIsCollapsed] = useState(false)
  const [currentTabSelected, setCurrentTabSelected] = useState("add")
+ const [menu, setMenu] = useState(fakeMenu.SMALL)
+ const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+
+
+
+//comportements
+const handleAdd = (newProduct) => {
+
+  // 1. copie du tableau
+  const menuCopy = [...menu]
+
+  // 2. ajout du produit
+  const menuUpdated = [ newProduct, ...menuCopy ]
+
+  // 3. mise à jour du state
+  setMenu(menuUpdated)
+}
+
+const handleDelete = (idOfProductToDelete) => {
+  //copy du state
+  const menuCopy = [...menu];
+  //manipulation du state
+  const menuUpdated = menuCopy.filter((product) => product.id !== idOfProductToDelete);
+  console.log("menuUpdated: ", menuUpdated);
+  //mise à jour du state
+  setMenu(menuUpdated);
+};
+const resetMenu = () => {
+  setMenu(fakeMenu.MEDIUM);
+}; 
+
+const orderContextValue = {
+  isModeAdmin,
+  setIsModeAdmin,
+  isCollapsed,
+  setIsCollapsed,
+  currentTabSelected,
+  setCurrentTabSelected,
+  handleAdd,
+  menu,
+  setMenu,
+  handleDelete,
+  resetMenu,
+  newProduct,
+  setNewProduct
+}
+
 
  // comportements
 
- const orderContextValue = {
-   isModeAdmin,
-   setIsModeAdmin,
-   isCollapsed,
-   setIsCollapsed,
-   currentTabSelected,
-   setCurrentTabSelected,
- }
+ 
   return (
     // <AdminModeProvider>
     //   <PanelProvider>
@@ -51,7 +90,7 @@ const OrderPageStyled = styled.div`
 
   .container {
     /* background: red; */
-    height: 95vh;
+    height: 833px;
     max-width: 1400px;
     width: 90%;
     display: flex;

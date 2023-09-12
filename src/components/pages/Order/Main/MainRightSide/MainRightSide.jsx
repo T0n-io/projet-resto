@@ -1,19 +1,19 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import OrderContext from "../../../../../context/OrderContext"
-import { theme } from "../../../../.."
-import Admin from "./Admin/Admin"
-import Menu from "../../Menu.jsx"
+import { useContext } from "react";
+import styled from "styled-components";
+import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../..";
+import Admin from "./Admin/Admin";
+import Menu from "./Menu/Menu.jsx";
 
 export default function MainRightSide() {
-  const { isModeAdmin } = useContext(OrderContext)
+  const { isModeAdmin } = useContext(OrderContext);
 
   return (
     <MainRightSideStyled>
       <Menu />
       {isModeAdmin && <Admin />}
     </MainRightSideStyled>
-  )
+  );
 }
 
 const MainRightSideStyled = styled.div`
@@ -22,4 +22,4 @@ const MainRightSideStyled = styled.div`
   display: grid;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-`
+`;
