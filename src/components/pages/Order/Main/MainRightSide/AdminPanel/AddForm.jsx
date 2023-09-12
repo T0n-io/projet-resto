@@ -46,21 +46,23 @@ export default function AddForm() {
     }, 2000);
   };
 
-  const inputTexts = getInputTextsConfig(newProduct)
+  const inputTexts = getInputTextsConfig(newProduct);
   // affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title}/>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         {inputTexts.map((input) => (
-          <TextInput key={input.id} {...input}
+          <TextInput
+            key={input.id}
+            {...input}
             onChange={handleChange}
             version="minimalist"
-
           />
-        )
-        )}
-        
+        ))}
       </div>
       <div className="submit">
         <Button
@@ -68,9 +70,7 @@ export default function AddForm() {
           label={"Ajouter un nouveau produit au menu"}
           version="success"
         />
-        {isSubmitted && (
-         <SubmitMessage />
-        )}
+        {isSubmitted && <SubmitMessage />}
       </div>
     </AddFormStyled>
   );
@@ -103,8 +103,7 @@ const AddFormStyled = styled.form`
     top: 3px;
 
     .submit-button {
-      width: 50%;
+      height: 100%;
     }
-
   }
 `;
