@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { theme } from "../..";
-import PrimaryButton from "./PrimaryButton";
+import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 
 // eslint-disable-next-line react/prop-types
@@ -14,7 +15,11 @@ export default function Card({
   return (
     <CardStyled className="produit">
       {hasDeleteButton && (
-        <button className="delete-button" aria-label="delete-button" onClick={onDelete}>
+        <button
+          className="delete-button"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
           <TiDelete className="icon" />
         </button>
       )}
@@ -26,7 +31,7 @@ export default function Card({
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import TextInput from "../../../../../reusable-ui/TextInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
+import Button from "../../../../../reusable-ui/Button.jsx";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -71,7 +72,6 @@ export default function AddForm() {
           onChange={handleChange}
           Icon={<BsFillCameraFill />}
           version="minimalist"
-
         />
         <TextInput
           name="price"
@@ -81,11 +81,14 @@ export default function AddForm() {
           onChange={handleChange}
           Icon={<MdOutlineEuro />}
           version="minimalist"
-
         />
       </div>
       <div className="submit">
-        <button className="submit-button">Submit button</button>
+        <Button
+          className="submit-button"
+          label={"Ajouter un nouveau produit au menu"}
+          version="success"
+        />
         {isSubmitted && (
           <div className="submit-message">
             <FiCheck /> <span>Ajouté avec succès !</span>
@@ -105,7 +108,6 @@ const AddFormStyled = styled.form`
   grid-column-gap: 20px;
   grid-row-gap: 8px;
 
-
   .img-preview {
     /* background-color: red; */
     grid-area: 1 / 1 / 4 / 2;
@@ -119,7 +121,7 @@ const AddFormStyled = styled.form`
       object-fit: contain;
       object-position: center;
     }
-    .empty-image{
+    .empty-image {
       height: 100%;
       width: 100%;
       display: flex;
@@ -129,7 +131,6 @@ const AddFormStyled = styled.form`
       line-height: 1.5;
       color: ${theme.colors.greySemiDark};
       border-radius: ${theme.borderRadius.round};
-
     }
   }
   .input-fields {
@@ -139,7 +140,7 @@ const AddFormStyled = styled.form`
     grid-row-gap: 8px;
   }
   .submit {
-    background-color: green;
+    /* background-color: green; */
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
@@ -149,6 +150,7 @@ const AddFormStyled = styled.form`
     }
     .submit-message {
       border: 1px solid red;
+   
     }
   }
 `;

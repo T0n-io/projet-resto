@@ -4,6 +4,7 @@ import { theme } from "../..";
 // eslint-disable-next-line react/prop-types
 export default function TextInput({
   value,
+  // eslint-disable-next-line react/prop-types
   onChange,
   Icon,
   className,
@@ -36,10 +37,6 @@ const TextInputStyled = styled.div`
       color: ${theme.colors.greyMedium};
     }
   }
-  /* ${(props) => {
-   if (props.version === "normal") return extraStyleNormal 
-   if (props.version === "minimalist") return extraStyleMinimalist
-  }} */
 
   ${({version}) => extraStyle[version] }
 
