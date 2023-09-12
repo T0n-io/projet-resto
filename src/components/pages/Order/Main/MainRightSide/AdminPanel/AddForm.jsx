@@ -2,12 +2,11 @@ import { useContext, useState } from "react";
 import { styled } from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import { FaHamburger } from "react-icons/fa";
-import { BsFillCameraFill } from "react-icons/bs";
-import { MdOutlineEuro } from "react-icons/md";
+
 import Button from "../../../../../reusable-ui/Button.jsx";
 import ImagePreview from "./ImagePreview";
 import SubmitMessage from "./SubmitMessage";
+import { getInputTextsConfig } from "./inputTextConfig";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -19,8 +18,6 @@ export const EMPTY_PRODUCT = {
 export default function AddForm() {
   // state
   const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
-
-  // const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // comportements
@@ -49,38 +46,21 @@ export default function AddForm() {
     }, 2000);
   };
 
+  const inputTexts = getInputTextsConfig(newProduct)
   // affichage
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title}/>
       <div className="input-fields">
-        <TextInput
-          name="title"
-          value={newProduct.title}
-          type="text"
-          placeholder="Nom du produit (ex: Super Burger)"
-          onChange={handleChange}
-          Icon={<FaHamburger />}
-          version="minimalist"
-        />
-        <TextInput
-          name="imageSource"
-          value={newProduct.imageSource}
-          type="text"
-          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-          onChange={handleChange}
-          Icon={<BsFillCameraFill />}
-          version="minimalist"
-        />
-        <TextInput
-          name="price"
-          value={newProduct.price ? newProduct.price : ""}
-          type="text"
-          placeholder="Prix"
-          onChange={handleChange}
-          Icon={<MdOutlineEuro />}
-          version="minimalist"
-        />
+        {inputTexts.map((input) => (
+          <TextInput {...input}
+            onChange={handleChange}
+            version="minimalist"
+
+          />
+        )
+        )}
+        
       </div>
       <div className="submit">
         <Button
@@ -105,9 +85,6 @@ const AddFormStyled = styled.form`
   width: 70%;
   grid-column-gap: 20px;
   grid-row-gap: 8px;
-
- 
-  }
 
   .input-fields {
     /* background: blue; */
