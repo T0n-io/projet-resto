@@ -6,6 +6,7 @@ import { theme } from "../../..";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../../data/fakeMenu";
+import { EMPTY_PRODUCT } from "./Main/MainRightSide/AdminPanel/AddForm";
 
 export default function OrderPage() {
  // state
@@ -13,6 +14,8 @@ export default function OrderPage() {
  const [isCollapsed, setIsCollapsed] = useState(true)
  const [currentTabSelected, setCurrentTabSelected] = useState("add")
  const [menu, setMenu] = useState(fakeMenu.SMALL)
+ const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+
 
 
 //comportements
@@ -52,7 +55,9 @@ const orderContextValue = {
   menu,
   setMenu,
   handleDelete,
-  resetMenu
+  resetMenu,
+  newProduct,
+  setNewProduct
 }
 
 
