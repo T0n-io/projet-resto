@@ -1,25 +1,17 @@
 /* eslint-disable react/prop-types */
-import styled, { css } from "styled-components";
-import { theme } from "../..";
+import styled, { css } from "styled-components"
+import { theme } from "../.."
 
-export default function Button({
-  label,
-  Icon,
-  className,
-  version = "normal"
-}) {
-  console.log("Version:", version);  // Ajoutez cette ligne
+export default function Button({ label, Icon, className, version = "normal" }) {
   return (
     <ButtonStyled className={className} version={version}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
-  );
+  )
 }
 
 const ButtonStyled = styled.button`
-
-
   ${(props) => props.version === "normal" && extraStylePrimary};
   ${(props) => props.version === "success" && extraStyleSuccess};
 
@@ -51,7 +43,7 @@ const extraStylePrimary = css`
     border: 1px solid ${theme.colors.primary};
     transition: all 200ms ease-out;
   }
-  &:active {
+  :active {
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
   }
@@ -66,7 +58,7 @@ const extraStylePrimary = css`
     border: 1px solid white;
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
-    :hover {
+    &:hover {
       color: ${theme.colors.white};
       background-color: ${theme.colors.primary};
       border: 1px solid ${theme.colors.white};
@@ -76,17 +68,18 @@ const extraStylePrimary = css`
       color: ${theme.colors.primary};
     }
   }
+
   .icon {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-`;
+`
 
 const extraStyleSuccess = css`
   cursor: pointer;
   color: ${theme.colors.white};
-  background-color: ${theme.colors.success};
+  background: ${theme.colors.success};
   border: 1px solid ${theme.colors.success};
   border-radius: ${theme.borderRadius.round};
   height: 35px;
@@ -97,13 +90,13 @@ const extraStyleSuccess = css`
     color: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-  &:active {
-    background: ${theme.colors.white};
-    color: ${theme.colors.succes};
+  :active {
+    color: ${theme.colors.white};
+    background: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-`;
+`
 const extraStyle = {
-  normal: extraStylePrimary,
-  success: extraStyleSuccess,
-};
+  primary: extraStylePrimary,
+  sucess: extraStyleSuccess,
+}
