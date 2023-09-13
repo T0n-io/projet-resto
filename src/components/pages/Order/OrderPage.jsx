@@ -7,6 +7,7 @@ import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../../data/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/products";
+import { deepClone } from "../../../utils/array";
 
 export default function OrderPage() {
  // state
@@ -23,7 +24,7 @@ export default function OrderPage() {
 const handleAdd = (newProduct) => {
 
   // 1. copie du tableau
-  const menuCopy = JSON.parse(JSON.stringify(menu))
+  const menuCopy = deepClone(menu)
 
   // 2. ajout du produit
   const menuUpdated = [ newProduct, ...menuCopy ]
@@ -34,7 +35,7 @@ const handleAdd = (newProduct) => {
 
 const handleDelete = (idOfProductToDelete) => {
   //copy du state
-  const menuCopy = Json.parse(Json.stringify(menu))
+  const menuCopy = deepClone(menu)
   //manipulation du state
   const menuUpdated = menuCopy.filter((product) => product.id !== idOfProductToDelete);
   console.log("menuUpdated: ", menuUpdated);
@@ -45,7 +46,7 @@ const handleEdit = (productBeingEdited) => {
 
 console.log("productBeingEdited: ", productBeingEdited);
   //1. Copie du state (deep clone)
-  const menuCopy = JSON.parse(JSON.stringify(menu))
+  const menuCopy = deepClone(menu)
 
   //2. Manipulation de la copie du state
   const indexOfProductToEdit = menu.findIndex(
