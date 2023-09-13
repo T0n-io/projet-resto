@@ -6,7 +6,7 @@ import { theme } from "../../..";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../../data/fakeMenu";
-import { EMPTY_PRODUCT } from "./Main/MainRightSide/AdminPanel/AddForm";
+import { EMPTY_PRODUCT } from "../../../enums/products";
 
 export default function OrderPage() {
  // state
@@ -15,7 +15,7 @@ export default function OrderPage() {
  const [currentTabSelected, setCurrentTabSelected] = useState("edit")
  const [menu, setMenu] = useState(fakeMenu.SMALL)
  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-
+ const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
 
 
 //comportements
@@ -57,7 +57,10 @@ const orderContextValue = {
   handleDelete,
   resetMenu,
   newProduct,
-  setNewProduct
+  setNewProduct,
+
+  productSelected,
+  setProductSelected,
 }
 
 
