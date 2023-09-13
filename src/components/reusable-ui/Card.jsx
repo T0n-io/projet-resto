@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../..";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
@@ -12,27 +12,30 @@ export default function Card({
   hasDeleteButton,
   onDelete,
   onClick,
+  isHoverable,
 }) {
   return (
-    <CardStyled className="produit" onClick={onClick}>
-      {hasDeleteButton && (
-        <button
-          className="delete-button"
-          aria-label="delete-button"
-          onClick={onDelete}
-        >
-          <TiDelete className="icon" />
-        </button>
-      )}
-      <div className="image">
-        <img src={imageSource} alt={title} />
-      </div>
-      <div className="text-info">
-        <div className="title">{title}</div>
-        <div className="description">
-          <div className="left-description">{leftDescription}</div>
-          <div className="right-description">
-            <Button className="primary-button" label={"Ajouter"} />
+    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable}>
+      <div className="card">
+        {hasDeleteButton && (
+          <button
+            className="delete-button"
+            aria-label="delete-button"
+            onClick={onDelete}
+          >
+            <TiDelete className="icon" />
+          </button>
+        )}
+        <div className="image">
+          <img src={imageSource} alt={title} />
+        </div>
+        <div className="text-info">
+          <div className="title">{title}</div>
+          <div className="description">
+            <div className="left-description">{leftDescription}</div>
+            <div className="right-description">
+              <Button className="primary-button" label={"Ajouter"} />
+            </div>
           </div>
         </div>
       </div>
@@ -41,9 +44,15 @@ export default function Card({
 }
 
 const CardStyled = styled.div`
+${(props) => props.isHoverable && hoverableStyle}
+border-radius: ${theme.borderRadius.extraRound};
+/* border: 1px solid ${theme.colors.primary}; */
+
+.card{
+
   background: ${theme.colors.white};
   box-sizing: border-box;
-  width: 240;
+  width: 240px;
   height: 330px;
   display: grid;
   grid-template-rows: 65% 1fr;
@@ -52,7 +61,10 @@ const CardStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
   position: relative;
-
+  /* &:hover {
+    box-shadow: -8px 8px 20px 0px ${theme.colors.primary};);
+  }
+   */
   .delete-button {
     position: absolute;
     top: 15px;
@@ -68,7 +80,7 @@ const CardStyled = styled.div`
     &:hover {
       color: ${theme.colors.red};
     }
-
+    
     .icon {
       height: 100%;
       width: 100%;
@@ -86,12 +98,12 @@ const CardStyled = styled.div`
       object-fit: contain;
     }
   }
-
+  
   .text-info {
     display: grid;
     grid-template-rows: 30% 70%;
     padding: 5px;
-
+    
     .title {
       margin: auto 0;
       font-size: ${theme.fonts.size.P4};
@@ -106,7 +118,7 @@ const CardStyled = styled.div`
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
     }
-
+    
     .description {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -122,13 +134,13 @@ const CardStyled = styled.div`
         font-weight: ${theme.fonts.weights.medium};
         color: ${theme.colors.primary};
       }
-
+      
       .right-description {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         font-size: ${theme.fonts.size.P1};
-
+        
         .primary-button {
           font-size: ${theme.fonts.size.XS};
           cursor: pointer;
@@ -137,4 +149,14 @@ const CardStyled = styled.div`
       }
     }
   }
-`;
+}
+  `;
+  
+  const hoverableStyle = css`
+  &:hover {
+    transform: scale(1.05);
+    transition: ease-out 0.4s;
+    box-shadow: ${theme.shadows.orangeHighLight};
+    cursor: pointer;
+  }
+  `
