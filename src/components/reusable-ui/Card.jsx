@@ -13,11 +13,11 @@ export default function Card({
   onDelete,
   onClick,
   isHoverable,
-  isSelected
+  isSelected,
 }) {
   return (
-    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable}>
-      <div className="card" style={isSelected ? { background: "orange"} : {}}>
+    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable} isSelected={isSelected}>
+      <div className="card">
         {hasDeleteButton && (
           <button
             className="delete-button"
@@ -149,6 +149,7 @@ const CardStyled = styled.div`
         }
       }
     }
+    ${({isHoverable, isSelected}) => isHoverable && isSelected && SelectedStyle}
   }
 `;
 
@@ -158,5 +159,57 @@ const hoverableStyle = css`
     transition: ease-out 0.4s;
     box-shadow: ${theme.shadows.orangeHighLight};
     cursor: pointer;
+  }
+`;
+
+const SelectedStyle = css`
+  background: ${theme.colors.primary};
+  .primary-button {
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.white};
+    transition: all 200ms ease-out;
+    &:hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+      transition: all 200ms ease-out;
+    }
+    &:active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+    &.is-disabled {
+      opacity: 50%;
+      cursor: not-allowed;
+      z-index: 2;
+    }
+    &.with-focus {
+      border: 1px solid white;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      :hover {
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
+      }
+      :active {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.primary};
+      }
+    }
+  }
+  .delete-button{
+    color: ${theme.colors.white};
+    :active{
+      color: ${theme.colors.white};
+    }
+  }
+
+  .text-info {
+    .description{
+      .left-description{
+        color: ${theme.colors.white};
+      }
+    }
   }
 `;
