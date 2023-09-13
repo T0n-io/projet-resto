@@ -18,11 +18,12 @@ export default function OrderPage() {
  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
 
 
+ //CRUD
 //comportements
 const handleAdd = (newProduct) => {
 
   // 1. copie du tableau
-  const menuCopy = [...menu]
+  const menuCopy = JSON.parse(JSON.stringify(menu))
 
   // 2. ajout du produit
   const menuUpdated = [ newProduct, ...menuCopy ]
@@ -33,13 +34,30 @@ const handleAdd = (newProduct) => {
 
 const handleDelete = (idOfProductToDelete) => {
   //copy du state
-  const menuCopy = [...menu];
+  const menuCopy = Json.parse(Json.stringify(menu))
   //manipulation du state
   const menuUpdated = menuCopy.filter((product) => product.id !== idOfProductToDelete);
   console.log("menuUpdated: ", menuUpdated);
   //mise à jour du state
   setMenu(menuUpdated);
 };
+const handleEdit = (productBeingEdited) => { 
+
+console.log("productBeingEdited: ", productBeingEdited);
+  //1. Copie du state (deep clone)
+  const menuCopy = JSON.parse(JSON.stringify(menu))
+
+  //2. Manipulation de la copie du state
+  const indexOfProductToEdit = menu.findIndex(
+    (menuProduct) => menuProduct.id === productBeingEdited.id
+    )
+  console.log("indexOfProductToEdit: ", indexOfProductToEdit);
+// }
+  menuCopy[indexOfProductToEdit] = productBeingEdited
+  //3. Mise à jour du state
+  setMenu(menuCopy)
+}
+
 const resetMenu = () => {
   setMenu(fakeMenu.MEDIUM);
 }; 
@@ -58,9 +76,9 @@ const orderContextValue = {
   resetMenu,
   newProduct,
   setNewProduct,
-
   productSelected,
   setProductSelected,
+  handleEdit,
 }
 
 
