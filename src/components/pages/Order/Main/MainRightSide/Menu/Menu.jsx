@@ -6,18 +6,21 @@ import Card from "../../../../../reusable-ui/Card.jsx";
 import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
+import { checkIfProductIsClicked } from "./helper";
 
 export default function Menu() {
   //State
-  const { menu, isModeAdmin, handleDelete, resetMenu, setProductSelected } =
+  const { menu, isModeAdmin, handleDelete, resetMenu, productSelected, setProductSelected } =
     useContext(OrderContext);
   //comportements
-
-  //affichage
   const handleClick = (idProductClicked) => {
     const productClickedOn = menu.find(( product ) => product.id === idProductClicked);
     setProductSelected(productClickedOn);
   }
+
+
+
+  //affichage
 
 
   // affichage
@@ -40,7 +43,7 @@ export default function Menu() {
             onDelete={() => handleDelete(id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
-            isSelected={true}
+            isSelected={checkIfProductIsClicked(id, productSelected.id)}
           />
         );
       })}
