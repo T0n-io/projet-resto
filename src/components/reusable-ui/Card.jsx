@@ -16,7 +16,12 @@ export default function Card({
   isSelected,
 }) {
   return (
-    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable} isSelected={isSelected}>
+    <CardStyled
+      className="produit"
+      onClick={onClick}
+      isHoverable={isHoverable}
+      isSelected={isSelected}
+    >
       <div className="card">
         {hasDeleteButton && (
           <button
@@ -35,7 +40,7 @@ export default function Card({
           <div className="description">
             <div className="left-description">{leftDescription}</div>
             <div className="right-description">
-              <Button className="primary-button" label={"Ajouter"} />
+              <Button className="primary-button" label={"Ajouter"} onClick={(event) => event.stopPropagation()} />
             </div>
           </div>
         </div>
@@ -149,7 +154,8 @@ const CardStyled = styled.div`
         }
       }
     }
-    ${({isHoverable, isSelected}) => isHoverable && isSelected && SelectedStyle}
+    ${({ isHoverable, isSelected }) =>
+      isHoverable && isSelected && SelectedStyle}
   }
 `;
 
@@ -198,16 +204,16 @@ const SelectedStyle = css`
       }
     }
   }
-  .delete-button{
+  .delete-button {
     color: ${theme.colors.white};
-    :active{
+    :active {
       color: ${theme.colors.white};
     }
   }
 
   .text-info {
-    .description{
-      .left-description{
+    .description {
+      .left-description {
         color: ${theme.colors.white};
       }
     }
