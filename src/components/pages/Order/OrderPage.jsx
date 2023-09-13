@@ -20,7 +20,7 @@ export default function OrderPage() {
 
 
  //CRUD
-//comportements
+//comportements (gestionnaire de state ou "state handlersg")
 const handleAdd = (newProduct) => {
 
   // 1. copie du tableau

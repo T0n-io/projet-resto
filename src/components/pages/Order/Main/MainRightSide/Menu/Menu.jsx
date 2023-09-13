@@ -14,15 +14,17 @@ export default function Menu() {
   //comportements
 
   //affichage
+  const handleClick = (idProductClicked) => {
+    const productClickedOn = menu.find(( product ) => product.id === idProductClicked);
+    setProductSelected(productClickedOn);
+  }
 
+
+  // affichage
   if (menu.length === 0) return <EmptyMenuAdmin onReset={resetMenu} />
     if (menu.length === 0 && !isModeAdmin) return <EmptyMenuClient/> 
   
 
-    const handleClick = (idProductClicked) => {
-      const productSelected = menu.find(( product ) => product.id === idProductClicked);
-      setProductSelected(productSelected);
-    }
   return (
     <MenuStyled className="menu">
       {menu.map(({ id, title, imageSource, price }) => {
