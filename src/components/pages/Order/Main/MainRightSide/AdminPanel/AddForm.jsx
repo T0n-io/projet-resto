@@ -46,7 +46,7 @@ export default function AddForm() {
       onSubmit={handleSubmit}
       onChange={handleChange}
       isSubmitted={isSubmitted}
-      QUELQUECHOSE={
+>
         <>
           <Button
             className="submit-button"
@@ -55,7 +55,6 @@ export default function AddForm() {
           />
           {isSubmitted && <SubmitMessage />}
         </>
-      }
-    />
+    </Form>
   );
 }

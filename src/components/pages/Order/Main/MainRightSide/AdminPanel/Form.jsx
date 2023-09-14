@@ -3,13 +3,11 @@
 import React from "react";
 import { styled } from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import Button from "../../../../../reusable-ui/Button.jsx";
 import ImagePreview from "./ImagePreview";
-import SubmitMessage from "./SubmitMessage";
 import { getInputTextsConfig } from "./inputTextConfig";
 
 const Form = React.forwardRef(
-  ({ product, onSubmit, onChange, QUELQUECHOSE }, ref) => {
+  ({ product, onSubmit, onChange, children }, ref) => {
     // state
 
     const inputTexts = getInputTextsConfig(product);
@@ -28,7 +26,7 @@ const Form = React.forwardRef(
             />
           ))}
         </div>
-      <div className="submit">{QUELQUECHOSE}</div>
+      <div className="submit">{children}</div>
       </FormStyled>
     );
   }
