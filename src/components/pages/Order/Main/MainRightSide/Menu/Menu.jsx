@@ -8,6 +8,8 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
 
+const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
+
 export default function Menu() {
   //State
   const { menu, isModeAdmin, handleDelete, resetMenu, productSelected, setProductSelected, setIsCollapsed, setCurrentTabSelected} =
@@ -42,9 +44,7 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={
-              imageSource === "" ? "/images/coming-soon.png" : imageSource
-            }
+            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}

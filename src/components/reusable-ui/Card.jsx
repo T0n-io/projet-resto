@@ -50,7 +50,7 @@ export default function Card({
 }
 
 const CardStyled = styled.div`
-  ${(props) => props.isHoverable && hoverableStyle}
+  ${({isHoverable}) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
   height: 330px;
 
@@ -155,7 +155,7 @@ const CardStyled = styled.div`
       }
     }
     ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && SelectedStyle}
+      isHoverable && isSelected && selectedStyle}
   }
 `;
 
@@ -168,7 +168,7 @@ const hoverableStyle = css`
   }
 `;
 
-const SelectedStyle = css`
+const selectedStyle = css`
   background: ${theme.colors.primary};
   .primary-button {
     color: ${theme.colors.primary};

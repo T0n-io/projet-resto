@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { css, styled } from "styled-components";
 import { theme } from "../..";
 
 // eslint-disable-next-line react/prop-types
 export default function TextInput({
   value,
-  // eslint-disable-next-line react/prop-types
   onChange,
   Icon,
   className,
