@@ -58,8 +58,5 @@ const FormStyled = styled.form`
     position: relative;
     top: 3px;
 
-    .submit-button {
-      height: 100%;
-    }
   }
 `;
