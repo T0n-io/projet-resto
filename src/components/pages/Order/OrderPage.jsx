@@ -40,7 +40,7 @@ const handleDelete = (idOfProductToDelete) => {
   const menuCopy = deepClone(menu)
   //manipulation du state
   const menuUpdated = menuCopy.filter((product) => product.id !== idOfProductToDelete);
-  console.log("menuUpdated: ", menuUpdated);
+  // console.log("menuUpdated: ", menuUpdated);
   //mise à jour du state
   setMenu(menuUpdated);
 };
@@ -54,7 +54,7 @@ console.log("productBeingEdited: ", productBeingEdited);
   const indexOfProductToEdit = menu.findIndex(
     (menuProduct) => menuProduct.id === productBeingEdited.id
     )
-  console.log("indexOfProductToEdit: ", indexOfProductToEdit);
+  // console.log("indexOfProductToEdit: ", indexOfProductToEdit);
 // }
   menuCopy[indexOfProductToEdit] = productBeingEdited
   //3. Mise à jour du state
@@ -82,7 +82,7 @@ const orderContextValue = {
   productSelected,
   setProductSelected,
   handleEdit,
-  titleEditRef
+  titleEditRef,
 
 }
 
