@@ -3,7 +3,7 @@ import NavBar from "./Nav/NavBar";
 import Main from "./Main/Main";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../../data/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/products";
@@ -17,6 +17,8 @@ export default function OrderPage() {
  const [menu, setMenu] = useState(fakeMenu.SMALL)
  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+ const titleEditRef = useRef();
+
 
 
  //CRUD
@@ -80,6 +82,8 @@ const orderContextValue = {
   productSelected,
   setProductSelected,
   handleEdit,
+  titleEditRef
+
 }
 
 

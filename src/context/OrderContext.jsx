@@ -23,5 +23,6 @@ export default createContext({
   setProductSelected: () => {},
   handleEdit: () => {},
 
+  titleEditRef: {},
   
 })
