@@ -1,10 +1,10 @@
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import { styled } from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
-import { theme } from "../../../../../..";
+import EditInfoMessage from "./EditInfoMessage";
 
 export default function EditForm() {
   //state
@@ -44,10 +44,8 @@ export default function EditForm() {
         ))}
       </div>
       <div className="submit">
-        <span className="sentence">
-          Cliquer sur un produit du menu pour le modifier {""}
-          <span className="live-update">en temps réel</span>
-        </span>
+        <EditInfoMessage />
+        
       </div>
     </EditFormStyled>
   );
@@ -78,12 +76,6 @@ const EditFormStyled = styled.form`
     position: relative;
     top: 3px;
 
-    .sentence {
-      color: ${theme.colors.primary};
-      font-size: ${theme.fonts.size.SM};
-      .live-update{
-        text-decoration: underline;
-      }
-    }
+   
   }
 `;
