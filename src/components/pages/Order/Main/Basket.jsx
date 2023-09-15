@@ -21,6 +21,8 @@ const BasketStyled = styled.div`
   .head {
     height: 70px;
     background-color: ${theme.colors.background_dark};
+    /* border-top-left-radius: ${theme.borderRadius.extraRound}; */
+
   }
   .body{
     flex: 1;
@@ -30,6 +32,9 @@ const BasketStyled = styled.div`
   .footer{
     height: 70px;
     background-color: ${theme.colors.background_dark};
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    
+
 
   }
 `;
