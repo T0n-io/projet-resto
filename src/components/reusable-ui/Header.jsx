@@ -10,5 +10,6 @@ const HeaderStyled = styled.div`
   /* border: 1px solid red; */
   height: 70px;
   background-color: ${theme.colors.background_dark};
+  padding: 0 16px;
   
 `;
