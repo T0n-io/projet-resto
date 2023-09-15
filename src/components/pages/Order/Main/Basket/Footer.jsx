@@ -14,7 +14,6 @@ export default function Footer() {
 }
 
 const FooterStyled = styled.div`
-  border: 1px solid red;
   height: 100%;
   display: flex;
   align-items: center;
@@ -23,6 +22,6 @@ const FooterStyled = styled.div`
     font-size: ${theme.fonts.size.P2};
     font-family: "Amatic SC", cursive;
     font-weight: ${theme.fonts.weights.bold};
-    color: ${theme.colors.primary};
+    color: ${theme.colors.white};
   }
 `;

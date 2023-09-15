@@ -15,7 +15,6 @@ export default function Total({ amountToPay }) {
 }
 
 const TotalStyled = styled.div`
-  border: 1px solid red;
   color: ${theme.colors.primary};
   height: 100%;
   display: flex;
