@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../..";
-import { formatPrice } from "../../../../../../utils/maths.jsx";
+import { formatPrice } from "../../../../../../utils/formatPrice.jsx";
 import Card from "../../../../../reusable-ui/Card.jsx";
 import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
