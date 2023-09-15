@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '../../../../../reusable-ui/Button.jsx'
 import SubmitMessage from './SubmitMessage.jsx'
 
