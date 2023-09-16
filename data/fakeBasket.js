@@ -1,3 +1,5 @@
+import { EMPTY_PRODUCT } from "../src/enums/products"
+
 export const EMPTY = []
 
 export const SMALL = [
@@ -41,6 +43,8 @@ export const MEDIUM = [
 ]
 
 export const LARGE = [
+  { ...EMPTY_PRODUCT, quantity: 1,} 
+  ,
   {
     id: "1",
     imageSource: "/images/fries3.png",
