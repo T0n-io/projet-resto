@@ -4,10 +4,10 @@ import { MdDeleteForever } from "react-icons/md"
 import { theme } from "../../../../.."
 import { formatPrice } from "../../../../../utils/formatPrice.jsx"
 
-export default function BasketCard({ title, price, quantity, imageSource, className }) {
+export default function BasketCard({ title, price, quantity, imageSource, className, isModeAdmin, onDelete }) {
   return (
-    <BasketCardStyled className={className}>
-      <div className="delete-button">
+    <BasketCardStyled className={className} isModeAdmin={isModeAdmin}>
+      <div className="delete-button"  onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
       <div className="image">
@@ -29,6 +29,9 @@ export default function BasketCard({ title, price, quantity, imageSource, classN
 }
 
 const BasketCardStyled = styled.div`
+
+cursor: ${({isModeAdmin}) => isModeAdmin ? "pointer" : "default"};
+
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 86px;
@@ -133,7 +136,6 @@ const BasketCardStyled = styled.div`
       justify-content: center;
       background: ${theme.colors.red};
       color: ${theme.colors.white};
-      cursor: pointer;
 
       .icon {
         width: ${theme.fonts.size.P3};
@@ -141,12 +143,18 @@ const BasketCardStyled = styled.div`
       }
 
       /* behaviour on delete-button hover */
-      :hover {
+      &:hover {
         text-decoration: underline;
 
         .icon {
-          color: ${theme.colors.black};
+          color: ${theme.colors.dark};
         }
+        &:active {
+          .icon{
+            color: ${theme.colors.white};
+          }
+        }
+          
       }
     }
   }

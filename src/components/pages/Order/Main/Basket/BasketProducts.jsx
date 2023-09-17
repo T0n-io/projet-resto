@@ -3,7 +3,11 @@ import { styled } from "styled-components";
 import BasketCard from "./BasketCard";
 import { IMAGE_COMMING_SOON } from "../../../../../enums/products";
 
-export default function BasketProducts({ basket, isModeAdmin }) {
+export default function BasketProducts({ basket, handleDeleteBasketProduct, isModeAdmin }) {
+
+  const handleOnDelete = (id) => {
+    handleDeleteBasketProduct(id);
+  };
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => (
@@ -15,6 +19,7 @@ export default function BasketProducts({ basket, isModeAdmin }) {
                   ? basketProduct.imageSource
                   : IMAGE_COMMING_SOON
               }
+              onDelete={() => handleDeleteBasketProduct(basketProduct.id)}
               isModeAdmin={isModeAdmin}
             />
           </div>
