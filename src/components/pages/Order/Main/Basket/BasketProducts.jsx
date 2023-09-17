@@ -19,7 +19,7 @@ export default function BasketProducts({ basket, handleDeleteBasketProduct, isMo
                   ? basketProduct.imageSource
                   : IMAGE_COMMING_SOON
               }
-              onDelete={() => handleDeleteBasketProduct(basketProduct.id)}
+              onDelete={() => handleOnDelete(basketProduct.id)}
               isModeAdmin={isModeAdmin}
             />
           </div>
