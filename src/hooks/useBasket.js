@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fakeBasket } from "../../data/fakeBasket";
-import { deepClone, find } from "../utils/array";
+import { deepClone, find, findIndex } from "../utils/array";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.SMALL);
@@ -14,24 +14,31 @@ export const useBasket = () => {
     // 2. manip de la copie du state
     // 1er cas: le produit n'est pas dans le panier
     if (!isProductAlreadyInBasket) {
-      const newBasketProduct = { ...productToAdd, quantity: 1 };
+      createNewProductInBasket(productToAdd, basketCopy, setBasket);
+      return;
+    }
+    // 2eme cas: le produit est déjà dans le panier
+    incrementProductAlreadyInBasket(productToAdd, basketCopy);
+  }
 
-
-      const basketUpdated = [newBasketProduct, ...basketCopy];
-
-      // 3. update du state
-      setBasket(basketUpdated);
-    } else {
-        // 2eme cas: le produit est déjà dans le panier
-        const indexOfBasketProductToIncrement = basketCopy.findIndex(
-            (basketProduct) => basketProduct.id === productToAdd.id
-            );
-            basketCopy[indexOfBasketProductToIncrement].quantity += 1;
-            // 3. update du state
-            setBasket(basketCopyg);
-        }
-        
-
+      const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
+          const indexOfBasketProductToIncrement = findIndex(
+              productToAdd.id,
+              basketCopy
+          );
+          basketCopy[indexOfBasketProductToIncrement].quantity += 1;
+          // 3. update du state
+          setBasket(basketCopy);
+      
   };
   return { basket, handleAddToBasket };
 };
+const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = { ...productToAdd, quantity: 1 };
+
+    const basketUpdated = [newBasketProduct, ...basketCopy];
+
+    // 3. update du state
+    setBasket(basketUpdated);
+}
+
