@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react"
 import styled from "styled-components"
 import { MdDeleteForever } from "react-icons/md"
 import { theme } from "../../../../.."
@@ -116,8 +115,8 @@ const BasketCardStyled = styled.div`
     z-index: 1;
   }
 
-  :hover {
-    .delete-button-pokemon {
+  &:hover {
+    .delete-button {
       /* border: 1px solid red; */
       border: none;
       box-sizing: border-box;

@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { styled } from "styled-components";
 import BasketCard from "./BasketCard";
 import { IMAGE_COMMING_SOON } from "../../../../../enums/products";
 
-export default function BasketProducts({ basket }) {
+export default function BasketProducts({ basket, isModeAdmin }) {
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => (
@@ -16,6 +15,7 @@ export default function BasketProducts({ basket }) {
                   ? basketProduct.imageSource
                   : IMAGE_COMMING_SOON
               }
+              isModeAdmin={isModeAdmin}
             />
           </div>
         ))}
