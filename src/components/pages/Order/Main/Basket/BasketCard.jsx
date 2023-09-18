@@ -4,9 +4,9 @@ import { MdDeleteForever } from "react-icons/md"
 import { theme } from "../../../../.."
 import { formatPrice } from "../../../../../utils/formatPrice.jsx"
 
-export default function BasketCard({ title, price, quantity, imageSource, className, isModeAdmin, onDelete }) {
+export default function BasketCard({ title, price, quantity, imageSource, className, $isModeAdmin, onDelete }) {
   return (
-    <BasketCardStyled className={className} isModeAdmin={isModeAdmin}>
+    <BasketCardStyled className={className} isModeAdmin={$isModeAdmin}>
       <div className="delete-button"  onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -30,7 +30,7 @@ export default function BasketCard({ title, price, quantity, imageSource, classN
 
 const BasketCardStyled = styled.div`
 
-cursor: ${({isModeAdmin}) => isModeAdmin ? "pointer" : "default"};
+cursor: ${({$isModeAdmin}) => $isModeAdmin ? "pointer" : "default"};
 
   /* border: 1px solid red; */
   box-sizing: border-box;
