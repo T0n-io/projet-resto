@@ -40,12 +40,7 @@ export const useBasket = () => {
   };
 
   const handleDeleteBasketProduct = (idBasketProduct) => {
-    // 1. Copie du state
-    const basketCopy = deepClone(basket);
-
-    // 2. manip de la copie du state
-    // const basketUpdated = basketCopy.removeObjectById(product) => product.id !== idBasketProduct);
-    const basketUpdated = removeObjectById(idBasketProduct, basketCopy);
+    const basketUpdated = removeObjectById(idBasketProduct, basket);
 
     // 3. update du state
     setBasket(basketUpdated);
