@@ -7,9 +7,11 @@ import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
-import { EMPTY_PRODUCT, IMAGE_COMMING_SOON } from "../../../../../../enums/products";
-import { find } from "../../../../../../utils/array";
-
+import {
+  EMPTY_PRODUCT,
+  IMAGE_COMMING_SOON,
+} from "../../../../../../enums/products";
+import { findObjectById, isEmpty } from "../../../../../../utils/array";
 
 export default function Menu() {
   //State
@@ -28,12 +30,11 @@ export default function Menu() {
   } = useContext(OrderContext);
   //comportements
   const handleClick = async (idProductClicked) => {
-
     if (!isModeAdmin) return;
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = find(idProductClicked, menu);    
+    const productClickedOn = findObjectById(idProductClicked, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -41,23 +42,25 @@ export default function Menu() {
   //affichage
 
   // affichage
-  if (menu.length === 0) return <EmptyMenuAdmin onReset={resetMenu} />;
-  if (menu.length === 0 && !isModeAdmin) return <EmptyMenuClient />;
+  if (isEmpty(menu)) {
+    if (!isModeAdmin) return <EmptyMenuClient />
+    return <EmptyMenuAdmin onReset={resetMenu}  />;
+  }
 
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
     handleDeleteBasketProduct(idProductToDelete);
-    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT);
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
     titleEditRef.current.focus();
-
   };
 
   const handleAddButton = (event, idProductToAdd) => {
-     event.stopPropagation()
-    const productToAdd = find(idProductToAdd, menu)
-    handleAddToBasket(productToAdd)
-  }
+    event.stopPropagation();
+    const productToAdd = findObjectById(idProductToAdd, menu);
+    handleAddToBasket(productToAdd);
+  };
 
   return (
     <MenuStyled className="menu">
