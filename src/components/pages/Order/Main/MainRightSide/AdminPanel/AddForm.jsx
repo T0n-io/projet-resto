@@ -5,6 +5,7 @@ import { EMPTY_PRODUCT } from "../../../../../../enums/products";
 import Form from "./Form";
 import SubmitButton from "./SubmitButton";
 import { useSuccessMessage } from "../../../../../../hooks/useDisplaySuccesMessage";
+import { replaceFrenchCommaWithDot } from "../../../../../../utils/maths";
 
 export default function AddForm() {
   // state
@@ -18,6 +19,7 @@ export default function AddForm() {
     const newProductToAdd = {
       ...newProduct,
       id: crypto.randomUUID(),
+      price: replaceFrenchCommaWithDot(newProduct.price),
     };
 
     handleAdd(newProductToAdd);
