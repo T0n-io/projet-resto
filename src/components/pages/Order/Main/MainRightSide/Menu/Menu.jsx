@@ -7,9 +7,9 @@ import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
-import { EMPTY_PRODUCT } from "../../../../../../enums/products";
+import { EMPTY_PRODUCT, IMAGE_COMMING_SOON } from "../../../../../../enums/products";
+import { find } from "../../../../../../utils/array";
 
-const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
   //State
@@ -23,6 +23,8 @@ export default function Menu() {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
   //comportements
   const handleClick = async (idProductClicked) => {
@@ -31,9 +33,7 @@ export default function Menu() {
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = menu.find(
-      (product) => product.id === idProductClicked
-    );
+    const productClickedOn = find(idProductClicked, menu);    
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -47,10 +47,17 @@ export default function Menu() {
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete);
     idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT);
     titleEditRef.current.focus();
 
   };
+
+  const handleAddButton = (event, idProductToAdd) => {
+     event.stopPropagation()
+    const productToAdd = find(idProductToAdd, menu)
+    handleAddToBasket(productToAdd)
+  }
 
   return (
     <MenuStyled className="menu">
@@ -59,13 +66,14 @@ export default function Menu() {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : IMAGE_COMMING_SOON}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
             $isHoverable={isModeAdmin}
             $isSelected={checkIfProductIsClicked(id, productSelected.id)}
+            onAdd={(event) => handleAddButton(event, id)}
           />
         );
       })}

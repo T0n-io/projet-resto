@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/products";
 import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
 
 export default function OrderPage() {
  // state
@@ -17,6 +18,7 @@ export default function OrderPage() {
  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
  const titleEditRef = useRef();
 const {menu, setMenu, handleAdd, handleDelete, resetMenu, handleEdit} = useMenu()
+const {basket, handleAddToBasket, handleDeleteBasketProduct} = useBasket()
 
 
  //CRUD
@@ -39,6 +41,9 @@ const orderContextValue = {
   setProductSelected,
   handleEdit,
   titleEditRef,
+  basket,
+  handleAddToBasket,
+  handleDeleteBasketProduct,
 
 }
 
