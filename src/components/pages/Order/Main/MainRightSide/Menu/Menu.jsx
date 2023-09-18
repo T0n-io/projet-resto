@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../..";
-import { formatPrice } from "../../../../../../utils/formatPrice.jsx";
+import { formatPrice } from "../../../../../../utils/maths.jsx";
 import Card from "../../../../../reusable-ui/Card.jsx";
 import OrderContext from "../../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
@@ -43,8 +43,8 @@ export default function Menu() {
 
   // affichage
   if (isEmpty(menu)) {
-    if (!isModeAdmin) return <EmptyMenuClient />
-    return <EmptyMenuAdmin onReset={resetMenu}  />;
+    if (!isModeAdmin) return <EmptyMenuClient />;
+    return <EmptyMenuAdmin onReset={resetMenu} />;
   }
 
   const handleCardDelete = (event, idProductToDelete) => {
@@ -58,6 +58,7 @@ export default function Menu() {
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
+    const productToAdd = findObjectById(idProductToAdd, menu);
     handleAddToBasket(idProductToAdd);
   };
 

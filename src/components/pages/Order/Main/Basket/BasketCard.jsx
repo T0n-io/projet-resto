@@ -2,7 +2,7 @@
 import styled from "styled-components"
 import { MdDeleteForever } from "react-icons/md"
 import { theme } from "../../../../.."
-import { formatPrice } from "../../../../../utils/formatPrice.jsx"
+import { formatPrice } from "../../../../../utils/maths.jsx"
 
 export default function BasketCard({ title, price, quantity, imageSource, className, $isClickable, onDelete }) {
   return (

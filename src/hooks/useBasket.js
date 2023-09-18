@@ -13,7 +13,7 @@ export const useBasket = () => {
   const handleAddToBasket = (idProductToAdd) => {
     const basketCopy = deepClone(basket);
     const productAlreadyInBasket =
-      findObjectById(idProductToAdd, basketCopy) !== undefined;
+      findObjectById(idProductToAdd, basketCopy)
 
     if (productAlreadyInBasket) {
       incrementProductAlreadyInBasket(idProductToAdd, basketCopy);
@@ -24,7 +24,7 @@ export const useBasket = () => {
 
   const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
     const indexOfBasketProductToIncrement = findIndexById(
-      idProductToAdd.id,
+      idProductToAdd,
       basketCopy
     );
     basketCopy[indexOfBasketProductToIncrement].quantity += 1;
