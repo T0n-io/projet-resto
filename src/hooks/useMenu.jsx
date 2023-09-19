@@ -30,7 +30,7 @@ const handleAdd = (newProduct, username) => {
     setMenu(menuUpdated);
     syncBothMenus(username, menuUpdated)
   };
-  const handleEdit = (productBeingEdited) => { 
+  const handleEdit = (productBeingEdited, username) => { 
   
   console.log("productBeingEdited: ", productBeingEdited);
     //1. Copie du state (deep clone)
@@ -40,15 +40,16 @@ const handleAdd = (newProduct, username) => {
     const indexOfProductToEdit = menu.findIndex(
       (menuProduct) => menuProduct.id === productBeingEdited.id
       )
-    // console.log("indexOfProductToEdit: ", indexOfProductToEdit);
-  // }
     menuCopy[indexOfProductToEdit] = productBeingEdited
     //3. Mise à jour du state
     setMenu(menuCopy)
+    syncBothMenus(username, menuCopy)
   }
   
-  const resetMenu = () => {
-    setMenu(fakeMenu.MEDIUM);
+  const resetMenu = (username) => {
+    setMenu(fakeMenu.SMALL);
+    syncBothMenus(username, fakeMenu.SMALL)
+
   }; 
   
     return {menu, setMenu, handleAdd, handleDelete, resetMenu, handleEdit}

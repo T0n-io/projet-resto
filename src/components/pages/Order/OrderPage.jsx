@@ -42,6 +42,7 @@ const handleProductSelected = async (idProductClicked) => {
 
  useEffect(() => {
     initialiseMenu()
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [])
  
  //CRUD
