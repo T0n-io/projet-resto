@@ -34,7 +34,7 @@ export const createUser = (userId) => {
 export const authenticateUser = async (userId) => { 
     // 1. récupérer un existingUser
 const existingUser = await getUser(userId)
-console.log("existingUser : ", existingUser);
+// console.log("existingUser : ", existingUser);
 
 //2 sinon créer un newUser
 if (!existingUser) {

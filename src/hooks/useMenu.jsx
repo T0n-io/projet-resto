@@ -32,7 +32,7 @@ const handleAdd = (newProduct, username) => {
   };
   const handleEdit = (productBeingEdited, username) => { 
   
-  console.log("productBeingEdited: ", productBeingEdited);
+  // console.log("productBeingEdited: ", productBeingEdited);
     //1. Copie du state (deep clone)
     const menuCopy = deepClone(menu)
   

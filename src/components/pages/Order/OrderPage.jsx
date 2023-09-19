@@ -36,7 +36,6 @@ const handleProductSelected = async (idProductClicked) => {
 
  const initialiseMenu = async () =>  {
   const menuReceived = await getMenu(username)
-  console.log("menuReceived : ", menuReceived);
   setMenu(menuReceived)
  }
 
