@@ -9,7 +9,7 @@ import { replaceFrenchCommaWithDot } from "../../../../../../utils/maths";
 
 export default function AddForm() {
   // state
-  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { username, handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage(2000);
   // const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -22,7 +22,7 @@ export default function AddForm() {
       price: replaceFrenchCommaWithDot(newProduct.price),
     };
 
-    handleAdd(newProductToAdd);
+    handleAdd(newProductToAdd, username);
     setNewProduct(EMPTY_PRODUCT);
 
     displaySuccessMessage();

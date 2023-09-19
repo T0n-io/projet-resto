@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { fakeMenu } from "../../data/fakeMenu"
 import { deepClone } from "../utils/array"
+import { syncBothMenus } from "../api/product"
 
 export const useMenu = () => { 
  const [menu, setMenu] = useState(fakeMenu.LARGE)
 
 
 //comportements (gestionnaire de state ou "state handlersg")
-const handleAdd = (newProduct) => {
+const handleAdd = (newProduct, username) => {
 
     // 1. copie du tableau
     const menuCopy = deepClone(menu)
@@ -17,6 +18,7 @@ const handleAdd = (newProduct) => {
   
     // 3. mise à jour du state
     setMenu(menuUpdated)
+    syncBothMenus(username, menuUpdated)
   }
   
   const handleDelete = (idOfProductToDelete) => {
