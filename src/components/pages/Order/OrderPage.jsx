@@ -3,13 +3,14 @@ import NavBar from "./Nav/NavBar";
 import Main from "./Main/Main";
 import { styled } from "styled-components";
 import { theme } from "../../..";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/products";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
+import { getMenu } from "../../../api/product";
 
 export default function OrderPage() {
  // state
@@ -33,6 +34,16 @@ const handleProductSelected = async (idProductClicked) => {
 
  }
 
+ const initialiseMenu = async () =>  {
+  const menuReceived = await getMenu(username)
+  console.log("menuReceived : ", menuReceived);
+  setMenu(menuReceived)
+ }
+
+ useEffect(() => {
+    initialiseMenu()
+ }, [])
+ 
  //CRUD
 
 const orderContextValue = {
