@@ -2,28 +2,44 @@
 import { styled } from "styled-components";
 import BasketCard from "./BasketCard";
 import { IMAGE_COMMING_SOON } from "../../../../../enums/products";
+import { findObjectById } from "../../../../../utils/array";
+import { useContext } from "react";
+import OrderContext from "../../../../../context/OrderContext.jsx";
 
-export default function BasketProducts({ basket, handleDeleteBasketProduct, isModeAdmin }) {
+export default function BasketProducts() {
+  const { basket, handleDeleteBasketProduct, isModeAdmin, menu, handleProductSelected } = useContext(OrderContext);
 
-  const handleOnDelete = (id) => {
+  const handleOnDelete = (event,id) => {
+    event.stopPropagation();
     handleDeleteBasketProduct(id);
   };
+
+
+
   return (
     <BasketProductsStyled>
-      {basket.map((basketProduct) => (
+      {basket.map((basketProduct) => {
+        const menuProduct = findObjectById(basketProduct.id, menu)
+        // console.log("menuProduct: ", menuProduct);
+
+
+        return (
           <div className="basket-card" key={basketProduct.id}>
-            <BasketCard 
-              {...basketProduct}
+            <BasketCard
+              {...menuProduct}
               imageSource={
-                basketProduct.imageSource
-                  ? basketProduct.imageSource
+                menuProduct.imageSource
+                  ? menuProduct.imageSource
                   : IMAGE_COMMING_SOON
               }
-              onDelete={() => handleOnDelete(basketProduct.id)}
-              isModeAdmin={isModeAdmin}
-            />
+              quantity={basketProduct.quantity}
+              onDelete={(event) => handleOnDelete(event, basketProduct.id)}
+              isClickable={isModeAdmin}
+              onClick={isModeAdmin ? () => handleProductSelected(basketProduct.id) : null}
+              />
           </div>
-        ))}
+        );
+      })}
     </BasketProductsStyled>
   );
 }

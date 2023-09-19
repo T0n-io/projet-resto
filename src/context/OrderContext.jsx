@@ -14,6 +14,7 @@ export default createContext({
   menu : [],
   handleClick: () => {},
   handleDelete: () => {},
+  handleEdit: () => {},
   resetMenu : () => {},
 
   newProduct : {},
@@ -21,7 +22,7 @@ export default createContext({
 
   productSelected : [],
   setProductSelected: () => {},
-  handleEdit: () => {},
+  handleProductSelected: () => {},
 
   titleEditRef: {},
 
@@ -29,5 +30,4 @@ export default createContext({
   handleAddToBasket: () => {},
   
   handleDeleteBasketProduct: () => {},
-  
 })

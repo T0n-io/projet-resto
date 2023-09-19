@@ -1,57 +1,50 @@
 import { useState } from "react";
 import { fakeBasket } from "../../data/fakeBasket";
-import { deepClone, filter, find, findIndex } from "../utils/array";
+import {
+  deepClone,
+  removeObjectById,
+  findObjectById,
+  findIndexById,
+} from "../utils/array";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY);
 
-  const handleAddToBasket = (productToAdd) => {
-    // 1. Copie du state
+  const handleAddToBasket = (idProductToAdd) => {
     const basketCopy = deepClone(basket);
-    const isProductAlreadyInBasket =
-      find(productToAdd.id, basketCopy) !== undefined;
+    const productAlreadyInBasket =
+      findObjectById(idProductToAdd, basketCopy)
 
-    // 2. manip de la copie du state
-    // 1er cas: le produit n'est pas dans le panier
-    if (!isProductAlreadyInBasket) {
-      createNewProductInBasket(productToAdd, basketCopy, setBasket);
+    if (productAlreadyInBasket) {
+      incrementProductAlreadyInBasket(idProductToAdd, basketCopy);
       return;
     }
-    // 2eme cas: le produit est déjà dans le panier
-    incrementProductAlreadyInBasket(productToAdd, basketCopy);
-  }
-
-      const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
-          const indexOfBasketProductToIncrement = findIndex(
-              productToAdd.id,
-              basketCopy
-          );
-          basketCopy[indexOfBasketProductToIncrement].quantity += 1;
-          // 3. update du state
-          setBasket(basketCopy);
+    createNewBasketProduct(idProductToAdd, basketCopy, setBasket);
   };
 
-  const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
-      const newBasketProduct = { ...productToAdd, quantity: 1 };
-  
-      const basketUpdated = [newBasketProduct, ...basketCopy];
-  
-      // 3. update du state
-      setBasket(basketUpdated);
-  }
+  const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
+    const indexOfBasketProductToIncrement = findIndexById(
+      idProductToAdd,
+      basketCopy
+    );
+    basketCopy[indexOfBasketProductToIncrement].quantity += 1;
+    // 3. update du state
+    setBasket(basketCopy);
+  };
+
+  const createNewBasketProduct = (idProductToAdd, basketCopy, setBasket) => {
+    // we do not re-create a whole product, we only add extra info to the basket's product
+    const newBasketProduct = { id: idProductToAdd, quantity: 1 };
+    const newBasket = [newBasketProduct, ...basketCopy];
+    setBasket(newBasket);
+  };
 
   const handleDeleteBasketProduct = (idBasketProduct) => {
-    // 1. Copie du state
-    const basketCopy = deepClone(basket);
-
-    // 2. manip de la copie du state
-    // const basketUpdated = basketCopy.filter(product) => product.id !== idBasketProduct);
-    const basketUpdated = filter(idBasketProduct, basketCopy);
+    const basketUpdated = removeObjectById(idBasketProduct, basket);
 
     // 3. update du state
     setBasket(basketUpdated);
-  }
+  };
 
   return { basket, handleAddToBasket, handleDeleteBasketProduct };
 };
-
