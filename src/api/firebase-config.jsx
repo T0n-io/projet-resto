@@ -14,3 +14,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig); // pour se connecter a compte firebase
 export const db = getFirestore(app); // pour se connecter a la base de donnees firestore
+//test commit F13
