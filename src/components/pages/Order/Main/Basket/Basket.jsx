@@ -11,10 +11,10 @@ import { isEmpty } from "../../../../../utils/array";
 
 export default function Basket() {
 
-  const {basket} = useContext(OrderContext)
+  const {basket, menu} = useContext(OrderContext)
   // console.log("basket", basket");
 
-
+if (menu === undefined) return <span className="loading">Chargement...</span>;
 
   return (
     <BasketStyled>
