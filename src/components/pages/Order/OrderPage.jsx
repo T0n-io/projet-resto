@@ -43,13 +43,15 @@ const handleProductSelected = async (idProductClicked) => {
   const basketReceived = getLocalStorage(username) // localstorage est synchrone, pas besoin d'async/await
   if(basketReceived) setBasket(basketReceived)
  }
-
- useEffect(() => {
-    initialiseMenu()
+const initialiseUserSession = async () => {
+  await initialiseMenu()
+  initialiseBasket()
+}
  // eslint-disable-next-line react-hooks/exhaustive-deps
+ useEffect(() => {
+  initialiseUserSession()
  }, [])
  useEffect(() => {
-    initialiseBasket()
  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [])
  

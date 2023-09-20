@@ -20,7 +20,7 @@ export const useBasket = () => {
       incrementProductAlreadyInBasket(idProductToAdd, basketCopy, username);
       return;
     }
-    createNewBasketProduct(idProductToAdd, basketCopy, setBasket);
+    createNewBasketProduct(idProductToAdd, basketCopy, setBasket, username);
   };
 
   const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy, username) => {
@@ -43,11 +43,13 @@ export const useBasket = () => {
 
   };
 
-  const handleDeleteBasketProduct = (idBasketProduct) => {
+  const handleDeleteBasketProduct = (idBasketProduct, username) => {
     const basketUpdated = removeObjectById(idBasketProduct, basket);
 
     // 3. update du state
     setBasket(basketUpdated);
+    setLocalStorage(username, basketUpdated);
+
   };
 
   return { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct };
