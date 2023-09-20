@@ -69,3 +69,25 @@ export const fadeInFromRight = keyframes`
 }
 
 `
+
+export const menuAnimation = css`
+/*Mounting*/
+.menu-animation-enter{
+  opacity: 0.01;
+  transform: translateX(-120px);
+  &.menu-animation-enter-active{
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 300ms ease-out;
+  }
+}
+/*Unmounting*/
+.menu-animation-exit{
+  opacity: 1;
+  transform: translateX(0px);
+  &.menu-animation-exit-active{
+    opacity: 0.01;
+    transition: 300ms ease-out;
+  }
+}
+`
