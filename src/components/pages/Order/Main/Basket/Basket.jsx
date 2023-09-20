@@ -5,21 +5,19 @@ import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
-import { theme } from "../../../../..";
+import { theme } from "../../../../../theme";
 import { isEmpty } from "../../../../../utils/array";
 
-
 export default function Basket() {
-
-  const {basket, menu} = useContext(OrderContext)
+  const { basket, menu } = useContext(OrderContext);
   // console.log("basket", basket");
 
-if (menu === undefined) return <span className="loading">Chargement...</span>;
+  if (menu === undefined) return <span className="loading">Chargement...</span>;
 
   return (
     <BasketStyled>
-        <Total />
-        {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />}
+      <Total />
+      {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />}
       {/* <EmptyBasket basket={basket}/> */}
       {/* <BasketProducts /> */}
       <Footer />
@@ -35,18 +33,14 @@ const BasketStyled = styled.div`
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   height: 85vh;
 
-    .head{
-      position: sticky;
-      top: 0; 
-       }
+  .head {
+    position: sticky;
+    top: 0;
+  }
 
-       .footer{
-        border-bottom-left-radius: ${theme.borderRadius.extraRound};
-        position: sticky;
-        bottom: 0;
-       }
-
-  
+  .footer {
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    position: sticky;
+    bottom: 0;
+  }
 `;
-
-

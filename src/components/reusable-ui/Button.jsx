@@ -1,14 +1,20 @@
 /* eslint-disable react/prop-types */
-import styled, { css } from "styled-components"
-import { theme } from "../.."
+import styled, { css } from "styled-components";
+import { theme } from "../../theme";
 
-export default function Button({ label, Icon, className, version = "normal", onClick}) {
+export default function Button({
+  label,
+  Icon,
+  className,
+  version = "normal",
+  onClick,
+}) {
   return (
-    <ButtonStyled className={className} version={version}  onClick={onClick}>
+    <ButtonStyled className={className} version={version} onClick={onClick}>
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
-  )
+  );
 }
 
 const ButtonStyled = styled.button`
@@ -16,7 +22,7 @@ const ButtonStyled = styled.button`
   ${(props) => props.version === "success" && extraStyleSuccess}; */
 
   ${({ version }) => extraStyle[version]}
-`
+`;
 
 const extraStylePrimary = css`
   width: 100%;
@@ -74,7 +80,7 @@ const extraStylePrimary = css`
     justify-content: center;
     align-items: center;
   }
-`
+`;
 
 const extraStyleSuccess = css`
   cursor: pointer;
@@ -95,8 +101,8 @@ const extraStyleSuccess = css`
     background: ${theme.colors.success};
     border: 1px solid ${theme.colors.success};
   }
-`
+`;
 const extraStyle = {
   normal: extraStylePrimary,
   success: extraStyleSuccess,
-}
+};

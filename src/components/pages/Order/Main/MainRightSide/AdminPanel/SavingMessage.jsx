@@ -1,16 +1,16 @@
-import { BsCloudCheck } from 'react-icons/bs'
-import { styled } from 'styled-components';
-import { theme } from '../../../../../..';
+import { BsCloudCheck } from "react-icons/bs";
+import { styled } from "styled-components";
+import { theme } from "../../../../../../theme";
 
 export default function SavingMessage() {
   return (
     <SavingMessageStyled>
-        <div className="icon">
-            <BsCloudCheck />
-        </div>
-        <span className="sentence">Modification enregistrées !</span>
+      <div className="icon">
+        <BsCloudCheck />
+      </div>
+      <span className="sentence">Modification enregistrées !</span>
     </SavingMessageStyled>
-  )
+  );
 }
 
 const SavingMessageStyled = styled.div`

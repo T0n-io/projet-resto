@@ -1,16 +1,25 @@
 /* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
 import { css, styled } from "styled-components";
-import { theme } from "../..";
+import { theme } from "../../theme";
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
 const TextInput = React.forwardRef(
-  ({ value, onChange, Icon, className, version = "normal", ...restProps }, ref) => {
+  (
+    { value, onChange, Icon, className, version = "normal", ...restProps },
+    ref
+  ) => {
     return (
       <TextInputStyled className={className} version={version}>
         <div className="icon">{Icon && Icon}</div>
-        <input ref={ref} value={value} onChange={onChange} type="text" {...restProps} />
+        <input
+          ref={ref}
+          value={value}
+          onChange={onChange}
+          type="text"
+          {...restProps}
+        />
       </TextInputStyled>
     );
   }

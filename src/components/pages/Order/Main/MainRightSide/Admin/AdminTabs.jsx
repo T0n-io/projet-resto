@@ -1,23 +1,27 @@
-import styled from "styled-components"
-import Tab from "../../../../../reusable-ui/Tab"
-import { FiChevronDown, FiChevronUp } from "react-icons/fi"
-import { theme } from "../../../../../.."
-import { useContext } from "react"
-import OrderContext from "../../../../../../context/OrderContext"
-import { getTabsConfig } from "./tabsConfig"
+import styled from "styled-components";
+import Tab from "../../../../../reusable-ui/Tab";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { theme } from "../../../../../../theme";
+import { useContext } from "react";
+import OrderContext from "../../../../../../context/OrderContext";
+import { getTabsConfig } from "./tabsConfig";
 
 export default function AdminTabs() {
   // state
-  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
-    useContext(OrderContext)
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
+  } = useContext(OrderContext);
 
   // comportements
   const selectTab = (tabSelected) => {
-    setIsCollapsed(false) // tu m'ouvres le pannel
-    setCurrentTabSelected(tabSelected)
-  }
+    setIsCollapsed(false); // tu m'ouvres le pannel
+    setCurrentTabSelected(tabSelected);
+  };
 
-  const tabs = getTabsConfig()
+  const tabs = getTabsConfig();
 
   // affichage
   return (
@@ -40,7 +44,7 @@ export default function AdminTabs() {
         />
       ))}
     </AdminTabsStyled>
-  )
+  );
 }
 
 const AdminTabsStyled = styled.div`
@@ -58,4 +62,4 @@ const AdminTabsStyled = styled.div`
   button {
     margin-left: 1px;
   }
-`
+`;

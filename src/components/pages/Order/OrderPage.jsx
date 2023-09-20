@@ -2,7 +2,7 @@
 import NavBar from "./Nav/NavBar";
 import Main from "./Main/Main";
 import { styled } from "styled-components";
-import { theme } from "../../..";
+import { theme } from "../../../theme";
 import { useEffect, useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../enums/products";
@@ -37,6 +37,7 @@ export default function OrderPage() {
 
   useEffect(() => {
     initialiseUserSession(username, setMenu, setBasket);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //  const initialiseMenu = async () =>  {

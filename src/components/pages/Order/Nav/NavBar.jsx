@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { theme } from "../../../..";
+import { theme } from "../../../../theme";
 import NavBarRightSide from "./NavBarRightSide";
 import NavBarLeftSide from "./NavBarLeftSide";
 import { refreshPage } from "../../../../utils/window.jsx";

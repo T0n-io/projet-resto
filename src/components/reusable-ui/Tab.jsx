@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { theme } from "../.."
+import styled from "styled-components";
+import { theme } from "../../theme";
 
 // eslint-disable-next-line react/prop-types
 export default function Tab({ label, Icon, onClick, className }) {
@@ -8,7 +8,7 @@ export default function Tab({ label, Icon, onClick, className }) {
       <div className="icon">{Icon}</div>
       {label && <span className="label">{label}</span>}
     </TabStyled>
-  )
+  );
 }
 
 const TabStyled = styled.button`
@@ -55,4 +55,4 @@ const TabStyled = styled.button`
   .label {
     margin-left: 13px;
   }
-`
+`;

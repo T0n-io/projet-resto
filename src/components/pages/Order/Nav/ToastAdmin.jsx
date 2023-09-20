@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import { styled } from "styled-components";
-import { theme } from "../../../..";
+import { theme } from "../../../../theme";
 
 export default function ToastAdmin() {
   return (

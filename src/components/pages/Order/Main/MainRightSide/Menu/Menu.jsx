@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../..";
+import { theme } from "../../../../../../theme";
 import { formatPrice } from "../../../../../../utils/maths.jsx";
 import Card from "../../../../../reusable-ui/Card.jsx";
 import OrderContext from "../../../../../../context/OrderContext";
@@ -27,26 +27,24 @@ export default function Menu() {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
-
   } = useContext(OrderContext);
   //comportements
-  
+
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete, username);
     handleDeleteBasketProduct(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
-    setProductSelected(EMPTY_PRODUCT);
+      setProductSelected(EMPTY_PRODUCT);
   };
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     handleAddToBasket(idProductToAdd, username);
   };
-  
+
   // affichage
   if (menu === undefined) return <Loader />;
-
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;

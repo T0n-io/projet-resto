@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../..";
+import { theme } from "../../theme";
 export default function Logo(props) {
   return (
     // eslint-disable-next-line react/prop-types
@@ -10,8 +10,8 @@ export default function Logo(props) {
     </LogoStyled>
   );
 }
-
 const LogoStyled = styled.div`
+  
   display: flex;
   align-items: center;  
   transform: scale(2.5);

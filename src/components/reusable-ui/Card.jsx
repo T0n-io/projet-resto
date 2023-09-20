@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled, { css } from "styled-components";
-import { theme } from "../..";
+import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 

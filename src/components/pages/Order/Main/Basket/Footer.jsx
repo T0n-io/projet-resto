@@ -1,16 +1,15 @@
 import { styled } from "styled-components";
-import Header from "../../../../reusable-ui/Header"
-import { theme } from "../../../../..";
+import Header from "../../../../reusable-ui/Header";
+import { theme } from "../../../../../theme";
 
 export default function Footer() {
   return (
-    
     <Header>
-    <FooterStyled>
-      <span>Codé avec le coeur & React.JS</span>
-    </FooterStyled>
+      <FooterStyled>
+        <span>Codé avec le coeur & React.JS</span>
+      </FooterStyled>
     </Header>
-  )
+  );
 }
 
 const FooterStyled = styled.div`

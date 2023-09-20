@@ -1,13 +1,26 @@
 /* eslint-disable react/prop-types */
-import styled from "styled-components"
-import { MdDeleteForever } from "react-icons/md"
-import { theme } from "../../../../.."
-import { formatPrice } from "../../../../../utils/maths.jsx"
+import styled from "styled-components";
+import { MdDeleteForever } from "react-icons/md";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths.jsx";
 
-export default function BasketCard({ title, price, quantity, imageSource, className, $isClickable, onDelete, onClick }) {
+export default function BasketCard({
+  title,
+  price,
+  quantity,
+  imageSource,
+  className,
+  $isClickable,
+  onDelete,
+  onClick,
+}) {
   return (
-    <BasketCardStyled className={className} isModeAdmin={$isClickable} onClick={onClick}>
-      <div className="delete-button"  onClick={onDelete}>
+    <BasketCardStyled
+      className={className}
+      isModeAdmin={$isClickable}
+      onClick={onClick}
+    >
+      <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
       <div className="image">
@@ -25,12 +38,11 @@ export default function BasketCard({ title, price, quantity, imageSource, classN
         </div>
       </div>
     </BasketCardStyled>
-  )
+  );
 }
 
 const BasketCardStyled = styled.div`
-
-cursor: ${({$isClickable}) => $isClickable ? "pointer" : "default"};
+  cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "default")};
 
   /* border: 1px solid red; */
   box-sizing: border-box;
@@ -150,12 +162,11 @@ cursor: ${({$isClickable}) => $isClickable ? "pointer" : "default"};
           color: ${theme.colors.dark};
         }
         &:active {
-          .icon{
+          .icon {
             color: ${theme.colors.white};
           }
         }
-          
       }
     }
   }
-`
+`;
