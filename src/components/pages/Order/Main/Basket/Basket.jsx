@@ -14,7 +14,7 @@ export default function Basket() {
   const {basket, menu} = useContext(OrderContext)
   // console.log("basket", basket");
 
-if (menu === undefined) return <span>Chargement...</span>;
+if (menu === undefined) return <span className="loading">Chargement...</span>;
 
   return (
     <BasketStyled>

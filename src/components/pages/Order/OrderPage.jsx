@@ -40,8 +40,8 @@ const handleProductSelected = async (idProductClicked) => {
   setMenu(menuReceived)
  }
  const initialiseBasket = () =>  {
-  const basketReceived = getLocalStorage(username)
-  setBasket(basketReceived)
+  const basketReceived = getLocalStorage(username) // localstorage est synchrone, pas besoin d'async/await
+  if(basketReceived) setBasket(basketReceived)
  }
 
  useEffect(() => {
