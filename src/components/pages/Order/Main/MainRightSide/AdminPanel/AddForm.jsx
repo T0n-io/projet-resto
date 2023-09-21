@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import { getInputTextsConfig } from "./inputTextConfig";
+import { getInputTextsConfig } from "./inputConfig.jsx";
 import { EMPTY_PRODUCT } from "../../../../../../enums/products";
 import Form from "./Form";
 import SubmitButton from "./SubmitButton";

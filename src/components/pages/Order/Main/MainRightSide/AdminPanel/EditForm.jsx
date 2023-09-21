@@ -7,11 +7,16 @@ import { useSuccessMessage } from "../../../../../../hooks/useDisplaySuccesMessa
 
 export default function EditForm() {
   //state
-  const { username, productSelected, setProductSelected, handleEdit, titleEditRef } =
-    useContext(OrderContext);
+  const {
+    username,
+    productSelected,
+    setProductSelected,
+    handleEdit,
+    titleEditRef,
+  } = useContext(OrderContext);
 
-    const [valueOnFocus, setValueOnFocus] = useState()
-   const { isSubmitted : isSaved, displaySuccessMessage } = useSuccessMessage()
+  const [valueOnFocus, setValueOnFocus] = useState();
+  const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage();
   //comportements (gestionnaire d'évenements ou "event handlers")
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,25 +30,28 @@ export default function EditForm() {
     handleEdit(productBeingUpdated, username); // cette ligne update la card
   };
   const handleOnFocus = () => {
-const inputValueOnFocus = event.target.value
-setValueOnFocus(inputValueOnFocus)
-console.log("inputValueOnFocus : ", inputValueOnFocus);
-
-  }
+    const inputValueOnFocus = event.target.value;
+    setValueOnFocus(inputValueOnFocus);
+    console.log("inputValueOnFocus : ", inputValueOnFocus);
+  };
   const handleOnBlur = () => {
-const valueOnBlur = event.target.value
-if (valueOnBlur !== valueOnFocus){
-  console.log("ca a changé")
-  displaySuccessMessage()
-}
-console.log("valueOnBlur : ", valueOnBlur);
-
-  }
+    const valueOnBlur = event.target.value;
+    if (valueOnBlur !== valueOnFocus) {
+      console.log("ca a changé");
+      displaySuccessMessage();
+    }
+    console.log("valueOnBlur : ", valueOnBlur);
+  };
   //affichage
   return (
-    <Form product={productSelected} onChange={handleChange} ref={titleEditRef} onFocus={handleOnFocus} onBlur={handleOnBlur}>
-      {isSaved ? <SavingMessage /> : <EditInfoMessage />
-      }
+    <Form
+      product={productSelected}
+      onChange={handleChange}
+      ref={titleEditRef}
+      onFocus={handleOnFocus}
+      onBlur={handleOnBlur}
+    >
+      {isSaved ? <SavingMessage /> : <EditInfoMessage />}
     </Form>
   );
 }

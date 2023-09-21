@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
 import { getInputTextsConfig, getSelectInputConfig } from "./inputConfig";
-import SelectInput from "../../../../../reusable-ui/SelectInputs";
+import SelectInput from "../../../../../reusable-ui/SelectInput";
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
@@ -31,7 +31,7 @@ const Form = React.forwardRef(
           ))}
 
           {inputSelects.map((inputSelect) => (
-            <SelectInput {...inputSelect} />
+            <SelectInput {...inputSelect} key={inputSelect.id} onChange={onChange} />
           ))}
         </div>
         <div className="submit">{children}</div>
