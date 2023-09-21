@@ -73,18 +73,12 @@ const FormStyled = styled.form`
     }
     .price {
       grid-area: 3 / 1 / 4 / 2;
-      /* background: red; */
     }
-    .is-availabled {
-      background: pink;
-    }
-    .is-publicised {
-      background: yellow;
-    }
+    
   }
 
   .submit {
-    background: green;
+    /* background: green; */
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
