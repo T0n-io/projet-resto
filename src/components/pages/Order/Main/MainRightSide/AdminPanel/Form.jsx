@@ -31,7 +31,13 @@ const Form = React.forwardRef(
           ))}
 
           {inputSelects.map((inputSelect) => (
-            <SelectInput {...inputSelect} key={inputSelect.id} onChange={onChange} />
+            <SelectInput
+              {...inputSelect}
+              key={inputSelect.id}
+              onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
+            />
           ))}
         </div>
         <div className="submit">{children}</div>
