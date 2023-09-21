@@ -38,7 +38,7 @@ export default function BasketProducts() {
               key={basketProduct.id}
               timeout={500}
             >
-              <div className="basket-card">
+              <div className="card-container">
                 <BasketCard
                   {...menuProduct}
                   imageSource={
@@ -71,8 +71,7 @@ const BasketProductsStyled = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-
-  .basket-card {
+  .card-container {
     margin: 10px 16px;
     /* height: 86%; */
     box-sizing: border-box;
@@ -82,6 +81,7 @@ const BasketProductsStyled = styled.div`
     &:last-child {
       margin-bottom: 20px;
     }
+ 
   }
   ${basketAnimation}
 `;
