@@ -4,23 +4,15 @@ import React from "react";
 import { styled } from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
-import { getInputTextsConfig } from "./inputTextConfig";
-import SelectInputs from "../../../../../reusable-ui/SelectInputs";
+import { getInputTextsConfig, getSelectInputConfig } from "./inputConfig";
+import SelectInput from "../../../../../reusable-ui/SelectInputs";
 
-const isAvailableOptions = [
-  { value: true, label: "En stock" },
-  { value: false, label: "En rupture" },
-]
-
-const isPublicisedOptions = [
-  { value: true, label: "Sans pub" },
-  { value: false, label: "Avec pub" },
-]
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
     // state
 
     const inputTexts = getInputTextsConfig(product);
+    const inputSelects = getSelectInputConfig(product);
     // affichage
     return (
       <FormStyled onSubmit={onSubmit}>
@@ -37,10 +29,12 @@ const Form = React.forwardRef(
               ref={ref && input.name === "title" ? ref : null}
             />
           ))}
-          <SelectInputs options={isAvailableOptions}  className="is-availabled" id="3" />
-          <SelectInputs options={isPublicisedOptions}  className="is-publicised" id="4" />
+
+          {inputSelects.map((inputSelect) => (
+            <SelectInput {...inputSelect} />
+          ))}
         </div>
-      <div className="submit">{children}</div>
+        <div className="submit">{children}</div>
       </FormStyled>
     );
   }
@@ -65,24 +59,22 @@ const FormStyled = styled.form`
     grid-row-gap: 8px;
     grid-column-gap: 8px;
 
-    .title{
+    .title {
       grid-area: 1 / 1 / 2 / 4;
     }
-    .image-source{
+    .image-source {
       grid-area: 2 / 1 / 3 / 4;
-
     }
-    .price{
+    .price {
       grid-area: 3 / 1 / 4 / 2;
       /* background: red; */
     }
-    .is-availabled{
+    .is-availabled {
       background: pink;
     }
-    .is-publicised{
-      background: yellow;      
+    .is-publicised {
+      background: yellow;
     }
-    
   }
 
   .submit {
@@ -92,6 +84,5 @@ const FormStyled = styled.form`
     align-items: center;
     position: relative;
     top: 3px;
-
   }
 `;
