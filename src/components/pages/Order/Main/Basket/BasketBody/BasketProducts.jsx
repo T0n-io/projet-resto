@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
-import BasketCard from "../BasketCard";
+import BasketCard from "./BasketCard";
 import { IMAGE_COMMING_SOON } from "../../../../../../enums/products";
 import { findObjectById } from "../../../../../../utils/array";
 import { useContext } from "react";

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
-import { theme } from "../../../../../theme";
-import { formatPrice } from "../../../../../utils/maths.jsx";
+import { theme } from "../../../../../../theme";
+import { formatPrice } from "../../../../../../utils/maths.jsx";
 
 export default function BasketCard({
   title,

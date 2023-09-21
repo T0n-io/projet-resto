@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import Header from "../../../../reusable-ui/Header";
 import { theme } from "../../../../../theme";
 
-export default function Footer() {
+export default function BasketFooter() {
   return (
     <Header>
       <FooterStyled>
