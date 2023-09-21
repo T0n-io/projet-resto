@@ -15,7 +15,7 @@ export default function Basket() {
   return (
     <BasketStyled>
       <BasketHeader />
-      <BasketBody />
+        <BasketBody />
       <BasketFooter />
     </BasketStyled>
   );

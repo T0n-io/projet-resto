@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
 import BasketCard from "./BasketCard";
-import { IMAGE_COMMING_SOON } from "../../../../../../enums/products";
+import { BASKET_MESSAGE, IMAGE_COMMING_SOON } from "../../../../../../enums/products";
 import { findObjectById } from "../../../../../../utils/array";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
+import { formatPrice } from "../../../../../../utils/maths";
+import { convertStringToBoolean } from "../../../../../../utils/string";
 
 export default function BasketProducts() {
   const {
@@ -53,6 +55,7 @@ export default function BasketProducts() {
                       : null
                   }
                   className={"transition"}
+                  price={convertStringToBoolean(menuProduct.isAvailable) ? formatPrice(menuProduct.price) : BASKET_MESSAGE.NOT_AVAILABLE}
                 />
               </div>
             </CSSTransition>
