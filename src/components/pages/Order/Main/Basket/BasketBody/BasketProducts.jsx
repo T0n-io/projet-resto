@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
-import BasketCard from "./BasketCard";
-import { IMAGE_COMMING_SOON } from "../../../../../enums/products";
-import { findObjectById } from "../../../../../utils/array";
+import BasketCard from "../BasketCard";
+import { IMAGE_COMMING_SOON } from "../../../../../../enums/products";
+import { findObjectById } from "../../../../../../utils/array";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext.jsx";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { basketAnimation } from "../../../../../theme/animations";
+import { basketAnimation } from "../../../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
@@ -68,7 +68,6 @@ const BasketProductsStyled = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-
 
   .basket-card {
     margin: 10px 16px;

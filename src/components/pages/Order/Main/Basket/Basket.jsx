@@ -3,10 +3,8 @@ import Total from "./Total";
 import Footer from "./Footer";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import EmptyBasket from "./EmptyBasket";
-import BasketProducts from "./BasketProducts";
 import { theme } from "../../../../../theme";
-import { isEmpty } from "../../../../../utils/array";
+import BasketBody from "./BasketBody/BasketBody";
 
 export default function Basket() {
   const { basket, menu } = useContext(OrderContext);
@@ -17,9 +15,10 @@ export default function Basket() {
   return (
     <BasketStyled>
       <Total />
-      {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />}
+      {/* {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />} */}
       {/* <EmptyBasket basket={basket}/> */}
       {/* <BasketProducts /> */}
+      <BasketBody />
       <Footer />
     </BasketStyled>
   );
