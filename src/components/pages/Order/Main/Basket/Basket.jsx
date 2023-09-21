@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Total from "./Total";
+import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketFooter from "./BasketFooter";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
@@ -14,10 +14,7 @@ export default function Basket() {
 
   return (
     <BasketStyled>
-      <Total />
-      {/* {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />} */}
-      {/* <EmptyBasket basket={basket}/> */}
-      {/* <BasketProducts /> */}
+      <BasketHeader />
       <BasketBody />
       <BasketFooter />
     </BasketStyled>

@@ -1,30 +1,30 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
-import { theme } from "../../../../../theme";
-import Header from "../../../../reusable-ui/Header";
+import { theme } from "../../../../../../theme";
+import Header from "../../../../../reusable-ui/Header";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../utils/maths";
-import { calculateSumToPay } from "./helper";
-import CasinoEffect from "../../../../reusable-ui/CasinoEffect";
+import OrderContext from "../../../../../../context/OrderContext";
+import { formatPrice } from "../../../../../../utils/maths";
+import { calculateSumToPay } from "../helper";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 
-export default function Total() {
+export default function BasketHeader() {
   const { basket, menu } = useContext(OrderContext);
 
   const sumToPay = calculateSumToPay(basket, menu);
 
   return (
     <Header>
-      <TotalStyled>
+      <BasketHeaderStyled>
         <span className="total">Total</span>
         <CasinoEffect count={formatPrice(sumToPay)} />
         {/* <span className="amount">{formatPrice(sumToPay)}</span> */}
-      </TotalStyled>
+      </BasketHeaderStyled>
     </Header>
   );
 }
 
-const TotalStyled = styled.div`
+const BasketHeaderStyled = styled.div`
   color: ${theme.colors.primary};
   height: 100%;
   display: flex;
