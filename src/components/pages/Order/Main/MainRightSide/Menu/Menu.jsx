@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../..";
+import { theme } from "../../../../../../theme";
 import { formatPrice } from "../../../../../../utils/maths.jsx";
 import Card from "../../../../../reusable-ui/Card.jsx";
 import OrderContext from "../../../../../../context/OrderContext";
@@ -13,6 +13,8 @@ import {
 } from "../../../../../../enums/products";
 import { isEmpty } from "../../../../../../utils/array";
 import Loader from "./Loader";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuAnimation } from "../../../../../../theme/animations";
 
 export default function Menu() {
   //State
@@ -27,26 +29,24 @@ export default function Menu() {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
-
   } = useContext(OrderContext);
   //comportements
-  
+
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete, username);
     handleDeleteBasketProduct(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
-    setProductSelected(EMPTY_PRODUCT);
+      setProductSelected(EMPTY_PRODUCT);
   };
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     handleAddToBasket(idProductToAdd, username);
   };
-  
+
   // affichage
   if (menu === undefined) return <Loader />;
-
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
@@ -54,24 +54,26 @@ export default function Menu() {
   }
 
   return (
-    <MenuStyled className="menu">
+    <TransitionGroup component={MenuStyled} className="menu">
       {menu.map(({ id, title, imageSource, price }) => {
         return (
-          <Card
-            key={id}
-            title={title}
-            imageSource={imageSource ? imageSource : IMAGE_COMMING_SOON}
-            leftDescription={formatPrice(price)}
-            hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleCardDelete(event, id)}
-            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
-            $isHoverable={isModeAdmin}
-            $isSelected={checkIfProductIsClicked(id, productSelected.id)}
-            onAdd={(event) => handleAddButton(event, id)}
-          />
+          <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
+            <Card
+              key={id}
+              title={title}
+              imageSource={imageSource ? imageSource : IMAGE_COMMING_SOON}
+              leftDescription={formatPrice(price)}
+              hasDeleteButton={isModeAdmin}
+              onDelete={(event) => handleCardDelete(event, id)}
+              onClick={isModeAdmin ? () => handleProductSelected(id) : null}
+              $isHoverable={isModeAdmin}
+              $isSelected={checkIfProductIsClicked(id, productSelected.id)}
+              onAdd={(event) => handleAddButton(event, id)}
+            />
+          </CSSTransition>
         );
       })}
-    </MenuStyled>
+    </TransitionGroup>
   );
 }
 
@@ -85,4 +87,6 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   overflow-y: scroll;
+
+  ${menuAnimation}
 `;

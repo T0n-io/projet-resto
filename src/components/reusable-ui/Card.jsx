@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import styled, { css } from "styled-components";
-import { theme } from "../..";
+import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
+import { fadeInFromRight } from "../../theme/animations";
 
 // eslint-disable-next-line react/prop-types
 export default function Card({
@@ -87,6 +88,7 @@ const CardStyled = styled.div`
       background: none;
       width: 30px;
       height: 30px;
+      animation: ${fadeInFromRight} 500ms ease-out;
       &:hover {
         color: ${theme.colors.red};
       }

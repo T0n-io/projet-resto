@@ -1,19 +1,18 @@
 import { styled } from "styled-components";
-import Header from "../../../../reusable-ui/Header"
-import { theme } from "../../../../..";
+import Header from "../../../../reusable-ui/Header";
+import { theme } from "../../../../../theme";
 
-export default function Footer() {
+export default function BasketFooter() {
   return (
-    
     <Header>
-    <FooterStyled>
-      <span>Codé avec le coeur & React.JS</span>
-    </FooterStyled>
+      <BasketFooterStyled>
+        <span>Codé avec le coeur & React.JS</span>
+      </BasketFooterStyled>
     </Header>
-  )
+  );
 }
 
-const FooterStyled = styled.div`
+const BasketFooterStyled = styled.div`
   height: 100%;
   display: flex;
   align-items: center;

@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import Logo from "../../../reusable-ui/Logo.jsx";
-import { theme } from "../../../..";
+import { theme } from "../../../../theme";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBarLeftSide({onClick}) {

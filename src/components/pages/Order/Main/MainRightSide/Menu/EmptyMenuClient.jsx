@@ -1,14 +1,16 @@
-import styled from "styled-components"
-import { theme } from "../../../../../.."
+import styled from "styled-components";
+import { theme } from "../../../../../../theme";
 
 export default function EmptyMenuClient() {
   return (
     <EmptyMenuStyled>
       <span className="title">Victime de notre succès ! :D</span>
-      <span className="description">De nouvelles recettes sont en cours de préparation.</span>
+      <span className="description">
+        De nouvelles recettes sont en cours de préparation.
+      </span>
       <span className="description">À très vite !</span>
     </EmptyMenuStyled>
-  )
+  );
 }
 
 const EmptyMenuStyled = styled.div`
@@ -36,4 +38,4 @@ const EmptyMenuStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     margin-top: 20px;
   }
-`
+`;

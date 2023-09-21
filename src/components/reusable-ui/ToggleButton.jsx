@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import { theme } from "../..";
+import { theme } from "../../theme";
 
 export default function ToggleButton({
   isChecked,
@@ -32,7 +32,7 @@ const ToggleButtonStyled = styled.div`
 
   display: flex;
   margin-right: 10px;
-  flexgap: 50px;
+  gap: 50px;
   input[type="checkbox"] {
     // Hides the square box but keeps the core "toggle functionality"
     &.toggle {

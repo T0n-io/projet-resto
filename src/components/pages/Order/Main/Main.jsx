@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../../..";
+import { theme } from "../../../../theme";
 import MainRightSide from "./MainRightSide/MainRightSide";
 import Basket from "./Basket/Basket.jsx";
 

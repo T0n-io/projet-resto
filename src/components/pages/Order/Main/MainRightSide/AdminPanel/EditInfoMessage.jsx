@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { theme } from "../../../../../..";
+import { theme } from "../../../../../../theme";
 
 export default function EditInfoMessage() {
   return (
@@ -11,10 +11,9 @@ export default function EditInfoMessage() {
 }
 
 const EditInfoMessageStyled = styled.span`
-      color: ${theme.colors.primary};
-      font-size: ${theme.fonts.size.SM};
-      .live-update{
-        text-decoration: underline;
-      }
-  
+  color: ${theme.colors.primary};
+  font-size: ${theme.fonts.size.SM};
+  .live-update {
+    text-decoration: underline;
+  }
 `;

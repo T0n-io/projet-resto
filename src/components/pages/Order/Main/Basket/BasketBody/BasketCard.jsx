@@ -1,13 +1,27 @@
 /* eslint-disable react/prop-types */
-import styled from "styled-components"
-import { MdDeleteForever } from "react-icons/md"
-import { theme } from "../../../../.."
-import { formatPrice } from "../../../../../utils/maths.jsx"
+import styled from "styled-components";
+import { MdDeleteForever } from "react-icons/md";
+import { theme } from "../../../../../../theme";
+import { formatPrice } from "../../../../../../utils/maths.jsx";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect.jsx";
 
-export default function BasketCard({ title, price, quantity, imageSource, className, $isClickable, onDelete, onClick }) {
+export default function BasketCard({
+  title,
+  price,
+  quantity,
+  imageSource,
+  className,
+  $isClickable,
+  onDelete,
+  onClick,
+}) {
   return (
-    <BasketCardStyled className={className} isModeAdmin={$isClickable} onClick={onClick}>
-      <div className="delete-button"  onClick={onDelete}>
+    <BasketCardStyled
+      className={className}
+      isModeAdmin={$isClickable}
+      onClick={onClick}
+    >
+      <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
       <div className="image">
@@ -21,16 +35,16 @@ export default function BasketCard({ title, price, quantity, imageSource, classN
           <span className="price">{formatPrice(price)}</span>
         </div>
         <div className="quantity">
-          <span>x {quantity}</span>
+          {/* <span>x {quantity}</span> */}
+          <CasinoEffect count={`x ${quantity}`} />
         </div>
       </div>
     </BasketCardStyled>
-  )
+  );
 }
 
 const BasketCardStyled = styled.div`
-
-cursor: ${({$isClickable}) => $isClickable ? "pointer" : "default"};
+  cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "default")};
 
   /* border: 1px solid red; */
   box-sizing: border-box;
@@ -150,12 +164,11 @@ cursor: ${({$isClickable}) => $isClickable ? "pointer" : "default"};
           color: ${theme.colors.dark};
         }
         &:active {
-          .icon{
+          .icon {
             color: ${theme.colors.white};
           }
         }
-          
       }
     }
   }
-`
+`;

@@ -1,22 +1,20 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import OrderContext from "../../../../../../context/OrderContext"
-import { theme } from "../../../../../.."
-import { getTabSelected, getTabsConfig } from "../Admin/tabsConfig"
-import { EMPTY_PRODUCT } from "../../../../../../enums/products"
+import { useContext } from "react";
+import styled from "styled-components";
+import OrderContext from "../../../../../../context/OrderContext";
+import { theme } from "../../../../../../theme";
+import { getTabSelected, getTabsConfig } from "../Admin/tabsConfig";
+import { EMPTY_PRODUCT } from "../../../../../../enums/products";
 
 export default function AdminPanel() {
-  const { currentTabSelected, productSelected } = useContext(OrderContext)
-  
-  const hasAlreadyBeenClicked = productSelected !== EMPTY_PRODUCT
-  const tabs = getTabsConfig(hasAlreadyBeenClicked)
-  const tabSelected = getTabSelected(tabs, currentTabSelected)
+  const { currentTabSelected, productSelected } = useContext(OrderContext);
+
+  const hasAlreadyBeenClicked = productSelected !== EMPTY_PRODUCT;
+  const tabs = getTabsConfig(hasAlreadyBeenClicked);
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
 
   return (
-    <AdminPanelStyled>
-      {tabSelected && tabSelected.Content}
-    </AdminPanelStyled>
-  )
+    <AdminPanelStyled>{tabSelected && tabSelected.Content}</AdminPanelStyled>
+  );
 }
 
 const AdminPanelStyled = styled.div`
@@ -26,4 +24,4 @@ const AdminPanelStyled = styled.div`
   box-shadow: ${theme.shadows.subtle};
   box-sizing: border-box;
   padding: 30px 5%;
-`
+`;
