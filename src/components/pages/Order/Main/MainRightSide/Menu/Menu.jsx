@@ -10,6 +10,7 @@ import { checkIfProductIsClicked } from "./helper";
 import {
   EMPTY_PRODUCT,
   IMAGE_COMMING_SOON,
+  IMAGE_NO_STOCK,
 } from "../../../../../../enums/products";
 import { isEmpty } from "../../../../../../utils/array";
 import Loader from "./Loader";
@@ -69,6 +70,8 @@ export default function Menu() {
               $isHoverable={isModeAdmin}
               $isSelected={checkIfProductIsClicked(id, productSelected.id)}
               onAdd={(event) => handleAddButton(event, id)}
+              overlapImageSource={IMAGE_NO_STOCK}
+              isOverlapImageVisible={true}
             />
           </CSSTransition>
         );
