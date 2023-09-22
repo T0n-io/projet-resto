@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../../context/OrderContext";
-import { theme } from "../../../../../../theme";
-import { getTabSelected, getTabsConfig } from "../Admin/tabsConfig";
-import { EMPTY_PRODUCT } from "../../../../../../enums/products";
+import OrderContext from "../../../../../../../context/OrderContext.jsx";
+import { theme } from "../../../../../../../theme";
+import { getTabSelected, getTabsConfig } from "../../Admin/tabsConfig";
+import { EMPTY_PRODUCT } from "../../../../../../../enums/products";
 
 export default function AdminPanel() {
   const { currentTabSelected, productSelected } = useContext(OrderContext);

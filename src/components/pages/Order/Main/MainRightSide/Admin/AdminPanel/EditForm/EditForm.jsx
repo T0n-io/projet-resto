@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import OrderContext from "../../../../../../context/OrderContext";
-import Form from "./Form";
+import OrderContext from "../../../../../../../../context/OrderContext";
+import Form from "../Form/Form";
 import EditInfoMessage from "./EditInfoMessage.jsx";
-import SavingMessage from "./SavingMessage";
-import { useSuccessMessage } from "../../../../../../hooks/useDisplaySuccesMessage.jsx";
+import SavingMessage from "../AddForm/SavingMessage.jsx";
+import { useSuccessMessage } from "../../../../../../../../hooks/useDisplaySuccesMessage.jsx";
 
 export default function EditForm() {
   //state

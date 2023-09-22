@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
-import { theme } from "../../../../../../theme";
-import { fadeIn } from "../../../../../../theme/animations";
+import { theme } from "../../../../../../../../theme";
+import { fadeIn } from "../../../../../../../../theme/animations";
 
 export default function ImagePreview({ imageSource, title }) {
   return (
