@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
-import { fadeInFromRight } from "../../theme/animations";
+import { fadeInFromRight, fadeInFromTop } from "../../theme/animations";
 
 // eslint-disable-next-line react/prop-types
 export default function Card({
@@ -16,6 +16,8 @@ export default function Card({
   $isHoverable,
   $isSelected,
   onAdd,
+  overlapImageSource,
+  isOverlapImageVisible
 }) {
   return (
     <CardStyled
@@ -34,8 +36,15 @@ export default function Card({
             <TiDelete className="icon" />
           </button>
         )}
+
         <div className="image">
-          <img src={imageSource} alt={title} />
+        {isOverlapImageVisible && (
+          <div className="overlap">
+            <div className="transparent-layer"></div>
+            <img className="overlap-image" src={overlapImageSource} alt="overlap" />
+            </div>
+        )}
+          <img src={imageSource} alt="produit" />
         </div>
         <div className="text-info">
           <div className="title">{title}</div>
@@ -46,6 +55,7 @@ export default function Card({
                 className="primary-button"
                 label={"Ajouter"}
                 onClick={onAdd}
+                disabled={isOverlapImageVisible}
               />
             </div>
           </div>
@@ -97,18 +107,45 @@ const CardStyled = styled.div`
         height: 100%;
         width: 100%;
       }
+      &:hover{
+        color: ${theme.colors.red};
+      }
+      &:active{
+        color: ${theme.colors.primary};
+      }
     }
-    .image {
-      width: 100%;
-      height: auto;
+    .image{
       margin-top: 30px;
       margin-bottom: 20px;
-
-      img {
+      img{
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
+
+      .overlap {
+        .overlap-image{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 80%;
+          height: 100%;
+          z-index: 1;
+          animation: ${fadeInFromTop} 500ms;
+          border-radius: ${theme.borderRadius.extraRound};
+        }
+        .transparent-layer{
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 70%;
+          background: snow;
+          z-index: 1;
+          border-radius: ${theme.borderRadius.extraRound};
+      }
+    }
     }
 
     .text-info {
@@ -155,7 +192,6 @@ const CardStyled = styled.div`
 
           .primary-button {
             font-size: ${theme.fonts.size.XS};
-            cursor: pointer;
             padding: 12px;
           }
         }

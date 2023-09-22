@@ -16,7 +16,7 @@ export default function OrderPage() {
   // state
   const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("edit");
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
@@ -40,22 +40,6 @@ export default function OrderPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //  const initialiseMenu = async () =>  {
-  //   const menuReceived = await getMenu(username)
-  //   setMenu(menuReceived)
-  //  }
-  //  const initialiseBasket = () =>  {
-  //   const basketReceived = getLocalStorage(username) // localstorage est synchrone, pas besoin d'async/await
-  //   if(basketReceived) setBasket(basketReceived)
-  //  }
-  // const initialiseUserSession = async () => {
-  //   await initialiseMenu()
-  //   initialiseBasket()
-  // }
-  //  // eslint-disable-next-line react-hooks/exhaustive-deps
-  //  useEffect(() => {
-  //   initialiseUserSession()
-  //  }, [])
 
   //CRUD
 

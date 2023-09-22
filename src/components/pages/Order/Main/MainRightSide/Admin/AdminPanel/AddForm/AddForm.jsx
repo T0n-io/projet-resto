@@ -1,15 +1,16 @@
 import { useContext } from "react";
-import OrderContext from "../../../../../../context/OrderContext";
-import { getInputTextsConfig } from "./inputTextConfig";
-import { EMPTY_PRODUCT } from "../../../../../../enums/products";
-import Form from "./Form";
+import OrderContext from "../../../../../../../../context/OrderContext";
+import { getInputTextsConfig } from "../Form/inputConfig.jsx";
+import { EMPTY_PRODUCT } from "../../../../../../../../enums/products";
+import Form from "../Form/Form";
 import SubmitButton from "./SubmitButton";
-import { useSuccessMessage } from "../../../../../../hooks/useDisplaySuccesMessage";
-import { replaceFrenchCommaWithDot } from "../../../../../../utils/maths";
+import { useSuccessMessage } from "../../../../../../../../hooks/useDisplaySuccesMessage.jsx";
+import { replaceFrenchCommaWithDot } from "../../../../../../../../utils/maths";
 
 export default function AddForm() {
   // state
-  const { username, handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { username, handleAdd, newProduct, setNewProduct } =
+    useContext(OrderContext);
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage(2000);
   // const [isSubmitted, setIsSubmitted] = useState(false);
 

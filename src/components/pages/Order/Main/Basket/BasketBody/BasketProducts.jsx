@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import { styled } from "styled-components";
 import BasketCard from "./BasketCard";
-import { IMAGE_COMMING_SOON } from "../../../../../../enums/products";
+import { BASKET_MESSAGE, IMAGE_COMMING_SOON } from "../../../../../../enums/products";
 import { findObjectById } from "../../../../../../utils/array";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
+import { formatPrice } from "../../../../../../utils/maths";
+import { convertStringToBoolean } from "../../../../../../utils/string";
+import Sticker from "../../../../../reusable-ui/Sticker.jsx";
 
 export default function BasketProducts() {
   const {
@@ -36,7 +39,8 @@ export default function BasketProducts() {
               key={basketProduct.id}
               timeout={500}
             >
-              <div className="basket-card">
+              <div className="card-container">
+                {convertStringToBoolean(menuProduct.isPublicised) && <Sticker className="badge-new"/>}
                 <BasketCard
                   {...menuProduct}
                   imageSource={
@@ -53,6 +57,7 @@ export default function BasketProducts() {
                       : null
                   }
                   className={"transition"}
+                  price={convertStringToBoolean(menuProduct.isAvailable) ? formatPrice(menuProduct.price) : BASKET_MESSAGE.NOT_AVAILABLE}
                 />
               </div>
             </CSSTransition>
@@ -69,15 +74,25 @@ const BasketProductsStyled = styled.div`
   flex-direction: column;
   overflow-y: scroll;
 
-  .basket-card {
+  .card-container {
     margin: 10px 16px;
-    /* height: 86%; */
+    height: 86px;
     box-sizing: border-box;
+    position: relative;
     &:first-child {
       margin-top: 20px;
     }
     &:last-child {
       margin-bottom: 20px;
+    }
+    .badge-new {
+      position: absolute;
+      z-index: 1;
+      bottom: 10%;
+      left: 21%;
+      transform: translateY(-21%);
+      transform: translateX(-5%);
+      transform: scale(1.5);
     }
   }
   ${basketAnimation}
