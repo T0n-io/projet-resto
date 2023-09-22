@@ -32,15 +32,15 @@ export default function EditForm() {
   const handleOnFocus = () => {
     const inputValueOnFocus = event.target.value;
     setValueOnFocus(inputValueOnFocus);
-    console.log("inputValueOnFocus : ", inputValueOnFocus);
+    // console.log("inputValueOnFocus : ", inputValueOnFocus);
   };
   const handleOnBlur = () => {
     const valueOnBlur = event.target.value;
     if (valueOnBlur !== valueOnFocus) {
-      console.log("ca a changé");
+      // console.log("ca a changé");
       displaySuccessMessage();
     }
-    console.log("valueOnBlur : ", valueOnBlur);
+    // console.log("valueOnBlur : ", valueOnBlur);
   };
   //affichage
   return (
