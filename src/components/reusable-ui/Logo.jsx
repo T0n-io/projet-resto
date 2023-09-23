@@ -4,9 +4,9 @@ export default function Logo(props) {
   return (
     // eslint-disable-next-line react/prop-types
     <LogoStyled className={props.className}>
-      <h1>CRAZEE</h1>
-      <img src="/images/F03-logo-orange.png" alt="Logo Crazee Burger" />
-      <h1>BURGER</h1>
+      <img src="../../../images/logo-velo.png" alt="Logo Crazee Burger" />
+      <h1>Incredibike</h1>
+      {/* <h1>Bike</h1> */}
     </LogoStyled>
   );
 }
