@@ -85,8 +85,8 @@ const LARGE = [
     title: "Vélo bleu",
     price: 955.335,
     quantity: 0,
-    isAvailable: true,
-    isPublicised: false,
+    isAvailable: false,
+    isPublicised: true,
   },
   {
     id: "3",
@@ -95,7 +95,7 @@ const LARGE = [
     price: 2155.367,
     quantity: 0,
     isAvailable: true,
-    isPublicised: false,
+    isPublicised: true,
   },
   {
     id: "4",
@@ -122,7 +122,7 @@ const LARGE = [
     price: 1690.356,
     quantity: 0,
     isAvailable: true,
-    isPublicised: false,
+    isPublicised: true,
   },
   {
     id: "7",
