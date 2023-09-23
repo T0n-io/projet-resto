@@ -1,8 +1,8 @@
-# Crazee Burger
+# INCREDIBIKE
 
 ## Description
 
-Crazee Burger est un site web ultraréactif développé avec React et Vite.js, permettant aux utilisateurs de gérer des produits. Les utilisateurs peuvent ajouter et supprimer des produits dans un panier, et une fois en mode admin, peuvent créer de nouveaux produits, et modifier des produits existants. Il a également la possibilité d'indiquer un produit en rupture de stock ou en promotion.
+INCREDIBIKE est un site web ultraréactif développé avec React et Vite.js, permettant aux utilisateurs de gérer des produits. Les utilisateurs peuvent ajouter et supprimer des produits dans un panier, et une fois en mode admin, peuvent créer de nouveaux produits, et modifier des produits existants. Il a également la possibilité d'indiquer un produit en rupture de stock ou en promotion.
 Toutes les modifications sont actualisées en temps réel dans l'affichage et dans la base de données à chaque caractère saisi, grâce à l'utilisation des hooks React.
 
 ## Fonctionnalités
