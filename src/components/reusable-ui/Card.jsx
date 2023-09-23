@@ -181,7 +181,7 @@ const CardStyled = styled.div`
           overflow: hidden;
           text-overflow: ellipsis;
           font-weight: ${theme.fonts.weights.medium};
-          color: ${theme.colors.primary};
+          color: ${theme.colors.dark};
         }
 
         .right-description {
@@ -206,7 +206,7 @@ const hoverableStyle = css`
   &:hover {
     transform: scale(1.05);
     transition: ease-out 0.4s;
-    box-shadow: ${theme.shadows.orangeHighLight};
+    box-shadow: ${theme.shadows.blueHighLight};
     cursor: pointer;
   }
 `;

@@ -40,8 +40,8 @@ const extraStylePrimary = css`
   font-size: 15px;
   font-weight: 800;
   color: white;
-  background-color: #ff9f1b;
-  border: 1px solid #ff9f1b;
+  background-color: ${theme.colors.secondary};
+  border: 1px solid ${theme.colors.primary};
 
   &:hover {
     color: ${theme.colors.primary};

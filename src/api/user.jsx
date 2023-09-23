@@ -26,7 +26,7 @@ export const getUser = async (idUser) => {
     // NOURRITURE
     const newUserToCreate = {
       username: userId,
-      menu: fakeMenu.MEDIUM,
+      menu: fakeMenu.LARGE,
     }
   
     //setDoc(CACHETTE, NOURRITURE)
